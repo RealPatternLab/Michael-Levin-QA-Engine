@@ -40,6 +40,30 @@
 - Store dependencies in pyproject.toml
 - Use .env files for environment variables (not in version control)
 
+## 📋 Step-by-Step Development Process
+
+### Before Each Step
+- **Explain the context**: Why are we doing this step? How does it fit into the overall project goals?
+- **Reference the plan**: Which step from our planning document are we about to execute?
+- **Set expectations**: What should the outcome look like?
+
+### During Each Step
+- **Add dependencies incrementally**: Only add packages when we actually need them
+- **Document decisions**: Why did we choose this approach over alternatives?
+- **Test as we go**: Verify each component works before moving to the next
+
+### After Each Step
+- **Check off completion**: Mark the step as complete in our planning document
+- **Commit progress**: Make a git commit with descriptive message
+- **Update documentation**: Reflect any changes to the project structure or approach
+- **Plan next step**: What's the logical next step based on what we just accomplished?
+
+### Progress Tracking
+- Keep the planning document updated with completion status
+- Use checkboxes (✅) to mark completed steps
+- Add notes about any deviations from the original plan
+- Document lessons learned and insights gained
+
 ## 🚀 Quick Commands Reference
 
 ```bash

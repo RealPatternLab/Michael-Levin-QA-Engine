@@ -42,63 +42,57 @@ levin-qa-engine/
 
 ## 🧩 Step-by-Step Plan
 
-### Step 0: Environment Setup
-
-- Initialize project with UV: `uv init`
-- Add dependencies with UV:
+### Step 0: Environment Setup ✅
+- ✅ Initialize project with UV: `uv init`
+- ✅ Add dependencies with UV:
 
 ```bash
 uv add pypdf langchain faiss-cpu openai sentence-transformers chromadb streamlit ruff
 ```
 
-- Store API keys (e.g., OpenAI) in a `.env` file
-- Use `uv run ruff check` and `uv run ruff format` for code quality
+- ✅ Store API keys (e.g., OpenAI) in a `.env` file
+- ✅ Use `uv run ruff check` and `uv run ruff format` for code quality
 
 ---
 
-### Step 1: Manual Data Collection
-
-- Download 3–5 papers from:
+### Step 1: Manual Data Collection ⏳
+- ⏳ Download 3–5 papers from:
   - [Levin Lab Website](https://drmichaellevin.org/publications/)
   - [Tufts Faculty Page](https://facultyprofiles.tufts.edu/michael-levin-1/publications)
-- Save PDFs in `data/raw_papers/`
+- ⏳ Save PDFs in `data/raw_papers/`
 
 ---
 
-### Step 2: Extract & Clean Text
-
-- Use `pypdf` or `pdfminer.six` to extract text from each PDF  
-- Clean up headers, footers, and page numbers manually if needed  
-- Save cleaned `.txt` files to `data/processed_chunks/`
+### Step 2: Extract & Clean Text ⏳
+- ⏳ Use `pypdf` or `pdfminer.six` to extract text from each PDF  
+- ⏳ Clean up headers, footers, and page numbers manually if needed  
+- ⏳ Save cleaned `.txt` files to `data/processed_chunks/`
 
 ---
 
-### Step 3: Chunk the Text
-
-- Use `RecursiveCharacterTextSplitter` from LangChain  
-- Recommended: ~500 token chunks with ~50 token overlap  
-- Store each chunk as a dictionary:  
+### Step 3: Chunk the Text ⏳
+- ⏳ Use `RecursiveCharacterTextSplitter` from LangChain  
+- ⏳ Recommended: ~500 token chunks with ~50 token overlap  
+- ⏳ Store each chunk as a dictionary:  
   ```json
   {"source": "filename", "chunk": "chunk_text"}
   ```
 
 ---
 
-### Step 4: Generate Embeddings
-
-- Use either:
+### Step 4: Generate Embeddings ⏳
+- ⏳ Use either:
   - `sentence-transformers` (e.g. `all-MiniLM-L6-v2`) for local
   - `OpenAI embeddings` for API-based
-- Store embeddings in a FAISS or ChromaDB index  
-- Tag each with metadata (source filename, chunk ID, etc.)
+- ⏳ Store embeddings in a FAISS or ChromaDB index  
+- ⏳ Tag each with metadata (source filename, chunk ID, etc.)
 
 ---
 
-### Step 5: Build RAG Query Pipeline
-
-1. Embed the user's query  
-2. Retrieve top-k similar chunks from the vector store  
-3. Construct the prompt:
+### Step 5: Build RAG Query Pipeline ⏳
+1. ⏳ Embed the user's query  
+2. ⏳ Retrieve top-k similar chunks from the vector store  
+3. ⏳ Construct the prompt:
 
 ```
 Context:
@@ -112,30 +106,28 @@ Question:
 Answer as Michael Levin would, based only on this context.
 ```
 
-4. Call LLM (e.g., GPT-3.5/4 or local HuggingFace model)  
-5. Return result
+4. ⏳ Call LLM (e.g., GPT-3.5/4 or local HuggingFace model)  
+5. ⏳ Return result
 
 ---
 
-### Step 6: Interface
-
+### Step 6: Interface ⏳
 Start simple:
 
-- Option 1: `run_query.py` CLI tool  
-- Option 2: `streamlit_app.py` for a basic local web UI
+- ⏳ Option 1: `run_query.py` CLI tool  
+- ⏳ Option 2: `streamlit_app.py` for a basic local web UI
 
 ---
 
-### Step 7: Test + Tune
-
+### Step 7: Test + Tune ⏳
 Try real questions like:
-- "What does Michael Levin say about bioelectric fields?"
-- "How does he define morphogenetic intelligence?"
+- ⏳ "What does Michael Levin say about bioelectric fields?"
+- ⏳ "How does he define morphogenetic intelligence?"
 
 Evaluate for:
-- Faithfulness to source
-- Style consistency
-- Grounding (no hallucinations)
+- ⏳ Faithfulness to source
+- ⏳ Style consistency
+- ⏳ Grounding (no hallucinations)
 
 ---
 
