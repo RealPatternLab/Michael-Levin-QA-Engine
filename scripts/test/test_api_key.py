@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CI/CD-friendly script to test OpenAI API key availability.
+CI/CD-friendly script to test AI model API key availability.
 """
 
 import os
@@ -10,16 +10,19 @@ from pathlib import Path
 # Add project root to path to import config
 sys.path.append(str(Path(__file__).parent.parent.parent))
 
-from config import OPENAI_API_KEY
-from openai import OpenAI
+from config import OPENAI_API_KEY, CLAUDE_API_KEY, DEFAULT_MODEL
+from ai_models import get_model, get_available_models
 
 def test_api_key():
-    """Test if OpenAI API key is available and valid."""
+    """Test if AI model API keys are available and valid."""
     
-    print("🔑 Testing OpenAI API Key")
+    print("🔑 Testing AI Model API Keys")
     print("=" * 40)
     
-    # Check if API key is set
+    # Test OpenAI API key
+    print("\n🤖 Testing OpenAI API Key")
+    print("-" * 30)
+    
     if not OPENAI_API_KEY or OPENAI_API_KEY == 'your-api-key-here':
         print("❌ OpenAI API key not found or not configured")
         print()
@@ -32,57 +35,72 @@ def test_api_key():
         print("💡 Example .env file:")
         print("OPENAI_API_KEY=sk-1234567890abcdef...")
         print()
-        return False
-    
-    # Check if API key format looks correct
-    if not OPENAI_API_KEY.startswith('sk-'):
-        print("❌ API key format looks incorrect")
-        print("   API key should start with 'sk-'")
-        print(f"   Found: {OPENAI_API_KEY[:10]}...")
-        return False
-    
-    print(f"✅ API key found: {OPENAI_API_KEY[:10]}...")
-    
-    # Test the API key with a simple request
-    try:
-        client = OpenAI(api_key=OPENAI_API_KEY)
-        
-        # Make a minimal test request
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "user", "content": "Say 'Hello'"}
-            ],
-            max_tokens=5
-        )
-        
-        print("✅ API key is valid and working!")
-        print(f"   Test response: {response.choices[0].message.content}")
-        return True
-        
-    except Exception as e:
-        error_msg = str(e).lower()
-        
-        if "authentication" in error_msg or "invalid" in error_msg:
-            print("❌ API key is invalid or expired")
-            print("   Please check your API key at: https://platform.openai.com/api-keys")
-        elif "rate limit" in error_msg:
-            print("❌ Rate limit exceeded")
-            print("   You may need to upgrade your OpenAI plan")
+        openai_valid = False
+    else:
+        if not OPENAI_API_KEY.startswith('sk-'):
+            print("❌ API key format looks incorrect")
+            print("   API key should start with 'sk-'")
+            print(f"   Found: {OPENAI_API_KEY[:10]}...")
+            openai_valid = False
         else:
-            print(f"❌ API test failed: {e}")
-            print("   Please check your internet connection and try again")
-        return False
+            print(f"✅ API key found: {OPENAI_API_KEY[:10]}...")
+            
+            # Test the API key with the new interface
+            try:
+                model = get_model("openai")
+                response = model.call("Say 'Hello'", max_tokens=5)
+                print("✅ OpenAI API key is valid and working!")
+                print(f"   Test response: {response}")
+                openai_valid = True
+                
+            except Exception as e:
+                error_msg = str(e).lower()
+                
+                if "authentication" in error_msg or "invalid" in error_msg:
+                    print("❌ API key is invalid or expired")
+                    print("   Please check your API key at: https://platform.openai.com/api-keys")
+                elif "rate limit" in error_msg:
+                    print("❌ Rate limit exceeded")
+                    print("   You may need to upgrade your OpenAI plan")
+                else:
+                    print(f"❌ API test failed: {e}")
+                    print("   Please check your internet connection and try again")
+                openai_valid = False
+    
+    # Test Claude API key (if configured)
+    print("\n🤖 Testing Claude API Key")
+    print("-" * 30)
+    
+    if not CLAUDE_API_KEY:
+        print("⚠️  Claude API key not configured (optional)")
+        print("   To use Claude, add CLAUDE_API_KEY to your .env file")
+        claude_valid = False
+    else:
+        print(f"✅ Claude API key found: {CLAUDE_API_KEY[:10]}...")
+        print("⚠️  Claude integration not yet implemented")
+        claude_valid = False
+    
+    # Summary
+    print("\n📊 API Key Test Results")
+    print("=" * 40)
+    print(f"OpenAI: {'✅ Valid' if openai_valid else '❌ Invalid/Not configured'}")
+    print(f"Claude: {'✅ Valid' if claude_valid else '❌ Invalid/Not configured'}")
+    
+    available_models = get_available_models()
+    print(f"\n🎯 Available models: {', '.join(available_models)}")
+    print(f"🎯 Default model: {DEFAULT_MODEL}")
+    
+    return openai_valid or claude_valid
 
 def main():
-    """Main function to test API key."""
+    """Main function to test API keys."""
     success = test_api_key()
     
     if success:
-        print("\n🎉 API key is ready for use!")
-        print("   You can now run: python scripts/test_llm_extraction.py")
+        print("\n🎉 At least one AI model is ready for use!")
+        print("   You can now run: python scripts/test/test_llm_extraction.py")
     else:
-        print("\n🔧 Please fix the API key issue before proceeding")
+        print("\n🔧 Please configure at least one AI model before proceeding")
         sys.exit(1)
 
 if __name__ == "__main__":

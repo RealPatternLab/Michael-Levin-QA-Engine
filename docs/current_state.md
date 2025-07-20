@@ -14,21 +14,73 @@
 - **Config management** with centralized settings
 - **Error handling** for API failures and JSON parsing
 
-### 3. Scripts Available
+### 3. **🎯 Centralized AI Model Interface** ⭐ **NEW**
+- **Unified model interface** (`ai_models/`) for all AI providers
+- **Easy model swapping** - change one line to switch providers
+- **Comprehensive model metadata** in `config.py` with capabilities, costs, and limitations
+- **Future-proof architecture** - easy to add new providers (Claude, Gemini, local models)
+- **Consistent API** across all models (sync/async, error handling, configuration)
+
+#### AI Model Architecture
+```
+ai_models/
+├── __init__.py          # Factory functions and registry
+├── base.py              # BaseModelInterface abstract class
+├── openai_model.py      # OpenAI implementation
+├── claude_model.py      # Claude implementation (stub)
+└── local_model.py       # Local model implementation (stub)
+```
+
+#### Available Models
+- **OpenAI**: `openai`, `openai-gpt4`, `openai-gpt4-vision`
+- **Claude**: `claude`, `claude-haiku`, `claude-opus`
+- **Gemini**: `gemini-pro`, `gemini-pro-vision`
+- **Local**: `local`, `local-mistral`
+
+### 4. Scripts Available
 
 #### Core Scripts
-- `test_api_key.py` - Test OpenAI API connectivity
+- `test_api_key.py` - Test AI model API connectivity
 - `test_llm_extraction.py` - Test LLM extraction on single PDF
-- `llm_rename_pdfs.py` - Rename all PDFs using LLM extraction
+- `llm_extract_metadata.py` - Extract metadata using centralized AI interface
 
 #### Database Scripts
 - `create_paper_database.py` - Create initial paper database
 - `rename_from_database.py` - Rename using database metadata
 
-### 4. Data Files
+### 5. Data Files
 - `data/papers.json` - Paper database with metadata
 - `data/raw_papers/` - 5 properly named PDFs
 - `docs/future_development.md` - Development roadmap
+
+## 🏗️ **Architectural Principles** ⭐ **IMPORTANT**
+
+### **Interface-First Design**
+Whenever we integrate with external services (APIs, LLMs, databases, etc.), we **MUST**:
+
+1. **Build an abstract interface** that defines the contract
+2. **Implement concrete classes** for each provider
+3. **Use dependency injection** to swap implementations
+4. **Centralize configuration** for all providers
+5. **Document capabilities and limitations** clearly
+
+### **Why This Matters**
+- **Technology changes rapidly** - APIs evolve, new providers emerge
+- **Cost optimization** - Different providers have different pricing
+- **Performance needs** - Some tasks need speed, others need quality
+- **Reliability** - Redundancy and fallback options
+- **Testing** - Easy to mock and test different scenarios
+
+### **Example Pattern**
+```python
+# ✅ GOOD: Interface-based approach
+from ai_models import get_model
+model = get_model("openai")  # Easy to swap to "claude" or "local"
+
+# ❌ BAD: Direct API calls scattered throughout code
+from openai import OpenAI
+client = OpenAI(api_key=key)  # Hard to swap, test, or mock
+```
 
 ## 📊 Current PDF Collection
 
@@ -82,6 +134,7 @@
 - ✅ Error handling for JSON parsing
 - ✅ Config centralization
 - ✅ Database structure
+- ✅ **Centralized AI model interface** ⭐
 
 ### Remaining
 - Hardcoded paths in some scripts
@@ -97,6 +150,7 @@
 - ✅ Consistent file naming
 - ✅ Database structure created
 - ✅ Cost-effective approach implemented
+- ✅ **Centralized AI interface** with multiple providers ⭐
 
 ### Next Milestones
 - Text extraction pipeline working
@@ -108,7 +162,7 @@
 
 ### For New Papers
 1. **Manual Download**: Download PDF to `data/raw_papers/`
-2. **LLM Extraction**: Run `llm_rename_pdfs.py` for new files
+2. **LLM Extraction**: Run `llm_extract_metadata.py` for new files
 3. **Database Update**: Add metadata to `data/papers.json`
 4. **Text Processing**: Extract and chunk text
 5. **Vector Storage**: Generate and store embeddings
@@ -126,5 +180,6 @@ The project is now ready to move to **Step 2: Extract & Clean Text**. We have:
 - ✅ Working LLM extraction
 - ✅ Cost-effective database approach
 - ✅ Clean project structure
+- ✅ **Centralized AI model interface** for easy provider swapping ⭐
 
 The foundation is solid for building the RAG pipeline! 

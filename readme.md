@@ -12,6 +12,42 @@ This project builds a Retrieval-Augmented Generation (RAG) system to simulate in
   - Modular ML pipelines
 - Build a foundation for later automation via agentic systems
 
+## 🏗️ **Architectural Principles** ⭐ **CRITICAL**
+
+### **Interface-First Design**
+This project follows an **interface-first design philosophy** for all external integrations:
+
+- **Abstract Interfaces**: Define clear contracts for each external service
+- **Multiple Implementations**: Support multiple providers for each service
+- **Dependency Injection**: Use factory patterns to swap implementations
+- **Centralized Configuration**: All settings in one place
+- **Capability Documentation**: Clear metadata about provider capabilities
+
+### **Why This Matters**
+- **Technology Evolution**: APIs change, new providers emerge
+- **Cost Optimization**: Different providers have different pricing
+- **Performance Flexibility**: Some tasks need speed, others need quality
+- **Reliability**: Redundancy and fallback options
+- **Testing**: Easy to mock and test different scenarios
+
+### **Current Implementations**
+- ✅ **AI Models**: `ai_models/` - OpenAI, Claude, Gemini, Local
+- 🔄 **Vector Databases**: Future - FAISS, ChromaDB, Pinecone
+- 🔄 **Embedding Models**: Future - OpenAI, SentenceTransformers, Local
+
+### **Example Pattern**
+```python
+# ✅ GOOD: Interface-based approach
+from ai_models import get_model
+model = get_model("openai")  # Easy to swap to "claude" or "local"
+
+# ❌ BAD: Direct API calls scattered throughout code
+from openai import OpenAI
+client = OpenAI(api_key=key)  # Hard to swap, test, or mock
+```
+
+**See `docs/interface_guidelines.md` for detailed implementation guidelines.**
+
 ## ✅ Phase 1 Scope
 
 - Manually download 3–5 PDFs
@@ -37,6 +73,12 @@ This project builds a Retrieval-Augmented Generation (RAG) system to simulate in
 
 ```
 levin-qa-engine/
+├── ai_models/              # Centralized AI model interface
+│   ├── __init__.py         # Factory functions and registry
+│   ├── base.py             # BaseModelInterface abstract class
+│   ├── openai_model.py     # OpenAI implementation
+│   ├── claude_model.py     # Claude implementation
+│   └── local_model.py      # Local model implementation
 ├── data/
 │   ├── raw_papers/         # Store PDF files
 │   └── processed_chunks/   # Optional cache of chunked text
@@ -50,7 +92,12 @@ levin-qa-engine/
 │   └── query_engine.py     # Retrieval + LLM prompt logic
 ├── notebooks/
 │   └── exploration.ipynb   # Optional experiments
+├── docs/
+│   ├── interface_guidelines.md  # Interface-first development guide
+│   ├── current_state.md         # Project status
+│   └── future_development.md    # Development roadmap
 ├── pyproject.toml          # UV dependencies
+├── config.py               # Centralized configuration
 ├── .env                    # API keys (OpenAI, etc.)
 └── README.md
 ```
@@ -100,6 +147,7 @@ uv run ruff format
 
 - **MUST use UV** for all Python package management
 - **MUST use Ruff** for all linting and formatting
+- **MUST follow interface-first design** for all external integrations
 - Add dependencies incrementally as needed
 - Follow PEP 8 standards (enforced by Ruff)
 - Use type hints where appropriate

@@ -16,9 +16,9 @@ from typing import List, Dict, Optional
 # Add project root to path to import config
 sys.path.append(str(Path(__file__).parent.parent))
 
-from config import OPENAI_API_KEY, LLM_MODEL, LLM_TEMPERATURE, MAX_TEXT_LENGTH, RAW_PAPERS_DIR
+from config import MAX_TEXT_LENGTH, RAW_PAPERS_DIR, DEFAULT_MODEL
 from pypdf import PdfReader
-from openai import OpenAI, AsyncOpenAI
+from ai_models import get_model
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from PDF file."""
@@ -32,7 +32,7 @@ def extract_text_from_pdf(pdf_path):
         print(f"❌ Error extracting text from {pdf_path.name}: {e}")
         return None
 
-async def extract_metadata_with_llm_async(text, filename, client):
+async def extract_metadata_with_llm_async(text, filename, model):
     """Use LLM to extract metadata from PDF text (async version)."""
     
     prompt = f"""
@@ -63,23 +63,15 @@ async def extract_metadata_with_llm_async(text, filename, client):
     """
     
     try:
-        # Check if API key is set
-        if not OPENAI_API_KEY or OPENAI_API_KEY == 'your-api-key-here':
-            print("❌ OpenAI API key not configured")
-            print("   Run: python scripts/test_api_key.py")
-            return None
-        
-        response = await client.chat.completions.create(
-            model=LLM_MODEL,
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that extracts metadata from academic papers. Return only raw JSON without any markdown formatting or code blocks."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=LLM_TEMPERATURE
+        # Call the model using the centralized interface
+        response = await model.call_async(
+            prompt,
+            system_message="You are a helpful assistant that extracts metadata from academic papers. Return only raw JSON without any markdown formatting or code blocks.",
+            max_tokens=500
         )
         
         # Parse the JSON response
-        metadata_text = response.choices[0].message.content.strip()
+        metadata_text = response.strip()
         
         # Handle markdown code blocks (fallback)
         if metadata_text.startswith('```'):
@@ -133,26 +125,18 @@ def extract_metadata_with_llm(text, filename):
     """
     
     try:
-        # Check if API key is set
-        if not OPENAI_API_KEY or OPENAI_API_KEY == 'your-api-key-here':
-            print("❌ OpenAI API key not configured")
-            print("   Run: python scripts/test_api_key.py")
-            return None
+        # Get model using the centralized interface
+        model = get_model(DEFAULT_MODEL)
         
-        # Create OpenAI client
-        client = OpenAI(api_key=OPENAI_API_KEY)
-        
-        response = client.chat.completions.create(
-            model=LLM_MODEL,
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that extracts metadata from academic papers. Return only raw JSON without any markdown formatting or code blocks."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=LLM_TEMPERATURE
+        # Call the model
+        response = model.call(
+            prompt,
+            system_message="You are a helpful assistant that extracts metadata from academic papers. Return only raw JSON without any markdown formatting or code blocks.",
+            max_tokens=500
         )
         
         # Parse the JSON response
-        metadata_text = response.choices[0].message.content.strip()
+        metadata_text = response.strip()
         
         # Handle markdown code blocks (fallback)
         if metadata_text.startswith('```'):
@@ -222,7 +206,7 @@ def generate_paper_id(metadata):
     
     return f"{identifier}_{year}"
 
-async def process_single_pdf(pdf_file, papers_db, client, semaphore):
+async def process_single_pdf(pdf_file, papers_db, model, semaphore):
     """Process a single PDF file asynchronously."""
     async with semaphore:  # Limit concurrent requests
         print(f"\n📄 Processing: {pdf_file.name}")
@@ -245,7 +229,7 @@ async def process_single_pdf(pdf_file, papers_db, client, semaphore):
             return None
         
         # Extract metadata with LLM
-        metadata = await extract_metadata_with_llm_async(text, pdf_file.name, client)
+        metadata = await extract_metadata_with_llm_async(text, pdf_file.name, model)
         if not metadata:
             print(f"   ❌ Failed to extract metadata from {pdf_file.name}")
             return None
@@ -308,14 +292,13 @@ async def extract_and_update_database_async():
     
     print(f"🔍 Extracting metadata from {len(pdf_files)} PDF files (async processing):")
     
-    # Check if API key is set
-    if not OPENAI_API_KEY or OPENAI_API_KEY == 'your-api-key-here':
-        print("❌ OpenAI API key not configured")
-        print("   Run: python scripts/test_api_key.py")
+    # Get model using the centralized interface
+    try:
+        model = get_model(DEFAULT_MODEL)
+    except Exception as e:
+        print(f"❌ Failed to initialize {DEFAULT_MODEL} model: {e}")
+        print("   Run: python scripts/test/test_api_key.py")
         return
-    
-    # Create async OpenAI client
-    client = AsyncOpenAI(api_key=OPENAI_API_KEY)
     
     # Create semaphore to limit concurrent requests (avoid rate limits)
     semaphore = asyncio.Semaphore(3)  # Process 3 PDFs concurrently
@@ -323,7 +306,7 @@ async def extract_and_update_database_async():
     # Process PDFs concurrently
     tasks = []
     for pdf_file in pdf_files:
-        task = process_single_pdf(pdf_file, papers_db, client, semaphore)
+        task = process_single_pdf(pdf_file, papers_db, model, semaphore)
         tasks.append(task)
     
     # Wait for all tasks to complete

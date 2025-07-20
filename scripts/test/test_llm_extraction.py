@@ -12,9 +12,9 @@ from pathlib import Path
 # Add project root to path to import config
 sys.path.append(str(Path(__file__).parent.parent.parent))
 
-from config import OPENAI_API_KEY, LLM_MODEL, LLM_TEMPERATURE, MAX_TEXT_LENGTH
+from config import MAX_TEXT_LENGTH, DEFAULT_MODEL
 from pypdf import PdfReader
-from openai import OpenAI
+from ai_models import get_model
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from PDF file."""
@@ -70,28 +70,20 @@ def test_llm_extraction(pdf_path):
     """
     
     try:
-        # Check if API key is set
-        if not OPENAI_API_KEY or OPENAI_API_KEY == 'your-api-key-here':
-            print("❌ OpenAI API key not configured")
-            print("   Run: python scripts/test_api_key.py")
-            return
+        # Get model using the centralized interface
+        model = get_model(DEFAULT_MODEL)
         
-        # Create OpenAI client
-        client = OpenAI(api_key=OPENAI_API_KEY)
+        print(f"🤖 Sending to {DEFAULT_MODEL.upper()}...")
         
-        print("🤖 Sending to OpenAI...")
-        
-        response = client.chat.completions.create(
-            model=LLM_MODEL,
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that extracts metadata from academic papers. Return only raw JSON without any markdown formatting or code blocks."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=LLM_TEMPERATURE
+        # Call the model with system message
+        response = model.call(
+            prompt,
+            system_message="You are a helpful assistant that extracts metadata from academic papers. Return only raw JSON without any markdown formatting or code blocks.",
+            max_tokens=500
         )
         
         # Parse the JSON response
-        metadata_text = response.choices[0].message.content.strip()
+        metadata_text = response.strip()
         
         # Handle markdown code blocks (fallback)
         if metadata_text.startswith('```'):
