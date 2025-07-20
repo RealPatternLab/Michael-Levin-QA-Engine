@@ -56,10 +56,14 @@ uv add pypdf langchain faiss-cpu openai sentence-transformers chromadb streamlit
 ---
 
 ### Step 1: Manual Data Collection ⏳
-- ⏳ Download 3–5 papers from:
+- ✅ Download 3–5 papers from:
   - [Levin Lab Website](https://drmichaellevin.org/publications/)
   - [Tufts Faculty Page](https://facultyprofiles.tufts.edu/michael-levin-1/publications)
-- ⏳ Save PDFs in `data/raw_papers/`
+- ⚠️ **Access Issue Discovered**: Publisher PDFs require institutional access
+- ✅ **Alternative Strategy**: Use public abstracts, YouTube transcripts, and open access content
+- ⏳ Save PDFs in `data/raw_papers/` (will use alternative content sources)
+
+**Progress**: Identified access limitations, created alternative content strategy, ready to proceed with public content collection
 
 ---
 
