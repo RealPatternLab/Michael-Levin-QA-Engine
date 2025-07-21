@@ -16,6 +16,52 @@
 - Use `uv run ruff format` for formatting
 - Use `uv run ruff check --fix` for auto-fixing issues
 
+### Code Organization & Simplicity
+- **MUST keep related classes together** in the same file
+- **MUST minimize file count** - don't create separate files for every class
+- **MUST use logical grouping** for related functionality
+- **MUST avoid over-engineering** - don't create abstractions unless they solve a real problem
+- **MUST use clear, descriptive file names** that indicate the file's purpose
+
+#### **When to Put Classes in the Same File:**
+- ✅ **Same Interface**: All implementations of the same interface
+- ✅ **Related Functionality**: Classes that work together or are part of the same feature
+- ✅ **Small Classes**: Helper classes, data classes, or utility classes
+- ✅ **Same Domain**: Classes that handle the same type of data or operations
+
+#### **When to Separate Classes:**
+- ❌ **Different Interfaces**: Classes implementing different interfaces
+- ❌ **Large Classes**: When a file becomes too large (>500 lines) or complex
+- ❌ **Different Domains**: Classes that handle completely different concerns
+- ❌ **Optional Dependencies**: Classes that require different dependencies
+
+#### **Example Organization:**
+```python
+# ✅ GOOD: Related classes in same file
+# modules/text_extraction/openai.py
+class OpenAITextExtractor(BaseTextExtractor):
+    """OpenAI implementation for text extraction."""
+    pass
+
+class OpenAIBatchProcessor:
+    """Helper class for OpenAI batch processing."""
+    pass
+
+# ✅ GOOD: Interface and implementations together
+# modules/text_extraction/base.py
+class TextExtractionInterface(ABC):
+    """Abstract interface for text extraction."""
+    pass
+
+class BaseTextExtractor(TextExtractionInterface):
+    """Base implementation with common functionality."""
+    pass
+
+# ❌ BAD: Unnecessary file separation
+# modules/text_extraction/openai_extractor.py  # Just one class
+# modules/text_extraction/openai_batch_processor.py  # Just one class
+```
+
 ### Project Setup
 - Use `uv init` to initialize new Python projects
 - Use `uv add` to add dependencies to pyproject.toml
@@ -51,6 +97,7 @@
 - **Add dependencies incrementally**: Only add packages when we actually need them
 - **Document decisions**: Why did we choose this approach over alternatives?
 - **Test as we go**: Verify each component works before moving to the next
+- **Keep it simple**: Don't over-engineer solutions
 
 ### After Each Step
 - **Check off completion**: Mark the step as complete in our planning document

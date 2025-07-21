@@ -2,7 +2,7 @@
 Centralized AI model interface for the Levin QA Engine.
 
 This module provides a unified interface for different AI model providers,
-allowing easy swapping between OpenAI, Claude, Gemini, and local models.
+allowing easy swapping between OpenAI and other models as they become available.
 """
 
 from typing import Dict, Any, Optional, List
@@ -16,21 +16,13 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from .base import BaseModelInterface
 from .openai_model import OpenAIModel
-from .claude_model import ClaudeModel
-from .local_model import LocalModel
 
 # Registry of available models
 MODEL_REGISTRY = {
     "openai": OpenAIModel,
     "openai-gpt4": OpenAIModel,
     "openai-gpt4-vision": OpenAIModel,
-    "claude": ClaudeModel,
-    "claude-haiku": ClaudeModel,
-    "claude-opus": ClaudeModel,
-    "gemini-pro": OpenAIModel,  # TODO: Implement GeminiModel
-    "gemini-pro-vision": OpenAIModel,  # TODO: Implement GeminiModel
-    "local": LocalModel,
-    "local-mistral": LocalModel,
+    "openai-gpt4o": OpenAIModel,
 }
 
 def get_model(model_name: str, **kwargs) -> BaseModelInterface:
@@ -38,7 +30,7 @@ def get_model(model_name: str, **kwargs) -> BaseModelInterface:
     Factory function to get a model instance.
     
     Args:
-        model_name: Name of the model provider (openai, claude, local, etc.)
+        model_name: Name of the model provider (openai, etc.)
         **kwargs: Additional configuration for the model
         
     Returns:

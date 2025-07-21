@@ -6,6 +6,7 @@ import os
 from typing import Dict, Any, Optional, List
 from openai import OpenAI, AsyncOpenAI
 from .base import BaseModelInterface, ModelError, ModelConfigError
+from pathlib import Path
 
 class OpenAIModel(BaseModelInterface):
     """
@@ -30,9 +31,9 @@ class OpenAIModel(BaseModelInterface):
         self.async_client = AsyncOpenAI(api_key=api_key)
         
         # Set default model and parameters
-        self.default_model = self.config.get('model', 'gpt-3.5-turbo')
+        self.default_model = self.config.get('model', 'gpt-4o')
         self.default_temperature = self.config.get('temperature', 0.1)
-        self.default_max_tokens = self.config.get('max_tokens', 1000)
+        self.default_max_tokens = self.config.get('max_tokens', 8000)
     
     def call(self, prompt: str, **kwargs) -> str:
         """
@@ -40,7 +41,7 @@ class OpenAIModel(BaseModelInterface):
         
         Args:
             prompt: The prompt to send to the model
-            **kwargs: Additional arguments (model, temperature, max_tokens, etc.)
+            **kwargs: Additional arguments (model, temperature, max_tokens, images, etc.)
             
         Returns:
             Model response as string
@@ -75,7 +76,7 @@ class OpenAIModel(BaseModelInterface):
         
         Args:
             prompt: The prompt to send to the model
-            **kwargs: Additional arguments (model, temperature, max_tokens, etc.)
+            **kwargs: Additional arguments (model, temperature, max_tokens, images, etc.)
             
         Returns:
             Model response as string
@@ -104,13 +105,13 @@ class OpenAIModel(BaseModelInterface):
         except Exception as e:
             raise ModelError(f"OpenAI API call failed: {str(e)}")
     
-    def _format_messages(self, prompt: str, kwargs: Dict[str, Any]) -> List[Dict[str, str]]:
+    def _format_messages(self, prompt: str, kwargs: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
-        Format prompt into OpenAI message format.
+        Format prompt into OpenAI message format with optional images.
         
         Args:
             prompt: The prompt text
-            kwargs: Additional arguments that may contain system_message
+            kwargs: Additional arguments that may contain system_message, images
             
         Returns:
             List of message dictionaries
@@ -122,8 +123,38 @@ class OpenAIModel(BaseModelInterface):
         if system_message:
             messages.append({"role": "system", "content": system_message})
         
-        # Add user message
-        messages.append({"role": "user", "content": prompt})
+        # Check if images are provided
+        images = kwargs.get('images', [])
+        
+        if images:
+            # Format message with images
+            content = []
+            
+            # Add text content
+            content.append({"type": "text", "text": prompt})
+            
+            # Add image content
+            for image_path in images:
+                if isinstance(image_path, str):
+                    image_path = Path(image_path)
+                
+                if image_path.exists():
+                    # Read and encode image
+                    import base64
+                    with open(image_path, "rb") as image_file:
+                        image_data = base64.b64encode(image_file.read()).decode('utf-8')
+                    
+                    content.append({
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/png;base64,{image_data}"
+                        }
+                    })
+            
+            messages.append({"role": "user", "content": content})
+        else:
+            # Text-only message
+            messages.append({"role": "user", "content": prompt})
         
         return messages
     

@@ -51,7 +51,7 @@ ai_models/
 ### 5. Data Files
 - `data/papers.json` - Paper database with metadata
 - `data/raw_papers/` - 5 properly named PDFs
-- `docs/future_development.md` - Development roadmap
+- `.cursor/docs/future_development.md` - Development roadmap
 
 ## 🏗️ **Architectural Principles** ⭐ **IMPORTANT**
 

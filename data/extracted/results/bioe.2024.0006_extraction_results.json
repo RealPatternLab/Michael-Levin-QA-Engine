@@ -1,0 +1,16 @@
+{
+  "paper_id": "bioe.2024.0006",
+  "extraction_quality": "good - substantial text extracted",
+  "warnings": [],
+  "page_images": [
+    "data/extracted/page_images/bioe.2024.0006/page_001.png",
+    "data/extracted/page_images/bioe.2024.0006/page_002.png",
+    "data/extracted/page_images/bioe.2024.0006/page_003.png",
+    "data/extracted/page_images/bioe.2024.0006/page_004.png"
+  ],
+  "extraction_prompt": "Multi-batch extraction (1 batches)",
+  "llm_response": "Processed 4 pages in 1 batches",
+  "total_pages": 4,
+  "pdf_processor": "pymupdf",
+  "llm_processor": "openai"
+}
