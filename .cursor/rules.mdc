@@ -1,0 +1,179 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Michael Levin QA Engine - Development Rules
+
+## 🎯 **Core Principles**
+
+### **KEEP IT SIMPLE**
+- **One script per workflow**: No complex abstractions or interfaces
+- **Minimal dependencies**: Only add what's absolutely necessary
+- **Clear file structure**: `inputs/`, `outputs/`, `scripts/`, `configs/`
+- **Single responsibility**: Each function does ONE thing well
+
+### **WRITE IN PYTHON**
+- Use Python 3.11+ features
+- Type hints for all functions
+- Clear docstrings
+- Follow PEP 8 style guide
+
+### **USE UV FOR ENVIRONMENT CONTROL**
+- **Always use `uv` for dependency management**: No pip, no conda, no poetry
+- **Install dependencies**: `uv sync` or `uv add package_name`
+- **Run scripts**: `uv run python scripts/script_name.py`
+- **Install test dependencies**: `uv sync --extra test`
+- **Run tests**: `uv run pytest`
+- **Create virtual environments**: `uv` handles this automatically
+- **Lock dependencies**: `uv lock` to generate lockfile
+
+### **TEST EVERYTHING WITH PYTEST**
+- **Every workflow needs tests**: If it's worth writing, it's worth testing
+- **Test coverage > 90%**: Aim for comprehensive coverage
+- **Test both success and failure cases**: Edge cases matter
+- **Mock external APIs**: Don't hit real APIs in tests
+- **Fast test execution**: Tests should run quickly
+
+## 📁 **Project Structure Rules**
+
+```
+levin-qa-engine/
+├── inputs/raw_papers/        # PDFs go here
+├── outputs/                  # Results go here
+├── scripts/                  # Main workflow scripts
+├── configs/                  # Configuration files
+├── tests/                    # pytest test files
+├── .env                      # Environment variables
+└── README.md                 # Clear documentation
+```
+
+## 🧪 **Testing Requirements**
+
+### **For Every New Script:**
+1. **Create corresponding test file**: `tests/test_script_name.py`
+2. **Test all functions**: Every function needs at least one test
+3. **Test error handling**: What happens when things go wrong?
+4. **Test edge cases**: Empty files, malformed data, missing APIs
+5. **Mock external services**: OpenAI, Google Document AI, file system
+
+### **Test Structure:**
+```python
+# tests/test_simple_pipeline.py
+import pytest
+from unittest.mock import Mock, patch
+from scripts.simple_pipeline import extract_metadata_with_openai
+
+def test_extract_metadata_with_openai_success():
+    """Test successful metadata extraction"""
+    with patch('openai.OpenAI') as mock_openai:
+        # Setup mock response
+        mock_response = Mock()
+        mock_response.choices[0].message.content = '{"title": "Test Paper"}'
+        mock_openai.return_value.chat.completions.create.return_value = mock_response
+        
+        result = extract_metadata_with_openai("test text", "test.pdf")
+        assert result["title"] == "Test Paper"
+
+def test_extract_metadata_with_openai_failure():
+    """Test metadata extraction failure"""
+    with patch('openai.OpenAI') as mock_openai:
+        mock_openai.side_effect = Exception("API Error")
+        
+        result = extract_metadata_with_openai("test text", "test.pdf")
+        assert result is None
+```
+
+## 🚫 **What NOT to Do**
+
+### **Avoid Complexity:**
+- ❌ **No abstract classes or interfaces** unless absolutely necessary
+- ❌ **No complex dependency injection**
+- ❌ **No microservices or distributed architecture**
+- ❌ **No over-engineering for "future-proofing"**
+- ❌ **No premature optimization**
+
+### **Avoid Testing Anti-Patterns:**
+- ❌ **No tests that depend on real APIs**
+- ❌ **No slow tests (>1 second per test)**
+- ❌ **No tests that don't actually test anything**
+- ❌ **No tests without assertions**
+
+### **Avoid Environment Anti-Patterns:**
+- ❌ **No pip install** - use `uv add` instead
+- ❌ **No conda environments** - use `uv` virtual environments
+- ❌ **No poetry** - use `uv` for dependency management
+- ❌ **No manual virtual environment creation** - `uv` handles this
+- ❌ **No requirements.txt** - use `pyproject.toml` with `uv`
+
+## ✅ **What TO Do**
+
+### **Keep It Clean:**
+- ✅ **Single script per workflow**
+- ✅ **Clear function names and docstrings**
+- ✅ **Simple configuration in `configs/settings.py`**
+- ✅ **Consistent error handling**
+- ✅ **Good logging for debugging**
+
+### **Write Good Tests:**
+- ✅ **Test the happy path**
+- ✅ **Test error conditions**
+- ✅ **Mock external dependencies**
+- ✅ **Use fixtures for common setup**
+- ✅ **Test edge cases**
+
+### **Use UV Properly:**
+- ✅ **Install dependencies**: `uv sync`
+- ✅ **Add new packages**: `uv add package_name`
+- ✅ **Run scripts**: `uv run python scripts/script_name.py`
+- ✅ **Run tests**: `uv run pytest`
+- ✅ **Install test dependencies**: `uv sync --extra test`
+- ✅ **Update dependencies**: `uv lock`
+
+## 🏃‍♂️ **Running Tests**
+
+```bash
+# Install test dependencies
+uv sync --extra test
+
+# Run all tests
+uv run pytest
+
+# Run with coverage
+uv run pytest --cov=scripts --cov-report=html
+
+# Run specific test file
+uv run pytest tests/test_simple_pipeline.py
+
+# Run tests in parallel
+uv run pytest -n auto
+```
+
+## 📝 **Code Quality Checklist**
+
+Before committing any code:
+
+- [ ] **Does it solve the actual problem?** (Not a theoretical one)
+- [ ] **Is it the simplest solution?** (No over-engineering)
+- [ ] **Are there tests for it?** (Every function tested)
+- [ ] **Does it follow the file structure?** (inputs/outputs/scripts/configs)
+- [ ] **Is it documented?** (Clear docstrings and README updates)
+- [ ] **Does it handle errors gracefully?** (No unhandled exceptions)
+- [ ] **Are dependencies managed with uv?** (No pip/conda/poetry)
+
+## 🎯 **Success Metrics**
+
+- **Code simplicity**: Can a new developer understand it in 5 minutes?
+- **Test coverage**: >90% coverage on all scripts
+- **Fast execution**: Tests run in <30 seconds total
+- **Reliable**: No flaky tests or race conditions
+- **Maintainable**: Easy to modify and extend
+- **Environment consistency**: All developers use `uv` for dependencies
+
+## 🚀 **Remember**
+
+**This is a research tool, not a production system.** Keep it simple, test it well, and make it easy to iterate on. The goal is to process papers quickly and reliably, not to build the most sophisticated architecture.
+
+**When in doubt, choose the simpler option.**
+
+**Always use `uv` for Python environment management.**
