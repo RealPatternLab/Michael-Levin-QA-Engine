@@ -18,9 +18,7 @@ METADATA_FILE = OUTPUTS_DIR / "metadata.json"
 
 # API Configuration
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', '')
-GOOGLE_DOCUMENT_AI_PROJECT_ID = os.getenv('GOOGLE_DOCUMENT_AI_PROJECT_ID', '')
-GOOGLE_DOCUMENT_AI_LOCATION = os.getenv('GOOGLE_DOCUMENT_AI_LOCATION', 'us')
-GOOGLE_DOCUMENT_AI_PROCESSOR_ID = os.getenv('GOOGLE_DOCUMENT_AI_PROCESSOR_ID', '')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', '')
 
 # Processing settings
 MAX_TEXT_LENGTH = 2000  # Characters to extract for metadata

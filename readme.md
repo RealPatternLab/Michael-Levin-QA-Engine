@@ -7,7 +7,7 @@ A simple, streamlined pipeline for processing Michael Levin's research papers.
 1. **Finds PDFs** in `inputs/raw_papers/`
 2. **Extracts metadata** using OpenAI (title, authors, year, etc.)
 3. **Renames PDFs** with descriptive names
-4. **Extracts text** using Google Document AI
+4. **Extracts text** using Gemini 1.5 Pro (direct PDF processing)
 5. **Saves everything** in `outputs/` directory
 
 ## Quick Start
@@ -20,10 +20,8 @@ Add these to your `.env` file:
 # OpenAI (for metadata extraction)
 OPENAI_API_KEY=your_openai_api_key
 
-# Google Document AI (for text extraction)
-GOOGLE_DOCUMENT_AI_PROJECT_ID=your_project_id
-GOOGLE_DOCUMENT_AI_LOCATION=us
-GOOGLE_DOCUMENT_AI_PROCESSOR_ID=your_processor_id
+# Google (for Gemini 1.5 Pro)
+GOOGLE_API_KEY=your_google_api_key
 ```
 
 ### 2. Add PDFs
@@ -68,7 +66,7 @@ levin-qa-engine/
 1. **Smart Detection**: Only processes new PDFs (skips already processed ones)
 2. **Metadata Extraction**: Uses OpenAI to extract paper title, authors, year, etc.
 3. **File Renaming**: Creates descriptive filenames like `levin_Machine_Learning_2024_Levin.pdf`
-4. **Text Extraction**: Uses Google Document AI for high-quality text extraction
+4. **Text Extraction**: Uses Gemini 1.5 Pro for direct PDF processing in 10-page chunks
 5. **Simple Storage**: Everything saved in plain text/JSON files
 
 ## Example Output
@@ -104,12 +102,13 @@ cat outputs/metadata.json
 ## Why This Approach
 
 - ✅ **Simple**: One script, clear workflow
-- ✅ **Reliable**: Uses proven APIs (OpenAI + Google Document AI)
+- ✅ **Reliable**: Uses proven APIs (OpenAI + Gemini 1.5 Pro)
 - ✅ **Fast**: No complex abstractions or unnecessary processing
 - ✅ **Iterative**: Easy to modify and extend
 - ✅ **Organized**: Clean file structure and naming
 - ✅ **Tested**: Comprehensive pytest coverage
 - ✅ **Modern**: Uses `uv` for fast dependency management
+- ✅ **Direct**: Gemini 1.5 Pro processes PDFs directly without intermediate steps
 
 ## Next Steps
 
