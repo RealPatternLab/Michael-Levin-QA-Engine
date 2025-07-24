@@ -1,0 +1,50 @@
+[
+  {
+    "text": "The scientific enterprise depends critically not only on the skills needed to definitively test crisp hypotheses, but also on the less well-understood step of acquiring insights and fruitful research directions.  While modern \"big data\" methods are generating a deluge of facts and measurements, it is increasingly important to develop strategies for deriving novel insights and deep hypotheses that cross traditional disciplinary boundaries.  We must improve our ability to identify symmetries between sets of observations and unify and simplify by identifying large-scale patterns in research literature to motivate and enhance new research programs.",
+    "source_title": "Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity",
+    "year": 2024,
+    "section_header": "Introduction",
+    "semantic_topic": "The need for hypothesis generation strategies in the age of big data",
+    "page_estimate": 2
+  },
+  {
+    "text": "Machine learning is poised to help science, not only with number crunching and automation but also by guiding research and identifying what experiments to do next. It is essential for progress in bioinformatics, particularly understanding organism-level form and function, and developmental biology.  While much emphasis is placed on the factuality of AI output, the process of generating interesting hypotheses is less understood but equally crucial. This work attempts to bolster the ideation component of the scientific process with a new AI-based tool for generating hypotheses.",
+    "source_title": "Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity",
+    "year": 2024,
+    "section_header": "Introduction",
+    "semantic_topic": "The role of machine learning in hypothesis generation and scientific progress",
+    "page_estimate": 2
+  },
+  {
+    "text": "Computer-assisted discovery is needed in real-time physiology that controls form and function in vivo. Neuroscience and developmental biology, while distinct fields, may share underlying dynamics. Neuroscience recognizes that behavior and cognition are driven by neural networks signaling via electrical events.  Developmental biology shows that bioelectric signaling is crucial for directing complex morphogenesis. Recent advances in molecular understanding of developmental bioelectricity are blurring the lines between these disciplines.",
+    "source_title": "Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity",
+    "year": 2024,
+    "section_header": "Introduction",
+    "semantic_topic": "The intersection of neuroscience and developmental biology through bioelectric signaling",
+    "page_estimate": 3
+  },
+  {
+    "text": "It's been conjectured that the functional capabilities of brains originate from ancient bioelectric networks used in bacterial biofilms and exploited by evolution for metazoan morphogenesis. This shared algorithm for scaling cellular activity into larger competencies, such as morphogenesis and intelligent behavior, has implications for porting methods from neuroscience to biomedicine. This symmetry between cellular swarms in anatomical and behavioral spaces has been empirically tested but lacks tools for deriving hypotheses from the literature of neuroscience and developmental biophysics.",
+    "source_title": "Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity",
+    "year": 2024,
+    "section_header": "Introduction",
+    "semantic_topic": "Shared algorithms for cellular activity in brain and body and its implications",
+    "page_estimate": 3
+  },
+  {
+    "text": "FieldSHIFT, an in-context learning framework, uses a large language model to convert neuroscience paper abstracts to the field of developmental biology by replacing specific words and concepts.  This process generates insightful results that expand scientific intuition and identify testable hypotheses.  A bioinformatics approach reveals quantitative conservation of genes between developmental morphogenesis and cognitive behavior. FieldSHIFT serves as an imagination-enhancing tool for research, allowing scientists to explore potential life forms.",
+    "source_title": "Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity",
+    "year": 2024,
+    "section_header": "Introduction",
+    "semantic_topic": "FieldSHIFT: An AI tool for generating hypotheses by translating between neuroscience and developmental biology",
+    "page_estimate": 3
+  },
+  {
+    "text": "FieldSHIFT utilizes a large language model (LLM) within an in-context learning framework. This framework allows for the translation of existing neuroscience paper abstracts into the developmental biology domain by strategically substituting specific terms and concepts. This approach generates insightful and readable results that can broaden scientific understanding and pinpoint testable hypotheses for novel research at the intersection of both fields.  The system's predictions were further tested with a bioinformatics method, revealing a significant quantitative conservation of genes linked to both cognitive processes and morphogenesis.",
+    "source_title": "Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity",
+    "year": 2024,
+    "section_header": "Methods",
+    "semantic_topic": "FieldSHIFT methodology: In-context learning with LLMs for cross-domain abstract translation",
+    "page_estimate": 4
+  }
+]

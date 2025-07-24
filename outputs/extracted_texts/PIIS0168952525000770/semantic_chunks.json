@@ -1,0 +1,242 @@
+[
+  {
+    "text": "How does genomic information unfold, to give rise to self-constructing living organisms with problem-solving capacities at all levels of organization? We review recent progress that unifies work in developmental genetics and machine learning (ML) to understand mapping of genes to traits. We emphasize the deep symmetries between evolution and learning, which cast the genome as instantiating a generative model. The layer of physiological computations between genotype and phenotype provides a powerful degree of plasticity and robustness, not merely complexity and indirect mapping, which strongly impacts individual and evolutionary-scale dynamics. Ideas from ML and neuroscience now provide a versatile, quantitative formalism for understanding what evolution learns and how developmental and regenerative morphogenesis interpret the deep lessons of the past to solve new problems. This emerging understanding of the informational architecture of living material is poised to impact not only genetics and evolutionary developmental biology but also regenerative medicine and synthetic morphoengineering.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Overview of the intersection of developmental genetics and machine learning in understanding the mapping of genes to traits, emphasizing the genome as a generative model.",
+    "page_estimate": null
+  },
+  {
+    "text": "Living forms present three fundamental challenges: self-assembly, reliable target morphology through heredity, and immense plasticity for morphogenetic tasks despite perturbations. This capacity to navigate the morphospace, produce correct patterns in novel situations, or create something completely different yet functional, exemplifies problem-solving in a high-dimensional latent space. This ties together evolutionary developmental biology, non-equilibrium thermodynamics, computational and information science, and diverse intelligence. Implications span biomedicine, bioengineering, robotics, and bio-inspired AI. Central is the relationship between genetically specified hardware and resulting physiological software producing phenotypes acted upon by selection. Given the plasticity and context-sensitive decision-making of the morphogenetic layer, what are useful frameworks for understanding what genomes do on evolutionary and ontogenic timescales?",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Three fundamental challenges of living forms: self-assembly, reliable target morphology, and plasticity, highlighting problem-solving in morphogenesis and its implications across multiple fields.",
+    "page_estimate": null
+  },
+  {
+    "text": "Recent work integrating developmental biology and computer science proposes a new model of genetic information encoding and decoding. Concepts from biology, neuroscience, and AI offer a formalizable framework. Evolution encodes features for organismal reconstruction. The genome encodes hardware for cell behavior, not traits directly.  It's hypothesized as compressed latent variables, similar to Waddington's landscape, implemented by protein-encoding sequences and gene regulatory factors, instantiating development as a generative model. Development is hierarchical generative decoding, reconstructing with variations and dynamic interpretation for new contexts. This architecture enables fidelity and creative problem-solving, maximizing adaptive saliency, not just replication of past successes. This flexible, creative process is conserved across evolutionary, developmental, and behavioral contexts.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "A new perspective: the generative genome",
+    "semantic_topic": "The genome as a generative model, encoding information for organismal reconstruction and implementing development as hierarchical generative decoding.",
+    "page_estimate": null
+  },
+  {
+    "text": "In ML, this architecture resembles variational autoencoders (VAEs), two-stage ANNs with an encoder and decoder. These compress input data into a lower-dimensional representation for reconstruction. VAE decoding is hierarchical, going from abstract to detailed, like embryogenesis. The latent space captures emergent properties, such as modular features. Generative models like VAEs generate data by sampling this space, with variational latent variables enabling novel examples. Thus, compressed latent variables leverage modularity and evolvability in developmental biology. This addresses the fundamental question of 'genetics' - what genes encode and how it's interpreted by active cellular material.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 2] Evolutionary development as generative model",
+    "semantic_topic": "The analogy between the genomic architecture and variational autoencoders (VAEs), highlighting the hierarchical decoding process and the role of latent variables.",
+    "page_estimate": 2
+  },
+  {
+    "text": "This framework interprets the genome as latent variables.  Debate exists on whether the proposed generative model covers the entire developmental stack or a single layer between genome and cellular phenotype, raising questions about application across biological organization scales: (i) Biology's layered abstraction, with components navigating problem domains, including symbiotic and adversarial relations. (ii) Individual cells dynamically respond to cues and reconfigure internally via GRNs, displaying plasticity and learning. VAEs are single-shot with limited variability, while development is distributed with agents reinterpreting signals across scales, affecting every decoder node. Embryonic viability requires physiological constraints, absent in VAEs. This hierarchical, recurrent complexity challenges current ML, necessitating discussion of collective self-regulatory approaches.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 3] Extending the autoencoder analogy",
+    "semantic_topic": "Extending the autoencoder analogy to address the hierarchical and distributed nature of biological development, highlighting the limitations of VAEs and the need for collective self-regulatory models.",
+    "page_estimate": 3
+  },
+  {
+    "text": "Using ML concepts unifies dynamics of cognitive and morphological change. Turing's interest in unconventional intelligence, mental activity patterns, and self-assembly is relevant. Grossberg's 'Communication, memory, and development' is also notable.  Connectionist approaches provide architectural principles for somatic and cognitive competency. Pezzulo and Levin (2016) discussed top-down approaches like the free energy principle (FEP) modeling development through nested bowtie architectures, highlighting efficiency and robustness. Subsequent work explored scale-free, hierarchical dynamics, emphasizing FEP's unifying role, introducing biology as a multiscale competency architecture (MCA), with causal top-down and bottom-up control, framing regeneration as pattern completion.  This led to the idea of individual agents within an MCA navigating their environments, suggesting a unified approach rooted in localized homeostatic agents with cooperative error correction.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 4] From bowties to Darwin's agential material",
+    "semantic_topic": "Unifying cognitive and morphological change using concepts from machine learning, including bowtie architectures, free energy principle, and multiscale competency architecture.",
+    "page_estimate": 4
+  },
+  {
+    "text": "Although somatic cells are regulated by exogenous factors for large-scale setpoints, they navigate problem spaces under the influence of their own priors and internal cues.  A critical missing piece is evolution operating on agential material, not passive matter: cells integrate data and make decisions, and even molecular networks implement learning, including Pavlovian conditioning.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "The agential nature of cells and their ability to make context-sensitive decisions, highlighting the role of learning in molecular networks.",
+    "page_estimate": null
+  },
+  {
+    "text": "The bowtie architecture illustrates cyclical information encoding and decoding at multiple scales. Lineage information compresses into DNA, and experience into engrams (evolutionary and cognitive levels). The left side represents algorithmic generalization and compression. The middle node is the 'now' moment, accessible through messages left by prior versions. Interpretation for morphogenesis or behavior is the right side, re-inflating the memory medium into anatomy or behavior.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 5] Box 1. Terminology",
+    "semantic_topic": "Bowtie architecture: cyclical information encoding and decoding in biological systems across evolutionary and cognitive levels.",
+    "page_estimate": 5
+  },
+  {
+    "text": "Generative models capture the underlying probability distribution of complex data. Unlike discriminative models, they model data structure and generate novel, resembling samples by inferring regularities. Morphogenesis can be seen as a generative model instantiated by a genetically encoded latent space.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Generative models: capturing data distributions to generate novel samples, with morphogenesis as an example.",
+    "page_estimate": null
+  },
+  {
+    "text": "A latent space is a lower-dimensional space representing high-dimensional data (images, proteins, phenotypes), restorable by decoding. Points represent compressed data, termed 'latent variables'.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Latent space: a lower-dimensional representation of high-dimensional data using latent variables.",
+    "page_estimate": null
+  },
+  {
+    "text": "Autoencoders (AEs) combine encoder (compressing to latent space) and decoder (reconstructing from latent variables) networks, approximating data distribution by minimizing reconstruction error.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Autoencoders: combining encoder and decoder networks to compress and reconstruct data by minimizing error.",
+    "page_estimate": null
+  },
+  {
+    "text": "Active inference is a Bayesian framework where agents minimize uncertainty by reducing surprise (deviation between expected and observed sensory data), through actions or belief updates. Markov blankets are statistical boundaries separating internal states from environmental causes, mediated by sensory inputs and motor outputs.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Active inference: minimizing uncertainty through actions or belief updates, using Markov blankets to separate internal states from the environment.",
+    "page_estimate": null
+  },
+  {
+    "text": "Reinforcement learning (RL) is an ML paradigm where agents learn to interact with an environment by taking actions, observing states, and receiving reward signals. The goal is to maximize cumulative reward by discovering a policy (mapping states to actions), often approximated by ANNs. Training involves finding ANN parameters for optimal performance. RL operates on multiple timescales, optimizing individual and evolutionary decision-making.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Reinforcement learning: agents learning to interact with an environment to maximize cumulative reward by discovering optimal policies.",
+    "page_estimate": null
+  },
+  {
+    "text": "Criticality describes a system at the boundary of order and chaos, where microscopic interactions amplify into collective, scale-invariant behavior, stemming from phase transitions in physics.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 6] Criticality, and the critical brain hypothesis",
+    "semantic_topic": "Criticality: a system poised between order and chaos, exhibiting scale-invariant behavior arising from phase transitions.",
+    "page_estimate": 6
+  },
+  {
+    "text": "Neural cellular automata (NCAs) are systems of cellular agents on a grid, updating cell-specific state vectors based on neighbors' states.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Neural cellular automata: grid-based cellular agents with state vectors updated based on neighbor interactions.",
+    "page_estimate": null
+  },
+  {
+    "text": "Diffusion models (DMs) generate novel data by iteratively refining noisy samples toward structured outputs through progressive denoising.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Diffusion models: generating data by iterative denoising of noisy samples towards structured outputs.",
+    "page_estimate": null
+  },
+  {
+    "text": "Attention mechanisms in ML allow models to focus on relevant data parts during processing or generation.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Attention mechanisms: focusing on relevant data parts during processing or generation in machine learning.",
+    "page_estimate": null
+  },
+  {
+    "text": "Hopfield networks are energy-based neural networks storing patterns as attractor states. Given partial input, they reconstruct the closest stored pattern, representing associative memory, used to analyze pattern completion like regulative embryogenesis.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Hopfield networks: energy-based networks with associative memory, used for pattern completion analysis in embryogenesis.",
+    "page_estimate": null
+  },
+  {
+    "text": "While traditional generative models like AEs provide useful analogies, they lack essential features of life's adaptability: non-deterministic decoding, distributed agency, recursive feedback, and context-dependent inference. NCAS, DMs, and hybrid architectures inspired by active inference or attention mechanisms better align with the nested 'creative bowtie' framework, offering pathways for modeling development as an emergent, generative multiscale process. Cells and subcellular components exhibit problem-solving, memory, and flexible navigation of physiological and anatomical landscapes. An organism's genotype and phenotype are connected by an agential layer of physiological computation, implemented by self-orchestrated agents capable of dealing with novel situations. This multiscale competency architecture (MCA) impacts evolution, leading to more efficient search dynamics, adaptability, transferability, and evolvability.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 7] The generative, self-regulatory genome",
+    "semantic_topic": "Limitations of traditional generative models and the need for NCAs, DMs, and hybrid architectures to capture life's adaptability, emphasizing the role of distributed agency and context-dependent inference.",
+    "page_estimate": 7
+  },
+  {
+    "text": "Mitchell and Cheney identify the genome as latent variables of a generative model facilitated by GRNs and shaped by evolution. Their VAE architecture leverages plasticity through decoder complexity and evolvability through latent variable variability.  Our framework emphasizes goal-directed problem-solving and collective intelligence across scales. The paradox of change is an invariant across scales: systems must change to survive but cease to be the same.  This is visualized as a bowtie dynamic traversed by active agents. In learning, the center is 'now', the left is deductive learning and generalization, and the right is creative reconstruction of engrams, optimizing for current saliency.  This dynamic applies to development and evolution. Morphogenesis is a creative process using genomic information, not a hardwired result.  Evolution builds problem-solving agents using affordances in new ways.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 7] Generative bowties everywhere",
+    "semantic_topic": "Generative bowtie dynamics in learning, development, and evolution, emphasizing the creative, problem-solving nature of these processes and the role of genomic information as affordances.",
+    "page_estimate": 7
+  },
+  {
+    "text": "Biology operates on an unreliable substrate and favors architectures that use past lessons flexibly, exhibiting regulative and creative navigation.  Viewing biology as operating on active, computational material has implications for biomedicine (prompts and behavior-shaping) and evolution.  Material competency hides information from selection, leading to work on competency mechanisms, augmenting adaptation and accelerating evolution through a positive feedback loop scaling primitive competencies into intelligence.  A rigorous understanding of substrate- and scale-invariant learning and problem-solving dynamics linking morphogenesis, evolution, and learning is essential.  While VAEs may not capture recurrent multiscale dynamics, questions remain about active inference, collective agents, and self-regulatory generative models in distributed, hierarchical systems.  Every biological agent might be a generative model with an informational bowtie, making organismal development a noisy, recurrent, hierarchically multiplexed generative process.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 8] We have proposed that biology strongly leans in to the fact that it is operating on an unreliable substrate (guaranteed to change due to mutation over long timescales and noise on short timescales) and favors architectures that take the lessons of the past seriously, but not literally, and exhibit considerable regulative and creative ways to navigate their problem spaces. Viewing biology as operating over an active, computational, decision-making material (as opposed to fixed mappings between genetic information and phenotypic outcomes) has many implications for how we relate to it in biomedical settings (recent emphasis being on prompts and behavior-shaping communication [52]), but also for evolution. Recent computational modeling efforts showed that the competency of the material hides information from selection, leading much of the work to be done on the competency mechanisms themselves [48,49]. This results in augmented ability of the material to creatively adapt to changes in its genetics, thus accelerating the evolutionary process, and kickstarting a positive feedback loop which scales primitive competencies of living matter into the more obvious intelligence of brainy animals.\n\nIt is essential to develop a rigorous understanding of the substrate- and scale-invariant learning and creative problem-solving dynamics that tie together morphogenesis, evolution, and learning [28,29,53,54].\n\nWhile the VAE architecture in particular might not yet capture such recurrent multiscale dynamics, fundamental questions remain about the differences and similarities between active inference systems, collective goal-directed agents, and (self-regulatory) generative models, especially in distributed and hierarchical systems. One might interpret every biological agent as a generative model - with an informational bowtie at its core - sampling or generating actions from a policy subordinate to a higher-level goal state. Consequently, organismal development would be characterized as a highly noisy, recurrent, and hierarchically multiplexed generative process.",
+    "semantic_topic": "Biology's preference for flexible architectures on unreliable substrates, implications for biomedicine and evolution, and the potential of every biological agent as a generative model with an informational bowtie.",
+    "page_estimate": 8
+  },
+  {
+    "text": "The idea of development as a distributed agential process extends to memory and cognition. A developing 'Self' reconstructs its story without objective ground truth of memory semantics, interpreting memory as compressed embedding. Remembering becomes a context-sensitive generative process like associative-memory-based attention mechanisms or development, rendering 'memories' hierarchical and contextually agential, constantly reinterpreted.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 8] Parallels between construction of body and mind",
+    "semantic_topic": "The parallels between development and memory/cognition as distributed agential processes, where remembering is a context-sensitive generative process.",
+    "page_estimate": 8
+  },
+  {
+    "text": "The multiscale competency architecture (MCA) concept applies across biological systems (development, evolution, cognition). This suggests a unified approach rooted in collective intelligence, not just complexity and nested indirect encodings, explaining biological organization from cells to mind.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 9] The concept of an MCA is applicable across biological systems, including development, evolution, and cognitive processes: it's agents all the way up and down. In turn, this suggests a unified approach to understanding biological organization – from cells to mind – can not be explained via complexity and (nested) indirect encodings alone, but rather fundamentally rooted in collective intelligence [19].",
+    "semantic_topic": "The MCA concept's applicability across biological systems and its implications for understanding biological organization through collective intelligence.",
+    "page_estimate": 9
+  },
+  {
+    "text": "Cellular automata (CAs) have modeled distributed biological phenomena (replication, growth, morphogenesis) through local cell interactions. Neural cellular automata (NCAs) replace hard-wired CA update rules with flexible ANNs, where cells make dynamic decisions based on neighbor states.  NCAs are trained via differentiable and evolutionary learning for targeted pattern formation. NCA artificial cells (A-cells) maintain numerical states, analogous to biological cell differentiation.  A-cells' internal ANNs compute state updates based on neighbors, modeling biological cell decision-making.  Mirroring biological plasticity, a single A-cell can instantiate cybernetic tissue growth via decentralized communication, forming diverse tissues and organs until achieving the goal morphology. A-cells can be evolved to \"grow\" diverse patterns in silico, acting as a generative morphogenetic model. NCAs describe an iterative, multi-agential generative process solving the inverse pattern formation task of embryogenesis using local error correction.  This parallels GRN architecture: A-cell state captures physiological state (gene expression), while its ANN substitutes the GRN, both susceptible to noise and cues. The NCA's ANN can be interpreted as a generative genome representing latent variables of an evolvable substrate, with cell states carrying epigenetic information. NCAs perform robust embryogenesis, symbiotic/parasitic behavior, and computational tasks like collective classification, medical imaging, and pathfinding.  Morphogenetic NCA competencies impact evolution, enhancing evolvability and transferability, potentially enabling open-ended evolution through the paradox of robustness.  A-cells' ANNs, with recurrent architectures, may model active inference agents with internal world-models, while cell states represent Markov blankets.  NCAs are promising for understanding and exploiting biology's MCA for top-down control in biomedical and bioengineering settings.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 9] Neural cellular automata for self-orchestrated morphogenesis",
+    "semantic_topic": "Neural cellular automata (NCAs) as a model for self-orchestrated morphogenesis, highlighting their ability to generate patterns through decentralized communication and local error correction.",
+    "page_estimate": 9
+  },
+  {
+    "text": "Current research extends NCAs towards hierarchical architectures, capturing emerging inter-layer structures as effective neighbors in higher layers, enabling intermodular coordination across scales.  Near-critical NCAs may exhibit scale-free activation patterns, mirroring neuronal tissue, blurring the lines between morphogenesis and behavioral information processing. While indirect encoding in reinforcement learning (RL) shows impressive performance, NCAs facilitate morphogenetic development and behavioral control in composite RL agents. NCAs grow functional robotic morphologies with decentralized problem-solving.  Neural developmental programs grow agent controller ANNs during their lifetime.  Other RL approaches use distributed sensors with attention-based analysis for compressed environmental representation and decision-making. These informational bowties allow generalization and robust navigation.  ",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 10] A model for distributed decision-making",
+    "semantic_topic": "Hierarchical NCAs and their application in reinforcement learning, emphasizing the development of functional robotic morphologies with decentralized problem-solving.",
+    "page_estimate": 10
+  },
+  {
+    "text": "NCAs have limitations in generating multiple patterns from different seed cells, but are related to diffusion models (DMs). Both refine noisy samples through incremental error correction. DMs, with various training and denoising paradigms based on non-equilibrium thermodynamics, generate realistic samples, even guided by text prompts. They have revolutionized synthetic media generation (images, videos), protein folding, and even generative gameplay. DMs serve as efficient generative models in evolutionary algorithms, substituting genotypic offspring generation through iterative denoising. DMs can adapt data instances conditionally to external cues, modularly replacing details, transforming styles, or adjusting RL agent policies. DMs and NCAs iteratively operate on dynamically refined structures, recursively re-introduced as inputs, conditioning and reconfiguring the generative models. Through phase transitions, DMs organize data hierarchically, refining initial features and adding details, mirroring biological development with its feedback and plasticity. DMs are promising models for morphogenesis and potentially for DNA or GRNs with associative memory, representing the functional genome, operating on gene expressions or transcriptomic data.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 10] Diffusion models: development and evolution as incremental denoising",
+    "semantic_topic": "Diffusion models (DMs) and their relationship to NCAs, highlighting their ability to generate realistic samples, adapt to external cues, and model morphogenesis.",
+    "page_estimate": 10
+  },
+  {
+    "text": "Given their generative fidelity and context-sensitive versatility, DMs potentially represent powerful models for morphogenesis and, in the spirit of this contribution, might be candidates for foundational generative models for DNA or GRNs with deep associative memory capacities [124,126]: the DM would literally represent the generative and functional genome [3,4], while the data sample it operates on relates to gene expressions or transcriptomic data [119].",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 12] Given their generative fidelity and context-sensitive versatility, DMs potentially represent powerful models for morphogenesis and, in the spirit of this contribution, might be candidates for foundational generative models for DNA or GRNs with deep associative memory capacities [124,126]: the DM would literally represent the generative and functional genome [3,4], while the data sample it operates on relates to gene expressions or transcriptomic data [119].",
+    "semantic_topic": "DMs as potential models for morphogenesis and generative models for DNA or GRNs with deep associative memory capacities.",
+    "page_estimate": 12
+  },
+  {
+    "text": "Living material exhibits remarkable problem-solving in physiological and anatomical spaces, exceeding current biomedical and bioengineering efforts, similar to brains' learning capacities unmatched by ML/AI.  Planarian flatworms are an example, overcoming damage, cancer, and aging despite a noisy genome, implementing other species' morphotypes and novel body plans without genetic change, and counteracting novel toxins with few genes. The challenge is to exploit lessons from connectionist neuroscience and ML regarding learning and adaptation. Genetics is changing, including how we view the subject and genetic information editing. Future molecular medicine and our understanding of evolution depends on developing omics tools, models, and interventions extending classic genetics-phenotype mapping views, targeting genetic, physiological, and informational structures as active learning agents.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 12] Concluding remarks",
+    "semantic_topic": "The remarkable problem-solving abilities of living material, the example of planarian flatworms, and the need for new tools and models in genetics and molecular medicine.",
+    "page_estimate": 12
+  },
+  {
+    "text": "We thank Axel de Baat, Hananel Hazan, Yanbo Zhang, and Patrick Erickson for helpful discussions, and Julia E. Poirier for help with the manuscript. We acknowledge support from Astonishing Labs, and the Templeton World Charity Foundation (TWCF0606). B.H. acknowledges an APART-MINT stipend by the Austrian Academy of Sciences.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 14] Acknowledgments",
+    "semantic_topic": "Acknowledgments for contributions and support.",
+    "page_estimate": 14
+  },
+  {
+    "text": "M.L.'s lab receives funding from Astonishing Labs (AL), seeking biomedical advances through understanding computational intelligence and reprogrammability of living materials. M.L. also advises AL.  Invention disclosures related to machine learning and evolution parallels have been filed with Tufts University, which may or may not pursue patents.",
+    "source_title": "What does evolution make? Learning in living lineages and machines",
+    "year": 2025,
+    "section_header": "[PAGE 14] Declaration of interests",
+    "semantic_topic": "Declaration of interests and funding sources related to research on computational intelligence of living materials.",
+    "page_estimate": 14
+  }
+]

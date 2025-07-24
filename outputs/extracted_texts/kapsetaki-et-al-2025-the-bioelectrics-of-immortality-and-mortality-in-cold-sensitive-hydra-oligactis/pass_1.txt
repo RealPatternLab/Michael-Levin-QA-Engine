@@ -1,630 +1,70 @@
-Downloaded by 68.114.221.214 from www.liebertpub.com at 07/23/25. For personal use only.
 The Bioelectrics of Immortality and Mortality in Cold-Sensitive
 Hydra oligactis
-Stefania E. Kapsetaki, PhD,¹ Angelina Pimkina, PhD,1,2 Patrick McMillen, PhD,1,3 Parande Tayyebi, PhD,¹
-Patrick Erickson, PhD,¹ and Michael Levin, PhD1,3,4
 
 Abstract
+Introduction: Bioelectric properties of cells are an important aspect of development, regeneration, and cancer. Because of their relevance to the establishment and maintenance of tissue form and function, bioelectric patterns have been hypothesized to have a role in aging. However, no data on bioelectric patterns of the whole body of young and old individuals have been available.
+Methods: We observed and quantified the bioelectrics of whole-body immortal (growing at 22°C) and aging mortal (growing at 10°C) cold-sensitive Hydra oligactis.
+Results: We found that the membrane-voltage-sensitive dyes FluoVolt and VF2.1.Cl can be used to reveal large-scale patterns of cellular membrane resting voltage potentials in hydra. The consensus whole-body bioelectric atlas of immortal hydra shows a consistently depolarized foot and occasionally depolarized tentacles. Immortal hydra are, on average, more depolarized and exhibit less sharply defined bioelectric patterns than old mortal hydra. Immortal hydra have a sharper foot:central body ratio than old mortal hydra.
+Conclusions: These data establish hydra as the first model system in which whole-body bioelectric imaging can be performed; the different bioelectric patterns of immortal versus old mortal hydra are consistent with a bioelectric component to the aging process and suggest a roadmap for using this model organism in antiaging therapeutic screens involving electroceuticals.
 
-Introduction: Bioelectric properties of cells are an important aspect of development, regeneration, and
-cancer. Because of their relevance to the establishment and maintenance of tissue form and function,
-bioelectric patterns have been hypothesized to have a role in aging. However, no data on bioelectric
-patterns of the whole body of young and old individuals have been available.
+[PAGE 1] Introduction
+Aging presents as a severe, progressive reduction in functional capacity and quality of life with a 100% penetrance.1,2 It also presents fascinating fundamental questions in evolutionary, cell, and developmental biology with respect to the algorithms implemented by living tissues to maintain form and function against disorder.3–12 Numerous theories of the underlying molecular causes of aging have been proposed.13-21 One set of approaches focuses on the progressive degradation of developmental information-cues that allow tissues to maintain a complex morphology for decades while materials and individual cells move in and out of the body. Since one key aspect of this information structure is maintained in bioelectrical gradients of resting potential across tissues, it has been suggested that degradation22-24 of specifically bioelectric information could be a cause of aging.25,26
 
-Methods: We observed and quantified the bioelectrics of whole-body immortal (growing at 22°C) and aging
-mortal (growing at 10°C) cold-sensitive Hydra oligactis.
-
-Results: We found that the membrane-voltage-sensitive dyes FluoVolt and VF2.1.Cl can be used to reveal
-large-scale patterns of cellular membrane resting voltage potentials in hydra. The consensus whole-body bio-
-electric atlas of immortal hydra shows a consistently depolarized foot and occasionally depolarized tentacles.
-Immortal hydra are, on average, more depolarized and exhibit less sharply defined bioelectric patterns than
-old mortal hydra. Immortal hydra have a sharper foot:central body ratio than old mortal hydra.
-
-Conclusions: These data establish hydra as the first model system in which whole-body bioelectric imaging
-can be performed; the different bioelectric patterns of immortal versus old mortal hydra are consistent with a
-bioelectric component to the aging process and suggest a roadmap for using this model organism in antiaging
-therapeutic screens involving electroceuticals.
-
-Keywords: bioelectric map, bioelectric atlas, cnidaria, hydrozoa, bioelectric pattern, membrane voltage, Vmem,
-resting potential
-
-Introduction
-
-Aging presents as a severe, progressive reduction in func-
-tional capacity and quality of life with a 100% pene-
-trance. .1,2 It also presents fascinating fundamental questions
-in evolutionary, cell, and developmental biology with respect
-to the algorithms implemented by living tissues to maintain
-form and function against disorder.3–12 Numerous theories
-of the underlying molecular causes of aging have been pro-
-posed.13-21 One set of approaches focuses on the progres-
-sive degradation of developmental information-cues that
-allow tissues to maintain a complex morphology for deca-
-des while materials and individual cells move in and out of
-the body. Since one key aspect of this information structure
-is maintained in bioelectrical gradients of resting potential
-across tissues, it has been suggested that degradation
-22-24
-of specifically bioelectric information could be a cause of
-aging. 25,26
-
-Patterns of cellular resting potential (Vmem) have been
-measured in a variety of embryonic, regenerative, and onco-
-genic contexts, ,27–31 due to the known role of developmental
-bioelectricity in regulating morphogenesis and cancer suppres-
-sion. 22,23 However, no data are currently available on large-
-scale bioelectric profiles during aging in vivo in any model
-species. This is a rate-limiting step in the development of elec-
-troceuticals for longevity. Moreover, additional bioelectricity-
-relevant approaches involve applying specific electromag-
-netic fields and pulsed electromagnetic fields to slow down
-aging, 32-34 performing transcranial direct current stimula-
-tion and transcranial magnetic stimulation to improve the
-declining cognitive functions, 35,36 regulating the body's ion
-channels with morphoceuticals25,37 or gero-electroceuticals,38
-bioelectrically controlling stem cells such as their ability to
-differentiate or continue regenerating,39 and regulating the
-restoration of the body's aging bioelectrics with implantable
-and wearable bioelectronic devices.40 Evaluating, improv-
-ing, and extending these pioneering approaches require a
-better understanding of the bioelectric pattern of young ver-
-sus old individuals. Thus, we sought to establish a dataset
-on whole-body bioelectric imaging in a model system that is
-relevant for aging research.41–43
-
-Hydra are relatively small freshwater invertebrates. They
-have endodermal and ectodermal tissues and can reproduce
-both sexually and asexually.44 They have been used as a model
-organism in many studies45 focusing on morphogenesis,46,47
-environmental ecotoxicology, 48,49 bacteriology, 50 regenera-
-tion, 1,41,51,52 biomechanics, 53 evolution of multicellularity,54
-morphogenesis and physiology, 55,56 transplantation biology, 45
-tumor biology, 57-59 whole-body neural and muscle activity via
-calcium imaging, 60–63 apoptosis,43,64 and aging. 42,65
-71
-Their body is transparent, enabling membrane voltage
-(Vmem)-sensitive dyes66-68 to easily penetrate and reveal cel-
-lular membrane voltage of the whole organism. At 22°C,
-cold-sensitive (CS) Hydra oligactis are immortal. However,
-at 10°C, CS H. oligactis begin to switch to sexual reproduc-
-tion and produce ovaries and testes within 3–4 weeks. 69,70
-Within 30 days at 10°, CS H. oligactis undergo aging and
-eventually die by day 150.71 It is known that 80% of the
-human aging genes from the Human Ageing Genomic
-Resources (http://genomics.senescence.info) are conserved
-in hydra.42 Aging CS H. oligactis are less able to grab prey,
-perform spontaneous contractions, transfer food to their gut,
-and have fewer sperm and nurse cells after 2 months, fewer
-numbers of interstitial stem cells, and fewer epithelial
-cells.71 This makes CS H. oligactis an ideal model system in
-which to begin to test hypotheses about the role of bioelec-
-trics in the aging process. However, the bioelectrics of
-whole-body immortal and aging hydra are unknown.
-
-
-We established an imaging protocol for this species and
-tested the hypothesis that bioelectric patterns (nonhomoge-
-neous spatial distributions of Vmem) would exist and would
-change with aging, especially becoming less crisp and more
-diffuse (degradation of prepattern as observed during some
-birth defects72). Moreover, we tested whether aging CS H.
-oligactis would be more or less hyperpolarized than immor-
-tal CS H. oligactis.
-
-
-Methods
-
+[PAGE 2] Methods
 Hydra husbandry and shrimp maintenance
+We obtained CS H. oligactis from Brigitte Galliot's Lab. We grew the hydra in media consisting of 0.294 g calcium chloride, 0.07 g magnesium sulfate, 0.08 g sodium bicarbonate (NaHCO3), and 0.004 g potassium chloride per 2 L of deionized (DI) water. 
 
+[PAGE 2] Testing for potential dye toxicity
+We tested whether the FluoVolt dye is toxic to the hydra by observing their survival and phenotype after dyeing.
 
-We obtained CS H. oligactis from Brigitte Galliot's Lab.
-We grew the hydra in media consisting of 0.294 g calcium
-chloride, 0.07 g magnesium sulfate, 0.08 g sodium bicarbon-
-ate (NaHCO3), and 0.004 g potassium chloride per 2 L of
-deionized (DI) water. We stored the hydra in 150 × 15 mm
-plastic Petri dishes (maximum 50 hydra per dish) in a light:
-dark 16:8 h cycle incubator at 22°C. We transferred the hydra
-to a new Petri dish with fresh liquid approximately every
-2 weeks. We grew artemia shrimps in a plastic cone oxygen-
-ated with an air pump in a light:dark 16:8 h cycle incubator at
-22°C. The plastic cone had ~300 mL of artemia brine
-shrimp media (25 g sodium chloride and 0.5 g NaHCO3 per
-1 L of DI) and 0.5 g of artemia brine shrimp egg microcysts.
-We repeated the artemia brine shrimp growing process from
-artemia brine shrimp egg microcysts on Tuesdays and Fri-
-days. We fed the hydra approximately one to four artemia
-brine shrimps per hydra on Mondays, Tuesdays, Thursdays,
-and Fridays.
+[PAGE 2] Aging induction
+In the beginning of the experiment, after a month since the beginning, after 2 months since the beginning, and after 3 months since the beginning, we imaged four hydra from a culture growing at 22°C and four hydra from a culture growing at 10°C. After 4 months since the beginning of the experiment, we imaged eight hydra from the culture growing at 22°C and eight hydra from the culture growing at 10°C.
 
+[PAGE 2] Dyeing and imaging the hydra
+We performed the following steps in order to dye and image the hydra.
 
-Testing for potential dye toxicity
+[PAGE 3] Image analysis of the aging experiment
+We obtained the mean lifetime intensity and brightness whole-body images of each FluoVolt-dyed hydra from the LASX software.
 
+[PAGE 3] Consensus bioelectric map of the hydra
+To make a bioelectric atlas/map of every hydra, we analyzed separately the mean lifetime intensity whole-body data of the immortal hydra versus the mean lifetime intensity whole-body data of the old mortal hydra.
 
-We tested whether the FluoVolt dye is toxic to the hydra
-by observing their survival and phenotype after dyeing. Spe-
-cifically, we collected the hydra from the 22°C incubator. We
-used five hydra per condition. We imaged the hydra under
-the Nikon SMZ1500 stereoscope. Then, for the treatment
-condition, we used the following volumes per hydra: Fluo-
-Volt (0.5 µL), power load (12.5 µL), Neuro Background Sup-
-pressor 10x (12.5 µL), and hydra media (224.5 µL). For the
-control, we used the following volumes per hydra: power
-load (12.5 µL), Neuro Background Suppressor 10× (12.5 μL),
-and hydra media (225 µL). We placed a hydra in 250 µL of
-the (control or treatment) solution in a well of a 24-well plate.
-After 5 min, we washed the well approximately five times
-with hydra media using a different plastic pipette each time.
-We imaged the hydra again under the Nikon SMZ1500 stere-
-oscope and then once every day for up to 4 days. During
-these 4 days, when the hydra were not imaged under the
-Nikon SMZ1500 stereoscope, they were kept in the 22°C
-incubator.
+[PAGE 3] Image analysis of the VF2.0.Cl-dyed versus VF2.1.Cl-dyed versus FluoVolt-dyed hydra
+We dyed 3 three-and-a-half-month-old hydra for 5 min with 250 µL of the following solution (1.5 µL of the VF2.1.Cl dye from a 1 mM stock solution,75 37.5 µL of power load, 37.5 µL of Neuro Background Suppressor 10×, and 673.5 µL of hydra media). 
 
-Aging induction
-
-
-In the beginning of the experiment, after a month since the
-beginning, after 2 months since the beginning, and after
-3 months since the beginning, we imaged four hydra from a
-culture growing at 22°C and four hydra from a culture grow-
-ing at 10°C. After 4 months since the beginning of the experi-
-ment, we imaged eight hydra from the culture growing at
-22°C and eight hydra from the culture growing at 10°C.
-
-Dyeing and imaging the hydra
-
-
-We performed the following steps in order to dye and
-image the hydra. We used fluorescence lifetime imaging
-microscopy (FLIM) as it allows imaging of the relative
-membrane voltage in live organisms73 and does not rely on
-dye concentration versus other imaging techniques that rely
-on image intensity.68 On the confocal microscope, we set the
-chamber temperature at 18°C and 40% air flow. We used the
-25x objective (HC Fluotar L Visir 25×/0.95 water) with
-drops of ultrapure water on the objective. In the Leica Appli-
-cation Suite X (LASX) software, we used the following set-
-tings: 1024 x 1024 dimensions; bidirectional mode turned
-on; line accumulation: 9; speed: 700 Hz; numerical aperture:
-0.95; WLL ON at 85% and maximum power; PinholeAiry: 1
-AU; laser line (510 nm) and intensity 1.5%; spectral posi-
-tion: 528-617 nm; and gain = 10.
-
-We prepared the dye solution for multiple hydras on the day
-of imaging using 2 mL Eppendorf tubes. Specifically, we used
-the following volumes per hydra: FluoVolt (https://www
-.thermofisher.com/order/catalog/product/F10488) (0.5 µL),
-power load (https://www.thermofisher.com/order/catalog/
-product/P10020) (12.5 µL), Neuro Background Suppressor
-10× (12.5 µL), and hydra media (224.5 µL). We stored the
-Eppendorf tubes in the dark at room temperature until using
-them for each hydra in the next few hours. We collected the
-hydra from the 22°C incubator and then once finished imaging
-the 22°C hydra, we imaged the hydra that were growing in the
-10°C incubator. We placed a hydra in 250 µL of the dye solu-
-tion in a well of a 24-well plate. We set a timer for 5 min. We
-then cut a cover slip on the sides so that it fitted in the middle
-of an ibidi dish (https://ibidi.com/35-mm-dishes/176-dish-35-
-mm-high-glass-bottom.html#/29-surface_modification-15h_
-170_m_5_m_d_263_m_schott_glass_sterilized/30-pcs_box-
-60_individually_packed). We placed molykote glue on two
-opposite sides of the ibidi dish (enough glue so that the cover
-slip could later touch on both sides of the glue). Once the
-5 min had passed, we washed the well approximately five
-times with hydra media using a different plastic pipette each
-time. We collected the hydra with a plastic pipette and placed
-it in the middle of the ibidi dish. We placed the cover slip
-gently on top of the ibidi dish. We took a 10 µL tip with the
-ibidi dish to the confocal microscope. We placed some addi-
-tional ultrapure droplets on the confocal 25× objective if
-needed, so that the liquid touched the bottom of the ibidi dish.
-We started applying pressure on the sides of the cover slip
-where the molykote glue had been applied until the glue did
-not visibly move much further toward the center of the ibidi
-dish. We made sure the molykote glue did not touch the hydra.
-We placed the ibidi dish on the confocal microscope stage. We
-switched the line repetitions on the LASX software to 1, went
-to tiling mode, and clicked on fast live. We focused on the sur-
-face of the hydra (which were not completely immotile) by
-adjusting the Z plane. We clicked on spiral and identified the
-whole body of the hydra. We stopped the spiral. Using
-the polygon tool, we selected the region of interest (the whole
-hydra). We turned the line repetitions to 9, clicked start, and on
-the image that was being processed, we clicked on the “Pixel
-binding" option to convert it to 2. For every image, we clicked
-on "fit," then "FLIM image fit," and used count threshold = 1.
-The maximum time that the hydra was being imaged under the
-confocal was 5 min. The pixel dwell time (i.e., how long the
-laser was on a single pixel) was 0.4-0.6 µs. If each micrometer
-is approximately 2 pixels, and the typical size of a hydra cell
-is 10-50 µm, then a cell would typically be imaged within
-~8-40 µs. It typically takes milliseconds for a neural or mus-
-cle cell to change its membrane potential and seconds (or
-minutes) for typical nonneural cells. Thus, a cell would be
-unlikely to have typically changed its membrane potential by
-the time the whole cell was being imaged. However, it might
-have changed its membrane potential by the time the whole
-frame of the tissue region was being imaged. Completion of a
-1024 × 1024 pixel frame takes a few hundred milliseconds.
-Therefore, if it takes a few milliseconds for a cell to change its
-membrane potential, a cell might have changed its membrane
-potential by the time the entire frame has been completed. We
-then continued dyeing and imaging the next hydra.
-
-
-Image analysis of the aging experiment
-
-We obtained the mean lifetime intensity and brightness
-whole-body images of each FluoVolt-dyed hydra from the
-LASX software. We transferred these two images of each
-hydra on ImageJ. We also transferred and ran the following
-file (Supplementary Data S1) on ImageJ. Downloading this
-file (Supplementary Data S2) is also required. We then trans-
-ferred and ran this file (Supplementary Data S3) on ImageJ.
-In the case of the last file, we manually drew a line surround-
-ing the hydra with the polygon tool. We used the rotation
-tool to rotate the hydra so that its anterior side was facing
-left and its posterior side was facing right. We then trans-
-ferred and ran the following code on ImageJ (Supplementary
-Data S4). The output values from ImageJ were mean lifetime
-intensity values across the whole body of the hydra. We
-transferred these values to Excel, calculated the mean value
-of the mean lifetime intensity, and the first derivative of
-these values along the body of the hydra. We also measured
-the absolute value of the first derivative and the average
-of the absolute value of the first derivative. The output val-
-ues from ImageJ also provided values of the x-axis (1 until
-the total length of the hydra). In order to normalize to the
-varied length of each hydra, we multiplied each position by
-100/(the last × value of the hydra). For example, the last
-region of the hydra was the 100% region.
-
-To compare the central region and foot region of the
-hydra, we removed the tentacles by not selecting the ten-
-tacles when drawing a line around the hydra on ImageJ. We
-used the mean lifetime intensity data from the output of this
-ImageJ analysis and we divided the mean lifetime intensity
-of the last four regions of each hydra (~83-100% of their
-body length) by the mean lifetime intensity of the region that
-was closest to 50% (of the body length of the hydra).
-
-
-To measure bioelectric sharpness (Moran's I) of the whole
-body of the hydra, we transferred the mean lifetime intensity
-image of the hydra to ImageJ. We adjusted the brightness
-and contrast so that we could observe the edges of the hydra
-without applying those settings. Then we ran the following
-.lut file (Supplementary Data S2). Then, for each image, we
-cropped the region of interest (whole body of the hydra)
-using the polygon tool and ran the following macros (Sup-
-plementary Data S3). Then, we reset the brightness and con-
-trast settings. We saved the image on the desktop as a TIFF
-format file. We then ran these two scripts (Supplementary
-Data S5 and S6) in Idle.74
-
-Consensus bioelectric map of the hydra
-
-To make a bioelectric atlas/map of every hydra, we analyzed
-separately the mean lifetime intensity whole-body data of the
-immortal hydra versus the mean lifetime intensity whole-body
-data of the old mortal hydra. We plotted the mean values of
-mean lifetime intensity of each hydra that was growing for
-2 months (four hydra), 3 months (four hydra), and 4 months
-(eight hydra) at 22°C against the percentage of its body length
-on the x-axis and the mean values of mean lifetime intensity of
-each hydra that was growing for 2 months (four hydra),
-3 months (four hydra), and 4 months (eight hydra) at 10°C
-against the percentage of its body length on the x-axis.
-
-Image analysis of the VF2.0.Cl-dyed versus VF2.1.Cl-dyed
-versus FluoVolt-dyed hydra
-
-We dyed 3 three-and-a-half-month-old hydra for 5 min
-with 250 µL of the following solution (1.5 µL of the
-VF2.1.Cl dye from a 1 mM stock solution,75 37.5 µL of
-power load, 37.5 µL of Neuro Background Suppressor 10×,
-and 673.5 µL of hydra media). We dyed 3 three-and-a-half-
-month-old hydra for 5 min with 250 µL of the following
-solution (1.5 µL of the VF2.0.Cl dye from a 1 mM stock
-solution,75 37.5 lL of power load, 37.5 lL of Neuro Back-
-ground Suppressor 10·, and 673.5 lL of hydra media). We
-dyed 3 three-and-a-half-month-old hydra for 5 min with 250
-lL of the following solution (1.5 lL of the FluoVolt dye,
-37.5 lL of power load, 37.5 lL of Neuro Background Sup-
-pressor 10·, and 673.5 lL of hydra media). We performed
-this procedure separately for each hydra. After the 5 min
-exposure to the dye in a well of a 24-well plate, we washed
-the well—four to five times with hydra media. We placed
-molykote glue on two opposite sides of an ibidi dish and
-moved the hydra with a plastic pipette to the middle of the
-ibidi dish. We slowly applied pressure on the sides of
-the cover slip where the molykote glue was, and imaged the
-hydra under the confocal microscope using the LASX soft-
-ware and the 25· objective. We used the following settings
-for all three dyes: 1024 · 1024 dimensions; bidirectional
-mode turned on, line accumulation: 9; speed: 700 Hz;
-numerical aperture: 0.95; WLL ON at 85% and maximum
-power; and PinholeAiry: 1 AU. For imaging the FluoVolt-
-dyed hydra, we used laser line (510 nm) and intensity 1.5%;
-spectral position: 528–617 nm; and gain = 10, whereas for
-imaging the VF2.1.Cl- and VF2.0.Cl-dyed hydra, we used
-laser line (510 nm) and intensity 30%; spectral position:
-533–622 nm; and gain = 10. On the images that were being
-processed, we clicked on the “Pixel binding” option to con-
-vert it to 2. Also, for every image we clicked on “fit,” then
-“FLIM image fit,” and used count threshold = 1.
-
-
-We obtained the mean lifetime intensity and brightness
-whole-body images of the VF2.0.Cl-, VF2.1.Cl-dyed, and Fluo-
-Volt-dyed hydra from the LASX software. We dragged these
-images on the ImageJ software. In the brightness image of each
-hydra, we looked for six neighboring cells in the foot region and
-drew a circle around them in the mean lifetime intensity image
-to measure the average mean lifetime intensity of that region.
-We also found six neighboring cells from the middle region of
-the brightness image of the hydra with a maximum –1 differ-
-ence in brightness intensity. We drew a circle around those cells
-in the same position in the mean lifetime intensity image in
-order to measure the average mean lifetime intensity of those
-cells. We then compared the average mean lifetime intensity
-values of those two regions across the different conditions
-(VF2.0.Cl-dyed vs. VF2.1.Cl-dyed vs. FluoVolt-dyed hydra).
-
-Statistical analyses
-
-
+[PAGE 4] Statistical analyses
 We performed all statistical analyses in R version 4.4.0.76
-When the data followed an approximately normal distribution
-(p value >0.05 in Shapiro’s test77) and we were comparing
-three or more different groups, we used an analysis of variance
-test. If the data did not follow a normal distribution (p value
-<0.05 in Shapiro’s test77) and we were comparing three or
-more different groups, we performed the Kruskal–Wallis test.78
-When the data did not follow a normal distribution (p value
->0.05 in Shapiro’s test77) and we were comparing two different
-groups, we performed the Wilcoxon rank-sum exact test.79,80
 
-Results
+[PAGE 4] Results
+Hydra survive the dyeing protocol with no consistent deformities
+In order to test whether the FluoVolt dye that we used is toxic to the hydra, we compared the survival and phenotypes of hydra exposed to FluoVolt + power load + Neuro Background Suppressor 10× + hydra media versus power load + Neuro Background Suppressor 10× + hydra media.
 
+[PAGE 4] V_mem_-sensitive dye reveals relative membrane voltage of every cell along the hydra's body
+In order to determine whether we can use immortal and mortal hydra as a model system to see the relative membrane voltage of every cell, we ran an imaging protocol with the V_mem_-sensitive dye FluoVolt.
 
-Hydra survive the dyeing protocol with no consistent
-deformities
+[PAGE 4] V_mem_-sensitive dyes FluoVolt and VF2.1.Cl show relative membrane voltage and not artifacts
+In order to test whether the V_mem_-sensitive dyes FluoVolt and VF2.1.Cl do report relative membrane voltage of hydra cells, we compared the average arrival time of old mortal hydra dyed with FluoVolt, VF2.1.Cl, or the V_mem_-insensitive dye VF2.0.Cl.
 
+[PAGE 5] Immortal hydra have bioelectrically distinct body parts
+In order to find the consensus bioelectric atlas of immortal hydra, we imaged hydra growing at 22°C with the V_mem_-sensitive dye FluoVolt.
 
-In order to test whether the FluoVolt dye that we used is
-toxic to the hydra, we compared the survival and phenotypes
-of hydra exposed to FluoVolt + power load + Neuro Back-
-ground Suppressor 10· + hydra media versus power load +
-Neuro Background Suppressor 10· + hydra media. We used
-five hydra per condition and found no death or consistent
-large-scale visible deformities in the two conditions through-
-out 4 days after the exposure to the solution (Supplementary
-Fig. S3 and Fig. S4). One of the hydra that was exposed to the
-FluoVolt-containing solution had tentacles prior to staining
-and 1, 2, and 4 days after staining, but did not have clearly
-visible tentacles 3 days after staining (top row; Supplementary
-Fig. S4), either because it had no tentacles on that day or
-because they had contracted and were behind the anterior
-region of the hydra and thus were not visible in the 2D image.
-Another hydra that was exposed to the FluoVolt-containing
-solution had a circular structure in its gastric cavity only on
-the second day after exposure to the FluoVolt-containing solu-
-tion, but not prior to exposure, just after exposure, or on the
-first, third, or fourth day after exposure to the FluoVolt-
-containing solution (bottom row; Supplementary Fig. S4). It is
-not clear whether this circular structure formed due to the dye
-or due to other reasons, as this circular structure did not appear
-in any of the other replicates or on any of the other days of
-imaging. These results show that these two solutions are not
-life-threatening for the hydra and do not cause deformities
-across replicates throughout 4 days after exposure.
+[PAGE 5] Hydra age at 10°C
+In order to confirm whether hydra age at 10°C, we looked for ovaries or testes on the body of the hydra since gametogenesis in these hydra is a sign of irreversible aging.70,82
 
+[PAGE 5] Aging hydra have bioelectrically different bodies than immortal hydra
+In order to test whether aging and immortal hydra have bioelectrically distinct bodies, we grew cultures of hydra in 10°C versus 22°C incubators for 4 months and imaged the relative membrane voltage across the hydras' bodies using the V_mem_-sensitive dye FluoVolt. 
 
-Vmem-sensitive dye reveals relative membrane voltage
-of every cell along the hydra’s body
+[PAGE 5] Discussion
+This study provides a consensus whole-body bioelectric atlas of living immortal and mortal hydra.
 
-In order to determine whether we can use immortal and
-mortal hydra as a model system to see the relative membrane
-voltage of every cell, we ran an imaging protocol with the
-Vmem-sensitive dye FluoVolt. We were able to see the relative
-membrane voltage of every cell in living immortal and mortal
-hydra (Supplementary Fig. S1). Depending on the hydra’s
-body contraction or expansion at the exact time point of
-imaging, some cells appeared more elongated (e.g., anterior
-right region of the hydra in Supplementary Fig. S1A), while
-other cells appeared less elongated (e.g., anterior-right region
-of the hydra in Supplementary Fig. S1B). Therefore, our dye-
-ing technique can reveal the whole-body bioelectric atlas of
-immortal and mortal hydra.
+[PAGE 10] Acknowledgments
+We thank the Brigitte Galliot's Lab for providing the CS H. oligactis; Erin Switzer for providing the artemia brine shrimps; Hamid Sediqi for sharing the code for calculating Moran's I; Aviva Lucas-Demott and Alexandra Griffin for helping maintain the hydra; and Julia Poirier for assistance with the article.
 
+[PAGE 10] Authors' Contributions
+S.E.K.: Conceptualization, data curation, supervision, software, formal analysis, validation, visualization, investigation, methodology, project administration, writing—original draft, and writing-review and editing.
 
+[PAGE 10] Author Disclosure Statement
+M.L.'s lab has a sponsored research agreement with Astonishing Labs, a company seeking to advance the biomedicine of aging. All the other authors have no conflicts of interest to disclose.
 
-Vmem-sensitive dyes FluoVolt and VF2.1.Cl show relative
-membrane voltage and not artifacts
-
-In order to test whether the Vmem-sensitive dyes FluoVolt
-and VF2.1.Cl do report relative membrane voltage of hydra
-cells, we compared the average arrival time of old mortal
-hydra dyed with FluoVolt, VF2.1.Cl, or the Vmem-insensitive
-dye VF2.0.Cl. Arrival time refers to the time difference
-between the excitation of the fluorophore by the laser pulse
-and the arrival of the emitted photon at the detector.81 For
-example, in the case of Vmem-sensitive dyes, longer arrival
-time indicates a relatively hyperpolarized cell membrane,
-whereas shorter arrival time indicates a relatively depolar-
-ized cell membrane. In old mortal hydra dyed with FluoVolt
-(N = 3) or VF2.1.Cl (N = 3), we saw that the average arrival
-time of the foot region was longer than the average arrival
-time of the central body region. However, in old mortal
-hydra dyed with the Vmem-insensitive dye VF2.0.Cl (N = 3),
-the foot and central body regions had, on average, a similar
-
-average arrival time (Fig. 1). The absence of the characteris-
-tic voltage pattern when using the closely related but
-voltage-unresponsive VF2.0.Cl dye suggests that the signals
-we reported indeed show relative membrane voltage of
-hydra cells and are unlikely to be due to artifacts unrelated to
-voltage.
-
-
-
-Immortal hydra have bioelectrically distinct body parts
-
-In order to find the consensus bioelectric atlas of immor-
-tal hydra, we imaged hydra growing at 22°C with the
-Vmem-sensitive dye FluoVolt. We saw that the majority of
-immortal hydra had a depolarized foot. Some immortal
-hydra had depolarized tentacles. Other regions of the
-immortal hydra did not have such consistent membrane
-voltage among different individuals. For example, the
-mouth region and central body of the hydra varied in mem-
-brane voltage among the different individuals (Fig. 2; N =
-6). Therefore, the consensus whole-body bioelectric atlas
-of immortal hydra showed some consistently bioelectri-
-cally distinct regions, such as the depolarized foot, and
-some bioelectrically variable regions, such as the depolar-
-ized tentacles, the mouth, and central body.
-
-Hydra age at 10°C
-
-70,82
-In order to confirm whether hydra age at 10°C, we looked
-for ovaries or testes on the body of the hydra since gameto-
-genesis in these hydra is a sign of irreversible aging.
-Hydra that had been growing for 78 days at 10°C had visible
-ovaries/testes (Supplementary Fig. S2). Therefore, we con-
-clude that in our assays, hydra do indeed age at 10°C.
-
-
-
-Aging hydra have bioelectrically different bodies
-than immortal hydra
-
-
-In order to test whether aging and immortal hydra have bio-
-electrically distinct bodies, we grew cultures of hydra in 10°C
-versus 22°C incubators for 4 months and imaged the relative
-membrane voltage across the hydras' bodies using the Vmem-
-sensitive dye FluoVolt. The technical replicates, that is, two
-whole-body images from the same individual, varied in mean
-lifetime intensity (Table 1). Both groups, the technical repli-
-cates of the immortal and old mortal hydra, had similar stand-
-ard deviations (Table 1: 4–46 ps in the case of immortal hydra
-and 4-47 ps in the case of old mortal hydra). By analyzing one
-image of the whole body of each hydra, the standard deviation
-among the biological replicates of Figures 3 and 4A was 101
-picoseconds in the case of immortal hydra and 79 picoseconds
-in the case of old mortal hydra. We saw that the bodies of old
-mortal hydra, which had been growing for 2, 3, or 4 months at
-10°C, were on average more hyperpolarized (Nimmortal = 16,
-Nold mortal = 16; Figs. 3 and 4A: p < 0.0001) and bioelectrically
-sharper (Nimmortal = 16, Nold mortal = 16; Fig. 4B; p = 0.03) than
-immortal hydra, which had been growing for 2, 3, or
-4 months at 22°C. The foot-to-central body ratio of old
-mortal hydra was not as bioelectrically sharp as that of
-immortal hydra (Nimmortal = 16, Nold mortal = 16; Fig. 5; p =
-0.01). Therefore, the bodies of old mortal and immortal
-hydra have distinct average relative membrane voltage and
-sharpness of different body regions.
-
-Discussion
-
-This study provides a consensus whole-body bioelectric
-atlas of living immortal and mortal hydra. We confirmed that
-hydra were aging at 10°C since they had formed ovaries/
-testes within 78 days, an indication that this strain is under-
-going irreversible aging. 70,82
-
-Our results showed that in this model system, the Fluo-
-Volt and VF2.1.Cl dyes were showing Vmem of the plasma
-membrane and not artifacts, as revealed by the lack of signal
-from a closely related control dye that is not responsive to
-membrane potential. This control has been used in cultures
-of rat hippocampal neurons, human cardiomyocytes, human
-embryonic kidney cells, 83-85 and the tails of living frog
-embryos, 68 but is not common and should be universally
-used in voltage dye studies.
-
-Prior efforts have mapped action potentials of the anterior
-region of the guinea pig's heart86,87; resting potential patterns
-in bacterial biofilms88; central regions of poplar leaves89 and
-stem and leaf of sunflowers Helianthus annuus; the optic
-tectum region of the frog brain'; the olfactory bulb of the
-salamander Ambystoma tigrinum 92,93, faces, brains, and tails
-of frog embryos 30,68,72; olfactory bulb of zebrafish94,95; olfac-
-tory bulb of box turtles Terrapene triunguis; an embryonic
-precontractile chick heart”; the pig heart; mouse heart87,99;
-and the primary somatosensory cortex of the mouse brain. 100
-We show for the first time the relative membrane voltage of
-living cells across the whole body of 38 whole organisms.
-Certain properties of hydra and technological advances have
-made this possible. Specifically, hydra has a very thin layer
-of cells, and thus Vmem-sensitive dyes can easily penetrate
-these cell layers and be observed under the confocal micro-
-scope using FLIM that shows the relative membrane voltage
-of each cell.
-
-A limitation to note in our data is that we cannot rule out
-changes in membrane voltage of cells that change their
-membrane voltage faster (within approximately a few
-milliseconds101) than the completion of the whole-body
-imaging of a hydra (a few hundred milliseconds: see the
-section "Methods"). Such signals are unlikely to be critical
-for developmental bioelectricity because the transduction
-machinery and downstream effects on transcriptional
-changes, epigenetic processes, and cell behavior – all typi-
-cally take minutes to hours to take place. 102
-
-With any dye, it is important to consider potential toxicity.
-We do not believe this was a factor in our study. Regarding
-potential dye toxicity, any dye toxicity would be present in
-both hydra conditions, and in the old mortal versus immortal
-hydra analyses, we are reporting differences in the relative
-bioelectric pattern of these two conditions that have both
-been exposed to the dye and washed using the same protocol.
-The hydra were alive after the brief exposure to the dye, and
-when they were imaged under the confocal. The laser line
-used to image the hydra was in the green region (510 nm)
-and thus relatively less cytotoxic than if a laser line in the
-blue region was used.68 If the dye was toxic, we would expect
-the entire body of the hydra to be depolarized; however, the
-hydra's body was not entirely depolarized. Also, Miller et al.
-have found that VoltageFluor dyes have almost no capaci-
-tance compared with other Vn Vmem sensors, so they have rela-
-tively little effect on Vmem.75 Additionally, exposure to the
-FluoVolt dye did not affect survival of the hydra or consis-
-tently change the morphology of the hydra 4 days after expo-
-sure to the dye (Supplementary Fig. S3 and Fig. S4) -
-a much longer time period than the minutes timescale on
-which we stained and imaged.
-
-
-One of the key aspects of bioelectric patterns is that in
-some systems (Xenopus embryo, regenerating planaria, chick
-embryo), their distribution has been shown to serve as an
-instructive signal for morphogenesis.30,103–106 Thus, we
-were very interested in differences in Vmem across the hydra
-that would correspond to distinct anatomical features. We
-found that the foot of the hydra was more depolarized than
-other regions of the hydra's body. The tentacles of the hydra
-were also relatively depolarized in some individuals. This
-relative depolarization may relate to the adhesive properties
-of the foot and secretory properties of the hydra's tentacles.
-
-The hydra's foot (also called basal disc) secretes granules
-that contain glycans and/or glycoproteins, allowing the hydra
-to stick on surfaces. 107 Although the resting membrane
-potential of the secretory cells of the foot has not been previ-
-ously reported, other secretory cells, called nematocytes, in
-the tentacles of Hydra vulgaris are known to require apical
-plasma membrane depolarization for the secretion of
-stenoteles.108
-
-
-As with any biological parameter, we observed some vari-
-ability across animals. The standard deviation in mean life-
-time intensity was higher among the biological than among
-the technical replicates. Specifically, the standard deviation
-in mean lifetime intensity among the biological replicates of
-the data shown in Figure 3 and Figure 4A was 1
+[PAGE 10] Funding Information
+This research was supported by a sponsored research agreement from Astonishing Labs.

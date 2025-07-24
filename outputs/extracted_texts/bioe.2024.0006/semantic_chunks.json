@@ -1,0 +1,146 @@
+[
+  {
+    "text": "Cell Bio conferences—organized jointly by the American Society of Cell Biology (ASCB) and European Molecular Biology Organization (EMBO)—showcase a diverse global community of the brightest researchers in Cell Biology and in emerging interdisciplinary topics, including bioelectricity. In this report, we briefly overview the Cell Bio 2023 subgroup meeting “Bioelectricity in Development, Regeneration, and Cancers.\" This subgroup meeting featured 12 talks (7 Principal Investigators and 5 junior scientists) exploring the role of bioelectricity in endogenous and diseased states in model systems ranging from cells in culture to single-cell organisms such as yeast all the way to mammalian systems (including tools and technology developed for exploring bioelectricity and electrotaxis in cells and tissues). The subgroup meeting concluded with a discussion on the current challenges and opportunities for the field of bioelectricity.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Abstract",
+    "semantic_topic": "Overview of Cell Bio 2023 subgroup meeting on bioelectricity.",
+    "page_estimate": null
+  },
+  {
+    "text": "Laura Borodinsky from the University of California-Davis presented on neural cell primary cilia and Sonic Hedgehog (Shh) signal in neural tube using Xenopus laevis embryonic development. Her lab identified dorsoventrally asymmetric calcium (Ca2+) spikes in the neural tube, operating independently in the cytosol and primary cilia. Evidence suggests noncanonical Shh signal, acting through the TRPC3 channel, regulates Ca2+ in the primary cilia, influencing SOX2 and other neuronal markers to differentiate neural stem cells into neurons. This study highlights the integration of bioelectric signals with morphogen signals and gene-regulatory networks during embryonic development, an area ripe for further research.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Morphological Patterning",
+    "semantic_topic": "Bioelectric and morphogen signal integration in neural tube development.",
+    "page_estimate": 1
+  },
+  {
+    "text": "Emily Bates from the University of Colorado discussed depolarization regulating Ca2+-dependent bone morphogen protein (BMP) release in the developing mouse palate. Anderson–Tawil syndrome, primarily causing neurological defects, also leads to craniofacial morphology defects, similar to those in mouse KCNJ2 channel knockout in neural crest cells.  Evidence showed disrupted BMP signaling in these loss-of-function animals despite the presence of all BMP components. KCNJ2-mediated membrane voltage (Vmem) depolarization triggers Ca2+ transients crucial for BMP release. KCNJ2 knockout mice lacked depolarization, Ca2+ transients, and BMP release, potentially causing craniofacial defects.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Morphological Patterning",
+    "semantic_topic": "Depolarization and BMP release in mouse palate development.",
+    "page_estimate": 1
+  },
+  {
+    "text": "Mikaela Follmer from Emily Bates' laboratory explored the interplay between Ca2+ signal and SNARE proteins in morphogenesis using Drosophila wing development.  She showed the importance of Ca2+ oscillations, controlled by Stim and SERCA, along with SNARE complex proteins for proper BMP/Dpp release and wing patterning.  These findings, along with other presented work, suggest that Vmem and Ca2+-mediated regulation of morphogen release is a conserved mechanism across tissues, potentially working with various morphogens to regulate embryonic development.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Morphological Patterning",
+    "semantic_topic": "Ca2+ signaling and SNARE proteins in morphogenesis.",
+    "page_estimate": 1
+  },
+  {
+    "text": "GuangJun Zhang from Purdue University discussed bioelectric regulation in zebrafish embryos and fin patterning. Using the ASAP1 voltage reporter line, he showed Vmem dynamics during cleavage furrow, gastrulation, and segmentation stages.  Zebrafish mutants with elongated fins were linked to transient and ectopic expression of kcnj13/Kir7.1 and kcnj10a.  Ectopic expression of five other K+ channels induced different fin morphologies, suggesting bioelectricity, rather than a specific channel, is key for fin development.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Morphological Patterning",
+    "semantic_topic": "Bioelectric regulation of zebrafish fin patterning.",
+    "page_estimate": 1
+  },
+  {
+    "text": "Samatha Hack from Western Michigan University presented on the relationship between bioelectric signals and reactive oxygen species (ROS) during Planaria regeneration. ROS are crucial for wound closure and regeneration.  Injury-mediated Vmem depolarization may trigger Ca2+ signaling, which is crucial for ROS generation and subsequent wound repair gene transcription. This suggests a link between bioelectricity and metabolism, given the role of ROS in cellular metabolism.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Regeneration and Cellular Reprogramming",
+    "semantic_topic": "Bioelectric signals and ROS in Planaria regeneration.",
+    "page_estimate": 2
+  },
+  {
+    "text": "Daniel Cohen from Princeton University presented on bioelectric reprogramming of collective cell behaviors, developing tools (SCHEEPDOG) for interactive control of tissues, with applications like expedited wound healing.  Using electric fields, he demonstrated control of skin cell movement, but cautioned about overriding natural safeguards like contact inhibition. These tools were also used to control lumen pressure in 3D spherical cultures via ion movement and osmotic changes, demonstrating potential for controlling organ systems with cavities.  Electrotaxis-mediated symmetry breaking in 3D cultures was also observed.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Cell Migration (Electrotaxis/Galvanotaxis) and Cancers",
+    "semantic_topic": "Bioelectric control of collective cell behavior.",
+    "page_estimate": 2
+  },
+  {
+    "text": "Chrystian Junqueira Alves from Mount Sinai discussed mechano-electrical regulation of glioblastoma stem cell migration through confined spaces. Using microfluidics, he showed that confined migration enhances glioma stem cell invasiveness, and that endocytosis is important for this process.  Plexins are crucial for endocytosis, and Plexin-B2 knockout reduced membrane tension, decreased endocytosis, and caused hyperpolarization, disrupting Ca2+ flow needed for confined migration. This study connects biochemical, bioelectric, and mechanical signals in cell behavior.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Cell Migration (Electrotaxis/Galvanotaxis) and Cancers",
+    "semantic_topic": "Mechano-electrical regulation of glioblastoma migration.",
+    "page_estimate": 2
+  },
+  {
+    "text": "Zhuoxu Ge from Johns Hopkins University presented on the interplay of Vmem and the cytoskeleton in cell migration. Using the CyoFP1-JEDI voltage reporter, they found that the Na+/H+ exchanger (NHE) is important for cell migration, depolarizing leading protrusions. This demonstrates a connection between the cytoskeleton, ion channels, and Vmem. Dynamic Vmem changes were also observed during cell division and shape changes.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Cell Migration (Electrotaxis/Galvanotaxis) and Cancers",
+    "semantic_topic": "Vmem, cytoskeleton interplay in cell migration.",
+    "page_estimate": 2
+  },
+  {
+    "text": "Nathan Belliveau from the University of Washington discussed identifying genes supporting neutrophil galvanotaxis.  Inspired by a Dictyostelium screen, he presented results from a genome-wide CRISPRi screen in HL60 neutrophil-like cells.  They identified TMEM154 (Galvanin), a plasma membrane protein that localizes to the anodic side of cells and inhibits actin polymerization. This protein may be an electric sensor in mammalian cells.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Cell Migration (Electrotaxis/Galvanotaxis) and Cancers",
+    "semantic_topic": "Genetic screen for neutrophil galvanotaxis genes.",
+    "page_estimate": 2
+  },
+  {
+    "text": "Mugdha Sathe, also from the University of Washington, presented on zebrafish T cell migration away from wounds due to endogenous electric fields.  Using a zebrafish skin explant system, she showed neutrophils migrate toward the cathode, while T cells migrate toward the anode. This was confirmed in vivo using a laceration model, demonstrating the importance of electric and osmotic cues in curating cell populations at wound sites for healing.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Cell Migration (Electrotaxis/Galvanotaxis) and Cancers",
+    "semantic_topic": "Zebrafish T cell migration and endogenous electric fields.",
+    "page_estimate": 3
+  },
+  {
+    "text": "Many talks highlighted the involvement of Ca2+ signaling in diverse processes like cell division, differentiation, migration, and morphogen secretion. Ca2+ acts as a central node in a bowtie network, receiving multiple inputs and producing multiple outputs. How Ca2+ relays specific inputs to specific outputs remains a mystery and a key area for future investigation. Investigating the spatiotemporal dynamics and frequency modulation of Ca2+ signals might be crucial for understanding its role in various biological processes.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Calcium Signaling and Bioelectricity",
+    "semantic_topic": "The role of Ca2+ signaling in various biological processes.",
+    "page_estimate": 3
+  },
+  {
+    "text": "Cuming Duan from the University of Michigan discussed TRPV6 Ca2+ channel regulation of epithelial cell renewal by reprogramming growth factor signaling and mitochondrial metabolism.  Using skin ionocytes, he showed evidence for TRPV6/Ca2+-mediated cell reactivation, requiring sustained elevated mitochondrial Vmem and metabolism. Increased mitochondrial metabolism leads to increased ROS, activating SGK1 and increasing ATP production, which is responsible for ionocyte plasticity. This connects mitochondrial bioelectric signaling to cell plasticity and metabolism.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Calcium Signaling and Bioelectricity",
+    "semantic_topic": "TRPV6 regulation of epithelial cell renewal via mitochondrial metabolism.",
+    "page_estimate": 3
+  },
+  {
+    "text": "Qian Chen from the University of Toledo presented on Ca2+ transients during cell division requiring the mechanosensitive polycystin-2 channel, Pkd2.  Using fission yeast, they showed evidence for Pkd2-regulated Ca2+ spikes during cytokinesis.  Pkd2, localized to the cleavage furrow, is activated by membrane tension and promotes Ca2+ transients. This mechanism is conserved in vertebrate embryos and may be relevant to understanding polycystic kidney diseases.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Calcium Signaling and Bioelectricity",
+    "semantic_topic": "Ca2+ transients and Pkd2 channel during cell division.",
+    "page_estimate": 3
+  },
+  {
+    "text": "The end of session discussion acknowledged the progress of the bioelectricity field but also identified challenges.  Bioelectricity, a holistic property of living systems, lags behind fields like molecular biology due to its complexity and reliance on living material.  The field's multidisciplinary nature, requiring expertise in physics, physiology, and neuroscience, also presents a barrier.  A key challenge is addressing the misperception of bioelectricity as a housekeeping parameter rather than an instructive signaling modality, requiring outreach to scientists, students, and the public.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "End of Session Discussion",
+    "semantic_topic": "Challenges and opportunities in the bioelectricity field.",
+    "page_estimate": 3
+  },
+  {
+    "text": "The discussion highlighted the need for the bioelectricity field to follow the trajectory of biomechanics, which transitioned from a niche topic to a mainstream discipline.  This involved developing powerful in vivo techniques and linking biophysical parameters to molecular cell biology advances.  The discussion also identified fractionation within the bioelectricity field, with researchers in materials science, ion channel research, and organismal systems working in relative isolation.  Integrating these fractions through conferences and collaborations was suggested.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": null,
+    "semantic_topic": "Integrating fractions within the bioelectricity field.",
+    "page_estimate": 4
+  },
+  {
+    "text": "The discussion emphasized the need for integrating bioelectricity into mainstream science through broader participation in general science conferences.  The development of shared resources, like tutorials on custom tools and techniques, and virtual gatherings for knowledge exchange were also proposed.  This would reduce barriers to entry for young researchers and promote collaboration.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": null,
+    "semantic_topic": "Sharing resources and promoting collaboration in bioelectricity.",
+    "page_estimate": 4
+  },
+  {
+    "text": "The meeting highlighted the excitement and opportunity in the field of bioelectricity, despite not covering topics like biosensors and voltage manipulation tools.  With 40% early-career scientist participation and growing interest, future meetings are planned, including a potential subgroup meeting at Cell Bio 2024.",
+    "source_title": "‘‘Bioelectricity in Development, Regeneration, and Cancers’’ Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+    "year": 2023,
+    "section_header": "Conclusion",
+    "semantic_topic": "Future directions and meeting summary.",
+    "page_estimate": 4
+  }
+]

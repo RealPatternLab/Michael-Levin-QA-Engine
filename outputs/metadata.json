@@ -2,26 +2,26 @@
   "papers": {
     "bioe.2024.0006.pdf": {
       "original_filename": "bioe.2024.0006.pdf",
-      "descriptive_name": "levin_Bioelectricity_in_Development_Regeneration_and_Can_2024_Pai",
+      "descriptive_name": "levin_Bioelectricity_in_Development_Regeneration_and_Can_2023_Pai",
       "metadata": {
-        "title": "Bioelectricity in Development, Regeneration, and Cancers",
+        "title": "\u2018\u2018Bioelectricity in Development, Regeneration, and Cancers\u2019\u2019 Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
         "authors": [
           "Vaibhav P. Pai",
           "GuangJun Zhang",
           "Michael Levin"
         ],
-        "year": 2024,
-        "journal": "Cell Bio",
+        "year": 2023,
+        "journal": "Bioelectricity",
         "is_levin_paper": true
       },
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T12:25:14.079948"
+          "timestamp": "2025-07-23T18:10:42.300472"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T12:26:33.815286",
+          "timestamp": "2025-07-23T18:12:06.542432",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/bioe.2024.0006.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/bioe.2024.0006",
           "validation": {
@@ -29,37 +29,95 @@
             "missing_segments": [
               "Failed to parse validation response"
             ]
+          },
+          "consensus_reprocessed": {
+            "timestamp": "2025-07-23T18:45:25.715685",
+            "num_passes_used": 5
           }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-23T19:52:05.000000",
+          "num_chunks": 13,
+          "chunks_file": "outputs/extracted_texts/bioe.2024.0006/semantic_chunks.json"
         }
       }
     },
-    "s42005-025-02101-5.pdf": {
-      "original_filename": "s42005-025-02101-5.pdf",
-      "descriptive_name": "levin_Neuroevolution_of_decentralized_decision-making_in_2025_Hartl",
+    "PIIS0168952525000770.pdf": {
+      "original_filename": "PIIS0168952525000770.pdf",
+      "descriptive_name": "levin_What_does_evolution_make_Learning_in_living_lineag_2025_Hart",
       "metadata": {
-        "title": "Neuroevolution of decentralized decision-making in N-bead swimmers leads to scalable and robust collective locomotion",
+        "title": "What does evolution make? Learning in living lineages and machines",
         "authors": [
-          "Benedikt Hartl",
-          "Michael Levin",
-          "Andreas Z\u00f6ttl"
+          "Benedikt Hart",
+          "Michael Levin"
         ],
         "year": 2025,
-        "journal": "Commun Phys",
+        "journal": "Trends Genet.",
         "is_levin_paper": true
       },
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T13:00:28.938036"
+          "timestamp": "2025-07-23T18:10:42.980103"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T13:07:05.626520",
-          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/s42005-025-02101-5.txt",
-          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/s42005-025-02101-5",
+          "timestamp": "2025-07-23T18:13:46.289429",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/PIIS0168952525000770.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/PIIS0168952525000770",
           "validation": {
-            "faithfully_transcribed": true,
-            "missing_segments": []
+            "faithfully_transcribed": false,
+            "missing_segments": [
+              "The Highlights section is missing from the consensus text.",
+              "The figure captions are missing from the consensus text.",
+              "The 'Outstanding questions' section is missing from the consensus text."
+            ]
+          },
+          "consensus_reprocessed": {
+            "timestamp": "2025-07-23T18:46:01.290317",
+            "num_passes_used": 5
+          }
+        }
+      }
+    },
+    "fpsyg-10-02688.pdf": {
+      "original_filename": "fpsyg-10-02688.pdf",
+      "descriptive_name": "levin_The_Computational_Boundary_of_a_Self_Developmental_2019_Levin",
+      "metadata": {
+        "title": "The Computational Boundary of a \u201cSelf\u201d: Developmental Bioelectricity Drives Multicellularity and Scale-Free Cognition",
+        "authors": [
+          "Michael Levin"
+        ],
+        "year": 2019,
+        "journal": "Front. Psychol.",
+        "is_levin_paper": true
+      },
+      "steps": {
+        "metadata_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-23T18:10:43.305539"
+        },
+        "text_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-23T18:20:48.525414",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/fpsyg-10-02688.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/fpsyg-10-02688",
+          "validation": {
+            "faithfully_transcribed": false,
+            "missing_segments": [
+              "The PDF includes publication information (journal, date, volume, article number, DOI) and author information (affiliation, ORCID) that are missing from the consensus text.",
+              "The figure captions for Figure 1 and Figure 2, as well as the figures themselves, are absent in the consensus text.",
+              "The keywords listed at the end of the abstract ('development, bioelectricity, gap junctions, primitive cognition, active inference') are not present in the consensus.",
+              "The 'Summary of key ideas of Scale-Free Cognition' box from the PDF is missing from the consensus.",
+              "The funding and acknowledgment sections, along with the conflict of interest statement, are not included in the consensus text.",
+              "The discussion section 'WHAT DOES IT FEEL LIKE TO BE A PANCREAS?', and the predictions and research program are also missing.",
+              "The reference list is missing from the consensus text."
+            ]
+          },
+          "consensus_reprocessed": {
+            "timestamp": "2025-07-23T18:48:39.983947",
+            "num_passes_used": 5
           }
         }
       }
@@ -84,102 +142,26 @@
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T13:25:29.336713"
+          "timestamp": "2025-07-23T18:10:43.313755"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T13:31:26.359427",
+          "timestamp": "2025-07-23T18:12:26.197103",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/d3dd00185g.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/d3dd00185g",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "Missing acknowledgements section.",
-              "Missing author contributions section.",
-              "Missing conflicts of interest section.",
-              "Missing data availability section.",
-              "Missing references section.",
-              "Missing figures and tables."
+              "The Acknowledgements section is missing from the consensus text.",
+              "The References section is missing from the consensus text.",
+              "The Author contributions section is missing.",
+              "The Conflicts of interest section is missing.",
+              "The Data availability statement is incomplete."
             ]
-          }
-        }
-      }
-    },
-    "fpsyg-10-02688.pdf": {
-      "original_filename": "fpsyg-10-02688.pdf",
-      "descriptive_name": "levin_The_Computational_Boundary_of_a_Self_Developmental_2019_Levin",
-      "metadata": {
-        "title": "The Computational Boundary of a \u201cSelf\u201d: Developmental Bioelectricity Drives Multicellularity and Scale-Free Cognition",
-        "authors": [
-          "Michael Levin"
-        ],
-        "year": 2019,
-        "journal": "Front. Psychol.",
-        "is_levin_paper": true
-      },
-      "steps": {
-        "metadata_extraction": {
-          "completed": true,
-          "timestamp": "2025-07-23T13:59:17.473835"
-        },
-        "text_extraction": {
-          "completed": true,
-          "timestamp": "2025-07-23T14:10:56.072830",
-          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/fpsyg-10-02688.txt",
-          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/fpsyg-10-02688",
-          "validation": {
-            "faithfully_transcribed": false,
-            "missing_segments": [
-              "The abstract is missing.",
-              "The keywords are missing.",
-              "Figure 1 is missing.",
-              "Figure 2 is missing.",
-              "Figure 3 is missing.",
-              "Figure 4 is missing.",
-              "The summary box is missing.",
-              "The discussion section which contains content such as Dennett's stack of homunculi, implications for treatment of injury and disease, the difference between mechanism and decision making, and the suitability of bioelectricity for implementing flexible software of life, among others, is missing.",
-              "The funding information is missing.",
-              "The acknowledgements are missing.",
-              "The references are missing."
-            ]
-          }
-        }
-      }
-    },
-    "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf": {
-      "original_filename": "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf",
-      "descriptive_name": "levin_The_collective_intelligence_of_evolution_and_devel_2023_Watson",
-      "metadata": {
-        "title": "The collective intelligence of evolution and development",
-        "authors": [
-          "Richard Watson",
-          "Michael Levin"
-        ],
-        "year": 2023,
-        "journal": "Collective Intelligence",
-        "is_levin_paper": true
-      },
-      "steps": {
-        "metadata_extraction": {
-          "completed": true,
-          "timestamp": "2025-07-23T14:25:40.881501"
-        },
-        "text_extraction": {
-          "completed": true,
-          "timestamp": "2025-07-23T14:34:17.413161",
-          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development.txt",
-          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development",
-          "validation": {
-            "faithfully_transcribed": false,
-            "missing_segments": [
-              "The PDF includes a section titled \"Keywords\" containing \"Evolution, machine learning, networks, individuality, neural networks\", which is missing from the consensus text.",
-              "The PDF includes author affiliations, publication information (volume, issue, pages, copyright, reuse guidelines, DOI, journal), and corresponding author information. These are missing from the consensus text.",
-              "The PDF contains a Figure 1 with caption and description about individual vs. collective intelligence perspectives, which is missing in the consensus text.",
-              "The PDF includes Table 1 which discusses relationship types required to form an individual from a society; this table with its comprehensive content is missing from the consensus text.",
-              "The PDF contains an Appendix section, Box 1, detailing the Hopfield network and collective behavior including Figure A1. This entire section is missing from the consensus text.",
-              "The PDF includes an Acknowledgements section, Declaration of conflicting interests, and Funding information, all missing from the consensus text.",
-              "The PDF includes a comprehensive References section which is missing from the consensus text."
-            ]
+          },
+          "consensus_reprocessed": {
+            "timestamp": "2025-07-23T18:45:08.725077",
+            "num_passes_used": 5
           }
         }
       }
@@ -204,23 +186,66 @@
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T14:34:19.356670"
+          "timestamp": "2025-07-23T18:12:09.566277"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T14:39:53.690893",
+          "timestamp": "2025-07-23T18:13:22.256574",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/kapsetaki-et-al-2025-the-bioelectrics-of-immortality-and-mortality-in-cold-sensitive-hydra-oligactis.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/kapsetaki-et-al-2025-the-bioelectrics-of-immortality-and-mortality-in-cold-sensitive-hydra-oligactis",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "The PDF includes figures, figure captions, and tables which are missing from the consensus text.",
-              "The supplementary material section with links to supplementary data and figures is missing from the consensus text.",
-              "The references section is missing from the consensus text.",
-              "The affiliations and contact information for the authors are missing from the consensus text.",
-              "The funding information and acknowledgments are missing from the consensus text.",
-              "The author contributions section is missing from the consensus text."
+              "Missing detailed description of Dyeing and imaging the hydra from the Methods section.",
+              "Missing Image analysis section describing steps using ImageJ and provided supplementary data files.",
+              "Missing details about the image analysis performed in  'Image analysis of the VF2.0.Cl-dyed versus VF2.1.Cl-dyed versus FluoVolt-dyed hydra' from the Methods section.",
+              "The Results section is missing substantial content including specific findings related to dye toxicity, observations of ovaries/testes,  details on membrane voltage differences, specific p-values from statistical tests, and details about the variability observed in the replicates.",
+              "The Discussion section is missing several important paragraphs discussing topics such as prior efforts in bioelectric mapping, limitations of the data, discussion of dye toxicity, variability across animals, relationship between polarization level and aging in different organisms, and directions for future research including specific questions about ion channels, cell groups, and the association between aging-related physiologies and bioelectric patterns.",
+              "Missing Supplementary Material references."
             ]
+          },
+          "consensus_reprocessed": {
+            "timestamp": "2025-07-23T18:45:18.024396",
+            "num_passes_used": 5
+          }
+        }
+      }
+    },
+    "s42005-025-02101-5.pdf": {
+      "original_filename": "s42005-025-02101-5.pdf",
+      "descriptive_name": "levin_Neuroevolution_of_decentralized_decision-making_in_2025_Hartl",
+      "metadata": {
+        "title": "Neuroevolution of decentralized decision-making in N-bead swimmers leads to scalable and robust collective locomotion",
+        "authors": [
+          "Benedikt Hartl",
+          "Michael Levin",
+          "Andreas Z\u00f6ttl"
+        ],
+        "year": 2025,
+        "journal": "Commun Phys",
+        "is_levin_paper": true
+      },
+      "steps": {
+        "metadata_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-23T18:12:40.670334"
+        },
+        "text_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-23T18:16:36.307179",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/s42005-025-02101-5.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/s42005-025-02101-5",
+          "validation": {
+            "faithfully_transcribed": false,
+            "missing_segments": [
+              "The consensus text is missing figure 1, 2, 3, 4, 5, 6, 7, and 8.",
+              "The Methods section is missing from the consensus text.",
+              "Missing the acknowledgement, author contribution, competing interest, additional information, data availability, code availability, references, and open access license sections"
+            ]
+          },
+          "consensus_reprocessed": {
+            "timestamp": "2025-07-23T18:46:32.926199",
+            "num_passes_used": 5
           }
         }
       }
@@ -241,54 +266,100 @@
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T15:11:22.018875"
+          "timestamp": "2025-07-23T18:13:23.764432"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T15:17:16.635568",
+          "timestamp": "2025-07-23T18:14:44.963993",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/Life  its origin  and its distribution  a perspective from the Conway-Kochen Theorem and the Free Energy Principle.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/Life  its origin  and its distribution  a perspective from the Conway-Kochen Theorem and the Free Energy Principle",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "The PDF contains a figure (Figure 1) illustrating the interaction between an observer and a system, which is missing from the consensus text.",
-              "The PDF contains a figure (Figure 2) showing the decomposition of an isolated system U, which is missing from the consensus text.",
-              "The Acknowledgements, Disclosure statement, Funding, Author contributions, and Data availability statement sections are missing from the consensus text.",
-              "The journal information (ISSN, Journal homepage, article history, keywords, etc.) is missing from the consensus text."
+              "Missing Figure 1 which describes the interaction and causality in special relativity relevant to the CK theorem.",
+              "Missing Figure 2 which shows the decomposition of an isolated system U into components S and E, along with their interactions and boundaries, as relevant to the FEP.",
+              "The detailed explanation of the FEP framework, including the discussion of Markov Blankets and holographic screens in distinguishing systems from environments, and the role of Hamiltonian operators H_SE, H_S, and H_E, is missing or significantly condensed.",
+              "The discussion of specific examples challenging the definition of life, such as organic-chemistry-based systems (DNA, proteins, viruses) and the dependence of organisms on their environment, is missing.",
+              "The discussion of the Earth as a complex cognitive system ('Life as we know it' and Gaia) and the challenges of communicating with such a system is absent.",
+              "The explanation of a physical system as an information processor with multiple possible interpretations, leading to scale- and description-dependent causal emergence, is missing.",
+              "The nuanced discussion on the probability of recognizing extraterrestrial signals (P(r|s)) and the implications for the Drake equation and the Fermi paradox is simplified.",
+              "The concluding paragraph discussing the practical replacement of the OOL problem with recognizing and interacting with diverse intelligences is significantly shortened.",
+              "Author contributions, Funding information, Data availability statement and ORCID are missing."
             ]
+          },
+          "consensus_reprocessed": {
+            "timestamp": "2025-07-23T18:45:52.505046",
+            "num_passes_used": 5
           }
         }
       }
     },
-    "PIIS0168952525000770.pdf": {
-      "original_filename": "PIIS0168952525000770.pdf",
-      "descriptive_name": "levin_What_does_evolution_make_Learning_in_living_lineag_2025_Hart",
+    "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf": {
+      "original_filename": "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf",
+      "descriptive_name": "levin_The_collective_intelligence_of_evolution_and_devel_2023_Watson",
       "metadata": {
-        "title": "What does evolution make? Learning in living lineages and machines",
+        "title": "The collective intelligence of evolution and development",
         "authors": [
-          "Benedikt Hart",
+          "Richard Watson",
           "Michael Levin"
         ],
-        "year": 2025,
-        "journal": "Trends Genet",
+        "year": 2023,
+        "journal": "Collective Intelligence",
         "is_levin_paper": true
       },
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T15:11:22.587831"
+          "timestamp": "2025-07-23T18:29:06.073937"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T15:13:25.300147",
-          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/PIIS0168952525000770.txt",
-          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/PIIS0168952525000770",
+          "timestamp": "2025-07-23T18:40:55.763734",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "The 'Highlights' section from the PDF is missing in the consensus text.",
-              "The 'Box 1. Terminology' section, which defines key terms like 'Bowtie architecture', 'Generative models', 'Latent space', 'Autoencoder', 'Active inference and Markov blankets', 'Reinforcement learning', 'Criticality, and the critical brain hypothesis', 'Neural cellular automata', 'Diffusion models', 'Attention mechanism', and 'Hopfield networks and associative memory', is missing from the consensus text.",
-              "The figure captions are missing details, specifically, the extended caption for Figure 2 explaining the significance of gall structures in plants, the adaptation of kidney tubule cells in newts to polyploidy, and the bioelectric control of head number and shape in planaria, is truncated in the consensus text.  Also missing is the explanation in the Figure 3 caption of planarian head shape changes, Anthrobots' self-assembly and neural wound healing, trophic memory in deer antler regeneration, and kinematic self-replication in Xenobots."
+              "The figure (Figure 1) illustrating the perspectives on individual and collective intelligence is missing.",
+              "The entire table (Table 1) discussing the relationships needed to turn a society into an individual, along with its associated text, is missing.",
+              "The Appendix section, including Box 1 about the Hopfield network and Figure A1 illustrating its architecture, is missing."
+            ]
+          }
+        }
+      }
+    },
+    "load051.pdf": {
+      "original_filename": "load051.pdf",
+      "descriptive_name": "levin_The_energetics_of_cellular_life_transitions_2024_Monzel",
+      "metadata": {
+        "title": "The energetics of cellular life transitions",
+        "authors": [
+          "Anna S. Monzel",
+          "Michael Levin",
+          "Martin Picard"
+        ],
+        "year": 2024,
+        "journal": "Life Metab",
+        "is_levin_paper": true
+      },
+      "steps": {
+        "metadata_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-23T19:24:44.684525"
+        },
+        "text_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-23T19:27:15.364348",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051",
+          "validation": {
+            "faithfully_transcribed": false,
+            "missing_segments": [
+              "Missing header information including journal name, volume, issue, DOI, publication date, copyright information, license details, received/revised/accepted dates.",
+              "Missing 'Perspective' category label.",
+              "Extra 'D' character after Anna S. Monzel's name.",
+              "Missing the last part of the abstract starting with 'and (ii)'.",
+              "Potential missing content after the abstract.  Comparison is limited by the character limit but the appearance of '[PAGE 1]' suggests there are further pages not included in the consensus text."
             ]
           }
         }

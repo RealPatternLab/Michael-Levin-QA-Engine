@@ -14,7 +14,7 @@ import os
 import json
 import logging
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
@@ -136,7 +136,6 @@ def extract_text_with_gemini(pdf_path: Path) -> Optional[str]:
         import time
         import asyncio
         import concurrent.futures
-        from typing import List
         
         # Configure Gemini
         genai.configure(api_key=GOOGLE_API_KEY)
@@ -201,6 +200,8 @@ def extract_text_with_gemini(pdf_path: Path) -> Optional[str]:
 
                 * **Include:** Absolutely all text from the beginning of the PDF to the end, including but not limited to the Introduction, Methods, Results, Discussion, Conclusion, and any other sections containing core scientific findings or arguments. This includes any content appearing *before* the main title or abstract. Preserve section headings and paragraph structure. Pay special attention to introductory sections and ensure no paragraphs are missed, regardless of their title (e.g., "WHAT DOES IT FEEL LIKE TO BE A PANCREAS?").
 
+                * **Section Headers with Page Numbers:** For each major section header (Introduction, Methods, Results, Discussion, Conclusion, etc.), include the page number where that section begins. Format section headers as "[PAGE X] SECTION TITLE" where X is the page number. For example: "[PAGE 3] INTRODUCTION" or "[PAGE 7] RESULTS AND DISCUSSION".
+
                 * **Exclude:** Headers, footers, page numbers, and publication metadata (e.g., journal name, publication date). References/bibliography sections, figure captions, table captions, and the content of figures and tables themselves should also be excluded.
 
                 * **Prioritize:** Complete capture of all textual content within the scientific paper, from start to finish. Accuracy and completeness of the entire text extraction are paramount. Do not cut off content mid-section.
@@ -209,7 +210,7 @@ def extract_text_with_gemini(pdf_path: Path) -> Optional[str]:
 
                 This is chunk {chunk_num} of {total_chunks} (pass {pass_num + 1} of {num_passes}) covering pages {chunk_start + 1}-{chunk_end} of {total_pages}.
 
-                Return the extracted text as a single, continuous block of text.
+                Return the extracted text as a single, continuous block of text with section headers marked with their page numbers.
 
                 PDF content:
                 """
@@ -354,7 +355,7 @@ def create_consensus_extraction_from_files(pdf_output_dir: Path, num_passes: int
         extractions_text = "\n\n".join([f"EXTRACTION {i+1}:\n{ext}" for i, ext in enumerate(extractions)])
         
         prompt = f"""
-        Consolidate the following {num_passes} text extractions from a scientific PDF into a single, high-quality extraction. Each extraction is delimited by ```. The final output must contain the full, combined text of the extractions, prioritizing completeness, accuracy, and a coherent structure. Include all content present in any of the extractions. Remove redundant information while preserving unique details. If discrepancies exist, choose the most complete and accurate version. Maintain the original document's logical flow, including section headers, figures, tables, and references. Do not include any commentary or descriptions about your selection process or the source of the content. Output only the combined, consolidated text of the scientific PDF.
+        Consolidate the following {num_passes} text extractions from a scientific PDF into a single, high-quality extraction. Each extraction is delimited by ```. The final output must contain the full, combined text of the extractions, prioritizing completeness, accuracy, and a coherent structure. Preserve all page numbers associated with section headers. If any extraction contains section headers with page numbers (e.g., "[PAGE 3] INTRODUCTION"), make sure to keep these page numbers in the final consensus. Include all content present in any of the extractions. Remove redundant information while preserving unique details. If discrepancies exist, choose the most complete and accurate version. Maintain the original document's logical flow, including section headers, figures, tables, and references. Do not include any commentary or descriptions about your selection process or the source of the content. Output only the combined, consolidated text of the scientific PDF.
 
         ```
         {extractions_text}
@@ -533,7 +534,7 @@ def process_text_extraction(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
         return False
 
 def validate_extraction_completeness(pdf_path: Path, consensus_text: str) -> Dict[str, Any]:
-    """Validate that the consensus text faithfully represents the original PDF content."""
+    """Validate that the consensus text faithfully represents the PDF content."""
     try:
         import google.generativeai as genai
         
@@ -541,53 +542,40 @@ def validate_extraction_completeness(pdf_path: Path, consensus_text: str) -> Dic
         genai.configure(api_key=GOOGLE_API_KEY)
         model = genai.GenerativeModel('gemini-1.5-pro')
         
-        # Extract text from PDF for comparison
+        # Read the original PDF to compare
         pdf_text = extract_text_from_pdf(pdf_path)
         if not pdf_text:
-            logger.error(f"Failed to extract text from PDF for validation: {pdf_path}")
-            return {"faithfully_transcribed": False, "missing_segments": ["Failed to extract PDF text for comparison"]}
+            return {"faithfully_transcribed": False, "missing_segments": ["Failed to read original PDF"]}
         
-        # Prepare prompt for validation
         prompt = f"""
-        Compare the provided PDF with the consensus text extraction and determine if any important content from the PDF is missing from the consensus text. Focus on scientific content such as section headers, key findings, conclusions, data descriptions, results, and substantial paragraphs. Ignore minor formatting differences, page numbers, headers, and footers.
+        Compare the extracted consensus text against the original PDF text to determine if the extraction is complete and faithful.
 
-        IMPORTANT: You must respond with ONLY a valid JSON object in this exact format:
+        Original PDF text (first 2000 chars):
+        {pdf_text[:2000]}
 
-        If all content is present:
+        Extracted consensus text (first 2000 chars):
+        {consensus_text[:2000]}
+
+        Analyze if the consensus text faithfully represents the PDF content. Look for:
+        1. Missing sections or paragraphs
+        2. Incomplete sentences or thoughts
+        3. Missing figures, tables, or references
+        4. Structural differences
+
+        Return ONLY a JSON object with this exact structure:
         {{
-          "faithfully_transcribed": True,
-          "missing_segments": []
+            "faithfully_transcribed": true/false,
+            "missing_segments": ["list of missing sections or issues found"]
         }}
 
-        If content is missing:
-        {{
-          "faithfully_transcribed": False,
-          "missing_segments": [
-            "The section 'WHAT DOES IT FEEL LIKE TO BE A PANCREAS?' appears in the PDF but is missing from the consensus text.",
-            "The discussion of voltage-gated ion channels in section 3.2 appears to be incomplete in the consensus."
-          ]
-        }}
-
-        Where:
-        - "faithfully_transcribed": Boolean (True/False) indicating whether the consensus text appears to contain all important content from the PDF
-        - "missing_segments": Array of strings. If faithfully_transcribed is True, this should be an empty array []. If faithfully_transcribed is False, this should contain specific descriptions of missing content.
-
-        PDF content:
-        {pdf_text}
-
-        Consensus text:
-        {consensus_text}
-
-        Return ONLY the JSON object, no other text or explanations.
+        CRITICAL: Use True/False (capitalized) for the boolean value.
         """
-        
+
         response = model.generate_content(prompt)
         
         if response.text:
-            logger.info(f"Validation response: {response.text[:200]}...")  # Debug log
             try:
                 # Parse JSON response
-                import json
                 response_text = response.text.strip()
                 
                 # Handle markdown code blocks
@@ -600,6 +588,10 @@ def validate_extraction_completeness(pdf_path: Path, consensus_text: str) -> Dic
                     response_text = '\n'.join(lines).strip()
                 
                 validation_result = json.loads(response_text)
+                
+                # Handle both "true"/"false" and "True"/"False"
+                if isinstance(validation_result.get("faithfully_transcribed"), str):
+                    validation_result["faithfully_transcribed"] = validation_result["faithfully_transcribed"].lower() == "true"
                 
                 if validation_result.get("faithfully_transcribed", False):
                     logger.info("✅ Validation passed: Consensus text appears to faithfully represent the PDF")
@@ -621,6 +613,326 @@ def validate_extraction_completeness(pdf_path: Path, consensus_text: str) -> Dic
     except Exception as e:
         logger.error(f"Failed to validate extraction completeness: {e}")
         return {"faithfully_transcribed": False, "missing_segments": [f"Validation error: {str(e)}"]}
+
+def create_semantic_chunks_prompt() -> str:
+    """Create the prompt for Gemini to extract semantic chunks."""
+    return """
+    Extract semantically meaningful chunks from the provided scientific paper text for embedding into a vector database. Semantic chunking, in this context, means dividing the paper into logical units of information that represent self-contained, coherent ideas or topics. Each chunk should be focused on a single concept, finding, or argument.
+
+    Guidelines for good chunks:
+
+    * **Self-contained:** A chunk should make sense on its own without requiring excessive context from surrounding text.
+    * **Coherent:** The information within a chunk should relate to a single, identifiable topic.
+    * **Specific:** Avoid overly broad or generic chunks. Aim for specificity and detail.
+    * **Optimal size:** Chunks should ideally be between 100-300 words, although shorter or longer chunks are acceptable if they represent a complete semantic unit.
+
+    Section headers (e.g., "Introduction," "Methods," "Results," "Discussion") should be identified and included in the output JSON. If page numbers are associated with section headers (e.g., "[PAGE 3] INTRODUCTION"), extract the page number and include it as "page_estimate" in the JSON. Calculate character positions (start_char and end_char) relative to the beginning of the entire input text.
+
+    CRITICAL: You must return ONLY a valid JSON array. The JSON must be properly formatted with:
+    - All strings properly quoted and escaped
+    - No trailing commas
+    - Properly closed brackets and braces
+    - No unterminated strings
+
+    The output should be a JSON array of objects, strictly adhering to this format:
+
+    ```json
+    [
+      {
+        "text": "The actual text content of the semantic chunk",
+        "source_title": "Full paper title",
+        "year": 2023,
+        "section_header": "Introduction/Discussion/Results/etc",
+        "semantic_topic": "Brief description of the main idea/topic (max 20 words)",
+        "page_estimate": 5
+      }
+    ]
+    ```
+
+    Examples:
+
+    **Good Chunk:** "Our results demonstrate a statistically significant correlation between variable X and variable Y (p < 0.05). This finding supports the hypothesis that X influences Y through mechanism Z. Further research is needed to explore the specific pathways involved." (semantic_topic: "Correlation between X and Y and its implications")
+
+    **Bad Chunk:** "Introduction. In this study, we investigated... Methods. We used a randomized controlled trial... Results. The results are presented in Table 1." (This combines multiple unrelated topics and sections.)
+
+    Challenges:
+
+    * **Overlapping content:** Minimize redundancy between chunks. If a concept is discussed across multiple sections, try to synthesize the information into a single, comprehensive chunk or create distinct chunks with clear semantic distinctions.
+    * **Incomplete ideas:** If an idea spans multiple paragraphs, ensure the entire idea is captured within a single chunk. Do not split a coherent thought across multiple chunks.
+
+    Ensure the chunks are suitable for vector database search and retrieval. This means each chunk should represent a distinct, searchable concept that can be effectively retrieved based on its semantic content. Provide the `source_title` and `year` information using the values I will supply separately. I will provide the paper title and year outside of the main paper text.
+
+    IMPORTANT: Return ONLY the JSON array, no additional text, explanations, or markdown formatting.
+
+    Paper text to analyze:
+    """
+
+def extract_semantic_chunks(consensus_text: str, paper_metadata: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Extract semantic chunks from consensus text using Gemini."""
+    max_retries = 3
+    
+    for attempt in range(max_retries):
+        try:
+            import google.generativeai as genai
+            import time
+            import threading
+            
+            # Configure Gemini
+            genai.configure(api_key=GOOGLE_API_KEY)
+            model = genai.GenerativeModel('gemini-1.5-pro')
+            
+            # Prepare the prompt with paper metadata
+            prompt = create_semantic_chunks_prompt()
+            prompt += f"""
+            Paper Title: {paper_metadata.get('title', 'Unknown')}
+            Authors: {', '.join(paper_metadata.get('authors', []))}
+            Year: {paper_metadata.get('year', 'Unknown')}
+            Journal: {paper_metadata.get('journal', 'Unknown')}
+            
+            Consensus Text:
+            {consensus_text}
+            """
+            
+            logger.info(f"Calling Gemini API (attempt {attempt + 1}/{max_retries})...")
+            start_time = time.time()
+            
+            # Simple timeout mechanism
+            response = None
+            api_error = None
+            
+            def call_gemini():
+                nonlocal response, api_error
+                try:
+                    response = model.generate_content(prompt)
+                except Exception as e:
+                    api_error = e
+            
+            # Run API call in thread with timeout
+            thread = threading.Thread(target=call_gemini)
+            thread.daemon = True
+            thread.start()
+            thread.join(timeout=120)  # 2 minute timeout
+            
+            if thread.is_alive():
+                logger.error(f"Gemini API call timed out after 120 seconds (attempt {attempt + 1})")
+                if attempt < max_retries - 1:
+                    logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
+                    time.sleep(2)
+                    continue
+                return []
+            
+            if api_error:
+                logger.error(f"Gemini API call failed (attempt {attempt + 1}): {api_error}")
+                if attempt < max_retries - 1:
+                    logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
+                    time.sleep(2)
+                    continue
+                return []
+            
+            logger.info(f"Gemini API call completed in {time.time() - start_time:.1f}s")
+            
+            if response and response.text:
+                try:
+                    # Parse JSON response
+                    response_text = response.text.strip()
+                    
+                    # Handle markdown code blocks
+                    if response_text.startswith('```'):
+                        lines = response_text.split('\n')
+                        if lines[0].startswith('```'):
+                            lines = lines[1:]
+                        if lines and lines[-1].startswith('```'):
+                            lines = lines[:-1]
+                        response_text = '\n'.join(lines).strip()
+                    
+                    # Try to fix common JSON issues
+                    response_text = fix_json_response(response_text)
+                    
+                    chunks = json.loads(response_text)
+                    
+                    # Validate chunks structure
+                    if not isinstance(chunks, list):
+                        logger.error("Response is not a list")
+                        if attempt < max_retries - 1:
+                            logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
+                            continue
+                        return []
+                    
+                    # Validate each chunk has required fields
+                    valid_chunks = []
+                    for chunk in chunks:
+                        required_fields = ["text", "source_title", "year", "section_header", "semantic_topic", "page_estimate"]
+                        if all(field in chunk for field in required_fields):
+                            valid_chunks.append(chunk)
+                        else:
+                            logger.warning(f"Skipping chunk with missing fields: {chunk}")
+                    
+                    if valid_chunks:
+                        logger.info(f"✅ Successfully extracted {len(valid_chunks)} semantic chunks")
+                        return valid_chunks
+                    else:
+                        logger.error("No valid chunks found after validation")
+                        if attempt < max_retries - 1:
+                            logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
+                            continue
+                        return []
+                    
+                except json.JSONDecodeError as e:
+                    logger.error(f"Failed to parse JSON response (attempt {attempt + 1}): {e}")
+                    logger.error(f"Response text: {response.text[:500]}...")
+                    if attempt < max_retries - 1:
+                        logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
+                        continue
+                    return []
+            else:
+                logger.error("Empty response from Gemini")
+                if attempt < max_retries - 1:
+                    logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
+                    continue
+                return []
+            
+        except Exception as e:
+            logger.error(f"Failed to extract semantic chunks (attempt {attempt + 1}): {e}")
+            if attempt < max_retries - 1:
+                logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
+                time.sleep(2)
+                continue
+            return []
+    
+    logger.error(f"Failed to extract semantic chunks after {max_retries} attempts")
+    return []
+
+def fix_json_response(response_text: str) -> str:
+    """Fix common JSON formatting issues in Gemini responses."""
+    import re
+    
+    # Remove any trailing commas before closing brackets/braces
+    response_text = re.sub(r',(\s*[}\]])', r'\1', response_text)
+    
+    # Fix unterminated strings by finding the last complete quote
+    lines = response_text.split('\n')
+    fixed_lines = []
+    
+    for line in lines:
+        # Count quotes in the line
+        quote_count = line.count('"')
+        if quote_count % 2 != 0:  # Odd number of quotes means unterminated string
+            # Find the last complete quote pair and truncate after it
+            last_complete_quote = line.rfind('",')
+            if last_complete_quote != -1:
+                line = line[:last_complete_quote + 2]
+            else:
+                # If no complete quote pair, try to close the string
+                last_quote = line.rfind('"')
+                if last_quote != -1:
+                    line = line[:last_quote + 1] + '",'
+        
+        fixed_lines.append(line)
+    
+    response_text = '\n'.join(fixed_lines)
+    
+    # Ensure the JSON array is properly closed
+    if not response_text.strip().endswith(']'):
+        # Find the last complete object and close the array
+        last_complete_object = response_text.rfind('}')
+        if last_complete_object != -1:
+            response_text = response_text[:last_complete_object + 1] + '\n]'
+    
+    return response_text
+
+def process_semantic_chunking(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
+    """Process semantic chunking for a single PDF file."""
+    try:
+        pdf_name = pdf_path.name
+        logger.info(f"Processing semantic chunking for: {pdf_name}")
+        
+        # Check if consensus text exists - look in extracted_texts subdirectory
+        pdf_output_dir = Path("outputs/extracted_texts") / pdf_path.stem
+        consensus_file = pdf_output_dir / "consensus.txt"
+        
+        if not consensus_file.exists():
+            logger.error(f"Consensus text not found for {pdf_name}")
+            return False
+        
+        # Read consensus text
+        with open(consensus_file, 'r', encoding='utf-8') as f:
+            consensus_text = f.read()
+        
+        if not consensus_text.strip():
+            logger.error(f"Empty consensus text for {pdf_name}")
+            return False
+        
+        # Get paper metadata
+        paper_metadata = metadata["papers"].get(pdf_name, {})
+        if not paper_metadata:
+            logger.error(f"No metadata found for {pdf_name}")
+            return False
+        
+        # Extract semantic chunks
+        chunks = extract_semantic_chunks(consensus_text, paper_metadata.get("metadata", {}))
+        
+        if not chunks:
+            logger.error(f"Failed to extract semantic chunks for {pdf_name}")
+            return False
+        
+        # Save chunks to JSON file in the same directory as consensus.txt
+        chunks_file = pdf_output_dir / "semantic_chunks.json"
+        with open(chunks_file, 'w', encoding='utf-8') as f:
+            json.dump(chunks, f, indent=2, ensure_ascii=False)
+        
+        logger.info(f"✅ Saved {len(chunks)} semantic chunks to {chunks_file}")
+        
+        # Update metadata with more robust error handling
+        logger.info(f"Updating metadata for {pdf_name}...")
+        try:
+            with metadata_lock:
+                logger.info(f"Inside metadata_lock for {pdf_name}")
+                
+                # Ensure the paper exists in metadata
+                if pdf_name not in metadata["papers"]:
+                    logger.error(f"Paper {pdf_name} not found in metadata during update")
+                    return False
+                
+                # Ensure steps dict exists
+                if "steps" not in metadata["papers"][pdf_name]:
+                    logger.info(f"Creating steps dict for {pdf_name}")
+                    metadata["papers"][pdf_name]["steps"] = {}
+                
+                # Add semantic chunking step
+                logger.info(f"Adding semantic_chunking step for {pdf_name}")
+                metadata["papers"][pdf_name]["steps"]["semantic_chunking"] = {
+                    "completed": True,
+                    "timestamp": datetime.now().isoformat(),
+                    "num_chunks": len(chunks),
+                    "chunks_file": str(chunks_file)
+                }
+                
+                # Save metadata with explicit error handling
+                logger.info(f"Saving metadata for {pdf_name}...")
+                try:
+                    save_metadata(metadata)
+                    logger.info(f"✅ Metadata saved successfully for {pdf_name}")
+                except Exception as save_error:
+                    logger.error(f"❌ Failed to save metadata for {pdf_name}: {save_error}")
+                    # Try to save a backup
+                    try:
+                        backup_file = Path("outputs/metadata_backup.json")
+                        with open(backup_file, 'w') as f:
+                            json.dump(metadata, f, indent=2)
+                        logger.info(f"✅ Created backup at {backup_file}")
+                    except Exception as backup_error:
+                        logger.error(f"❌ Failed to create backup: {backup_error}")
+                    return False
+                
+        except Exception as lock_error:
+            logger.error(f"❌ Error in metadata_lock block for {pdf_name}: {lock_error}")
+            return False
+        
+        return True
+        
+    except Exception as e:
+        logger.error(f"Failed to process semantic chunking for {pdf_path.name}: {e}")
+        return False
 
 def reset_file_processing(pdf_filename: str):
     """Reset processing state for a specific file to allow reprocessing."""
@@ -664,6 +976,17 @@ def process_pdf_file(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
             return False
     else:
         logger.info(f"Skipping text extraction for {pdf_path.name} - already completed")
+    
+    # Step 3: Semantic chunking
+    if not steps.get("semantic_chunking", {}).get("completed", False):
+        logger.info(f"Step 3: Extracting semantic chunks for {pdf_path.name}")
+        if process_semantic_chunking(pdf_path, metadata):
+            logger.info(f"✅ Completed semantic chunking for {pdf_path.name}")
+        else:
+            logger.error(f"❌ Failed semantic chunking for {pdf_path.name}")
+            return False
+    else:
+        logger.info(f"Skipping semantic chunking for {pdf_path.name} - already completed")
     
     return True
 

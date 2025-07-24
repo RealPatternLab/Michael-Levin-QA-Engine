@@ -1,0 +1,90 @@
+[
+  {
+    "text": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis\n\nAbstract\nIntroduction: Bioelectric properties of cells are an important aspect of development, regeneration, and cancer. Because of their relevance to the establishment and maintenance of tissue form and function, bioelectric patterns have been hypothesized to have a role in aging. However, no data on bioelectric patterns of the whole body of young and old individuals have been available.\nMethods: We observed and quantified the bioelectrics of whole-body immortal (growing at 22°C) and aging mortal (growing at 10°C) cold-sensitive Hydra oligactis.\nResults: We found that the membrane-voltage-sensitive dyes FluoVolt and VF2.1.Cl can be used to reveal large-scale patterns of cellular membrane resting voltage potentials in hydra. The consensus whole-body bioelectric atlas of immortal hydra shows a consistently depolarized foot and occasionally depolarized tentacles. Immortal hydra are, on average, more depolarized and exhibit less sharply defined bioelectric patterns than old mortal hydra. Immortal hydra have a sharper foot:central body ratio than old mortal hydra.\nConclusions: These data establish hydra as the first model system in which whole-body bioelectric imaging can be performed; the different bioelectric patterns of immortal versus old mortal hydra are consistent with a bioelectric component to the aging process and suggest a roadmap for using this model organism in antiaging therapeutic screens involving electroceuticals.",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Abstract",
+    "semantic_topic": "Study overview: bioelectric patterns in immortal and aging hydra, using voltage-sensitive dyes.",
+    "page_estimate": null
+  },
+  {
+    "text": "Aging presents as a severe, progressive reduction in functional capacity and quality of life with a 100% penetrance.1,2 It also presents fascinating fundamental questions in evolutionary, cell, and developmental biology with respect to the algorithms implemented by living tissues to maintain form and function against disorder.3–12 Numerous theories of the underlying molecular causes of aging have been proposed.13-21 One set of approaches focuses on the progressive degradation of developmental information-cues that allow tissues to maintain a complex morphology for decades while materials and individual cells move in and out of the body. Since one key aspect of this information structure is maintained in bioelectrical gradients of resting potential across tissues, it has been suggested that degradation22-24 of specifically bioelectric information could be a cause of aging.25,26\nPatterns of cellular resting potential (Vmem) have been measured in a variety of embryonic, regenerative, and oncogenic contexts,27–31 due to the known role of developmental bioelectricity in regulating morphogenesis and cancer suppression.22,23 However, no data are currently available on large-scale bioelectric profiles during aging in vivo in any model species. This is a rate-limiting step in the development of electroceuticals for longevity. Moreover, additional bioelectricity-relevant approaches involve applying specific electromagnetic fields and pulsed electromagnetic fields to slow down aging,32-34 performing transcranial direct current stimulation and transcranial magnetic stimulation to improve the declining cognitive functions,35,36 regulating the body's ion channels with morphoceuticals25,37 or gero-electroceuticals,38 bioelectrically controlling stem cells such as their ability to differentiate or continue regenerating,39 and regulating the restoration of the body's aging bioelectrics with implantable and wearable bioelectronic devices.40 Evaluating, improving, and extending these pioneering approaches require a better understanding of the bioelectric pattern of young versus old individuals. Thus, we sought to establish a dataset on whole-body bioelectric imaging in a model system that is relevant for aging research.41–43",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Introduction",
+    "semantic_topic": "Background on aging research, the role of bioelectricity, and the need for whole-body bioelectric imaging.",
+    "page_estimate": 1
+  },
+  {
+    "text": "Hydra are relatively small freshwater invertebrates. They have endodermal and ectodermal tissues and can reproduce both sexually and asexually.44 They have been used as a model organism in many studies45 focusing on morphogenesis,46,47 environmental ecotoxicology,48,49 bacteriology,50 regeneration,1,41,51,52 biomechanics,53 evolution of multicellularity,54 morphogenesis and physiology,55,56 transplantation biology,45 tumor biology,57-59 whole-body neural and muscle activity via calcium imaging,60–63 apoptosis,43,64 and aging.42,65-71 Their body is transparent, enabling membrane voltage (Vmem)-sensitive dyes66-68 to easily penetrate and reveal cellular membrane voltage of the whole organism. At 22°C, cold-sensitive (CS) Hydra oligactis are immortal. However, at 10°C, CS H. oligactis begin to switch to sexual reproduction and produce ovaries and testes within 3–4 weeks.69,70 Within 30 days at 10°, CS H. oligactis undergo aging and eventually die by day 150.71 It is known that 80% of the human aging genes from the Human Ageing Genomic Resources (http://genomics.senescence.info) are conserved in hydra.42 Aging CS H. oligactis are less able to grab prey, perform spontaneous contractions, transfer food to their gut, and have fewer sperm and nurse cells after 2 months, fewer numbers of interstitial stem cells, and fewer epithelial cells.71 This makes CS H. oligactis an ideal model system in which to begin to test hypotheses about the role of bioelectrics in the aging process. However, the bioelectrics of whole-body immortal and aging hydra are unknown.\nWe established an imaging protocol for this species and tested the hypothesis that bioelectric patterns (nonhomogeneous spatial distributions of Vmem) would exist and would change with aging, especially becoming less crisp and more diffuse (degradation of prepattern as observed during some birth defects72). Moreover, we tested whether aging CS H. oligactis would be more or less hyperpolarized than immortal CS H. oligactis.",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Hydra as a model organism for aging research and the study's hypotheses regarding bioelectric patterns.",
+    "page_estimate": null
+  },
+  {
+    "text": "Methods\nHydra husbandry and shrimp maintenance\nWe obtained CS H. oligactis from Brigitte Galliot's Lab. We grew the hydra in media consisting of 0.294 g calcium chloride, 0.07 g magnesium sulfate, 0.08 g sodium bicarbonate (NaHCO3), and 0.004 g potassium chloride per 2 L of deionized (DI) water. We stored the hydra in 150 × 15 mm plastic Petri dishes (maximum 50 hydra per dish) in a light:dark 16:8 h cycle incubator at 22°C. We transferred the hydra to a new Petri dish with fresh liquid approximately every 2 weeks. We grew artemia shrimps in a plastic cone oxygenated with an air pump in a light:dark 16:8 h cycle incubator at 22°C. The plastic cone had ~300 mL of artemia brine shrimp media (25 g sodium chloride and 0.5 g NaHCO3 per 1 L of DI) and 0.5 g of artemia brine shrimp egg microcysts. We repeated the artemia brine shrimp growing process from artemia brine shrimp egg microcysts on Tuesdays and Fridays. We fed the hydra approximately one to four artemia brine shrimps per hydra on Mondays, Tuesdays, Thursdays, and Fridays.\nTesting for potential dye toxicity\nWe tested whether the FluoVolt dye is toxic to the hydra by observing their survival and phenotype after dyeing. Specifically, we collected the hydra from the 22°C incubator. We used five hydra per condition. We imaged the hydra under the Nikon SMZ1500 stereoscope. Then, for the treatment condition, we used the following volumes per hydra: FluoVolt (0.5 µL), power load (12.5 µL), Neuro Background Suppressor 10x (12.5 µL), and hydra media (224.5 µL). For the control, we used the following volumes per hydra: power load (12.5 µL), Neuro Background Suppressor 10× (12.5 μL), and hydra media (225 µL). We placed a hydra in 250 µL of the (control or treatment) solution in a well of a 24-well plate. After 5 min, we washed the well approximately five times with hydra media using a different plastic pipette each time. We imaged the hydra again under the Nikon SMZ1500 stereoscope and then once every day for up to 4 days. During these 4 days, when the hydra were not imaged under the Nikon SMZ1500 stereoscope, they were kept in the 22°C incubator.\nAging induction\nIn the beginning of the experiment, after a month since the beginning, after 2 months since the beginning, and after 3 months since the beginning, we imaged four hydra from a culture growing at 22°C and four hydra from a culture growing at 10°C. After 4 months since the beginning of the experiment, we imaged eight hydra from the culture growing at 22°C and eight hydra from the culture growing at 10°C.\nDyeing and imaging the hydra\nWe performed the following steps in order to dye and image the hydra.",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Methods",
+    "semantic_topic": "Detailed description of hydra husbandry, dye toxicity testing, aging induction, and imaging protocols.",
+    "page_estimate": 2
+  },
+  {
+    "text": "Image analysis of the aging experiment\nWe obtained the mean lifetime intensity and brightness whole-body images of each FluoVolt-dyed hydra from the LASX software.",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Image analysis of the aging experiment",
+    "semantic_topic": "Image analysis process for the aging experiment using LASX software.",
+    "page_estimate": 3
+  },
+  {
+    "text": "Consensus bioelectric map of the hydra\nTo make a bioelectric atlas/map of every hydra, we analyzed separately the mean lifetime intensity whole-body data of the immortal hydra versus the mean lifetime intensity whole-body data of the old mortal hydra.",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Consensus bioelectric map of the hydra",
+    "semantic_topic": "Creation of a bioelectric atlas by comparing immortal and mortal hydra image data.",
+    "page_estimate": 3
+  },
+  {
+    "text": "Image analysis of the VF2.0.Cl-dyed versus VF2.1.Cl-dyed versus FluoVolt-dyed hydra\nWe dyed 3 three-and-a-half-month-old hydra for 5 min with 250 µL of the following solution (1.5 µL of the VF2.1.Cl dye from a 1 mM stock solution,75 37.5 µL of power load, 37.5 µL of Neuro Background Suppressor 10×, and 673.5 µL of hydra media).",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Image analysis of the VF2.0.Cl-dyed versus VF2.1.Cl-dyed versus FluoVolt-dyed hydra",
+    "semantic_topic": "Comparison of imaging results using different voltage-sensitive dyes (VF2.0.Cl, VF2.1.Cl, FluoVolt).",
+    "page_estimate": 3
+  },
+  {
+    "text": "Statistical analyses\nWe performed all statistical analyses in R version 4.4.0.76",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Statistical analyses",
+    "semantic_topic": "Statistical analysis methods using R version 4.4.0.",
+    "page_estimate": 4
+  },
+  {
+    "text": "Results\nHydra survive the dyeing protocol with no consistent deformities\nIn order to test whether the FluoVolt dye that we used is toxic to the hydra, we compared the survival and phenotypes of hydra exposed to FluoVolt + power load + Neuro Background Suppressor 10× + hydra media versus power load + Neuro Background Suppressor 10× + hydra media.\nV_mem-sensitive dye reveals relative membrane voltage of every cell along the hydra's body\nIn order to determine whether we can use immortal and mortal hydra as a model system to see the relative membrane voltage of every cell, we ran an imaging protocol with the V_mem-sensitive dye FluoVolt.\nV_mem-sensitive dyes FluoVolt and VF2.1.Cl show relative membrane voltage and not artifacts\nIn order to test whether the V_mem-sensitive dyes FluoVolt and VF2.1.Cl do report relative membrane voltage of hydra cells, we compared the average arrival time of old mortal hydra dyed with FluoVolt, VF2.1.Cl, or the V_mem-insensitive dye VF2.0.Cl.",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Results",
+    "semantic_topic": "Key findings: dye non-toxicity, voltage detection capability, and validation of voltage-sensitive dyes.",
+    "page_estimate": 4
+  },
+  {
+    "text": "Immortal hydra have bioelectrically distinct body parts\nIn order to find the consensus bioelectric atlas of immortal hydra, we imaged hydra growing at 22°C with the V_mem-sensitive dye FluoVolt.\nHydra age at 10°C\nIn order to confirm whether hydra age at 10°C, we looked for ovaries or testes on the body of the hydra since gametogenesis in these hydra is a sign of irreversible aging.70,82\nAging hydra have bioelectrically different bodies than immortal hydra\nIn order to test whether aging and immortal hydra have bioelectrically distinct bodies, we grew cultures of hydra in 10°C versus 22°C incubators for 4 months and imaged the relative membrane voltage across the hydras' bodies using the V_mem-sensitive dye FluoVolt.",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": null,
+    "semantic_topic": "Bioelectric differences between immortal and aging hydra, and confirmation of aging at 10°C.",
+    "page_estimate": 5
+  },
+  {
+    "text": "Discussion\nThis study provides a consensus whole-body bioelectric atlas of living immortal and mortal hydra. We confirmed that hydra were aging at 10°C since they had formed ovaries/testes within 78 days, an indication that this strain is undergoing irreversible aging.70,82",
+    "source_title": "The Bioelectrics of Immortality and Mortality in Cold-Sensitive Hydra oligactis",
+    "year": 2025,
+    "section_header": "Discussion",
+    "semantic_topic": "Discussion of the study's findings and the creation of a bioelectric atlas for hydra.",
+    "page_estimate": 5
+  }
+]
