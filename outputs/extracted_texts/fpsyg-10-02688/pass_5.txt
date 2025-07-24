@@ -96,6 +96,7 @@ few brief remarks at the end, no claims about consciousness
 all of the examples concern functional, third-person, objective
 capacities, computations, and behaviors.
 
+
 [PAGE 3] WHAT IS A SELF? DEFINING
 "INDIVIDUALS"
 
@@ -163,7 +164,6 @@ scale) structures observed in the biosphere and for understanding
 the shifting (not fixed) boundaries between Self and environment
 that can change within the timeline of a single individual (not
 only on evolutionary timescales).
-
 
 [PAGE 4] BODY PATTERNING AND COGNITION:
 A COMMON ORIGIN
@@ -265,6 +265,8 @@ unexpected starting states. For example, when tadpoles are
 perturbed in the laboratory such that their craniofacial organs
 are in abnormal positions, they still make largely normal frog
 faces because eyes, jaws, and other structures move around in
+
+[PAGE 5] 
 un-natural paths and only stop when a "correct frog face
 configuration" is reached (Vandenberg et al., 2012; Pinet and
 McLaughlin, 2019). Similarly, salamander tails grafted to the
@@ -316,7 +318,7 @@ whether deterministic or stochastic, is an essential component
 of the evolution of complex forms and will be a central
 component of a proposed definition of a Self.
 
-[PAGE 5] The empirical utility of pursuing metaphors based on the
+The empirical utility of pursuing metaphors based on the
 parallels between adaptive whole organism behavior and the
 plasticity of cellular activity during construction and repair
 of a body is discussed in detail elsewhere (Pezzulo and Levin,
@@ -383,6 +385,7 @@ think about how an integrated Self can be formed and how
 its boundaries are maintained or altered during its lifetime
 and within evolutionary timescales.
 
+
 [PAGE 6] MULTICELLULARITY VS. CANCER: THE
 SHIFTING BOUNDARY OF THE SELF
 
@@ -444,7 +447,8 @@ not the cells themselves. Shrinking their Self reduces the ability
 to work toward temporally distant goals (reduces their temporal
 horizon of concern) and, together with the inability to
 
-[PAGE 7] communicate as part of a distributed electrical network, makes
+[PAGE 7] 
+communicate as part of a distributed electrical network, makes
 them literally short-sighted - undertaking activity that will
 result in death of themselves as well as of the organism (except
 in the very rare cases of transmissible tumors). This view predicts
@@ -503,6 +507,7 @@ some see a tumor as its own organ (Egeblad et al., 2010),
 which can take over other cell types (Gabrilovich, 2017) in
 the same way that embryonic instructor cells control others
 in normal development (Vieira and McCusker, 2019). These
+
 
 [PAGE 7] DEFINING INDIVIDUATION FROM A
 COGNITIVE PERSPECTIVE
@@ -576,7 +581,8 @@ but are linked to future positive and negative outcomes by
 past experience (indirect causal connections stretching across
 body distance and life history).
 
-[PAGE 8] Others have already made the link between associative learning
+[PAGE 8] 
+Others have already made the link between associative learning
 and the emergence of self (Ginsburg et al., 2019). Very complex
 selves can have preferences about abstract states that are very far
 away indeed (such as human beings who are genuinely troubled
@@ -636,6 +642,7 @@ to be explored.
 Clearly, much more work is needed to fully flesh out this
 rubric in a way that makes it immediately applicable in ethology,
 AI, and artificial life. One implication of this view is that there
-is not necessarily one unique primary level of organization;
-rather, Individuals existing at different levels in a given system
-can be putatively revealed by experiment
+
+[PAGE 8] THE AGENT'S EVOLUTIONARY BACK-
+STORY: SCALING OF INFORMATION BY
+BIOELECTRIC

@@ -65,7 +65,7 @@ computation time, discretize a filament or a microswimmer by inter-
 connected beads where hydrodynamic interactions are captured in the
 
 [PAGE 2] Results and discussion
-[PAGE 2] The N-bead swimmer model
+The N-bead swimmer model
 
 Here, we investigate swimming strategies optimized by RL and the corre-
 sponding physical implications of N-bead generalized NG³5 swimmer
@@ -73,7 +73,7 @@ models moving in a fluid of viscosity μ. A swimmer consists of N co-
 centrically aligned spheres of radius R located at positions x₁(t₁), i = 1..., N,
 at time tk. These beads are connected pairwise by massless arms of length
 li(tk) = Xi+1(tk) - xi(tk), as illustrated in Fig. 1a. The swimmer deforms and
-moves by applying time-dependent forces F₁(tk) = F(tk) + F(tk) on the
+moves by applying time-dependent forces Fi(tk) = F(tk) + F(tk) on the
 beads. The active forces F(tk) are proposed by RL agents (see below), and
 passive restoring forces¹ºF(tr) are applied when arm lengths li(tk) becomes
 smaller than 0.7L, or lager than 1.3L0, where we choose Lo = 10R as
@@ -83,8 +83,7 @@ v₁ = F;/(6πμR) + ∑j≠iF;/(4πμ|x; − x;|), (see the “Hydrodynamic int
 and numerical details for the N-bead swimmer model" subsection in the
 "Methods").
 
-
-[PAGE 2] Modeling system-level decision-making with decentralized
+Modeling system-level decision-making with decentralized
 controllers
 
 To identify the active forces F(tk) on the beads, we assign an ensemble of
@@ -123,10 +122,6 @@ all, but it is an emergent phenomenon of the inherent decentralized
 decision-making of the system. Thus, the collective nature of the pro-
 posed swimming policies renders the evolved locomotive strategies
 
-[PAGE 6] Large-scale coordination leads to efficient locomotion
-
-In our approach, we limit the maximum forces on each of the beads and,
-thus, the maximum bead velocities. This procedure is somewhat similar
 
 [PAGE 7] Robust- and failure tolerant locomotion and cargo transport
 without re-training
@@ -162,9 +157,14 @@ activations of adjacent muscles. Via genetic algorithms, we have optimized
 such single-bead decision-making centers to collectively facilitate highly
 efficient swimming gaits on the system level of the NG swimmer.
 
+In that way, we have identified locomotion strategies for increasingly
+large microswimmer bodies, ranging from N = 3 to N = 100, with hydro-
+dynamic efficiencies of up to η ≈ 1.5%, close to that of real biological
+microswimmers; to the best of our knowledge, this is the first demonstration
+of successfully training an (N = 100)-bead microswimmer.
 
 [PAGE 10] Methods
-[PAGE 10] Hydrodynamic interactions and numerical details for the N-bead
+Hydrodynamic interactions and numerical details for the N-bead
 swimmer model
 
 The microswimmer consists of N hydrodynamically interacting beads
@@ -172,30 +172,3 @@ located at positions x₁(tk), i = 1, ..., N, at time tk. The bead positions cha
 over time by applying forces F;(tr), consisting of active (F(tr)) and passive
 (F(tk)) contributions. At time to the velocities of the beads vi(tk) depend
 linearly on the applied forces through the mobility tensor M(tk):
-vi(tk) = ∑;M(tk)F;(tr). Self-mobilities are given by Stokes' formula
-Μ₁₁ = 1/(6πμŔ), while cross-mobilities describe hydrodynamic interac-
-tions, which we consider in the far-field limit in the Oseen approximation:
-Mij(tk) = 1/(4πμ|x;(tk) – x;(tk)|). Active forces F(tk) are applied as
-described in the main text. We apply passive harmonic spring forces as
-
-[PAGE 10] Artificial neural network-based decentralized controllers
-
-Mimicking the flexible operations of biological neural circuits, ANNs
-consisting of interconnected Artificial Neurons (ANs) have become
-invaluable numerical tools for statistical learning applications". Each AN
-takes a set of inputs, x ∈ R”, and maps them onto a single output value,
-
-[PAGE 11] Genetic algorithm and neuroevolution of single-agent policies
-with collective goals
-
-Genetic Algorithms (GAs) are heuristic optimization techniques inspired
-by the process of natural selection. In GAs, a set (or a population) of size
-Np, X = {01, ..., 0, }, of sets of parameters (or individuals), θ; e∈ Ro,
-
-[PAGE 11] Swimming-gait analysis
-
-In the “Transferable evolved policies: decentralized decision-making gen-
-eralizes to arbitrary morphologies" subsection of the "Results and Discus-
-
-[PAGE 11] Data availability
-[PAGE 11] Code availability

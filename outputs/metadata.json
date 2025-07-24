@@ -1,45 +1,196 @@
 {
   "papers": {
-    "bioe.2024.0006.pdf": {
-      "original_filename": "bioe.2024.0006.pdf",
-      "descriptive_name": "levin_Bioelectricity_in_Development_Regeneration_and_Can_2023_Pai",
+    "load051.pdf": {
+      "original_filename": "load051.pdf",
+      "descriptive_name": "levin_The_energetics_of_cellular_life_transitions_2024_Monzel",
       "metadata": {
-        "title": "\u2018\u2018Bioelectricity in Development, Regeneration, and Cancers\u2019\u2019 Cell Bio 2023: A Joint Meeting of the American Society of Cell Biology and European Molecular Biology Organization",
+        "title": "The energetics of cellular life transitions",
         "authors": [
-          "Vaibhav P. Pai",
-          "GuangJun Zhang",
-          "Michael Levin"
+          "Anna S. Monzel",
+          "Michael Levin",
+          "Martin Picard"
         ],
-        "year": 2023,
-        "journal": "Bioelectricity",
+        "year": 2024,
+        "journal": "Life Metabolism",
         "is_levin_paper": true
       },
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:10:42.300472"
+          "timestamp": "2025-07-24T15:18:00.118290"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:12:06.542432",
+          "timestamp": "2025-07-24T15:20:15.606748",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051",
+          "validation": {
+            "faithfully_transcribed": false,
+            "missing_segments": [
+              "Missing: Journal information (Life Metabolism, 2024, 3(3), load051, DOI, Publication date, Copyright information, Open Access license information, Received/Revised/Accepted dates)",
+              "Missing: 'Perspective' section header",
+              "Added: 'D' after Anna S. Monzel's name.",
+              "Missing: Soft hyphen in 'oxida\u00adtive'",
+              "Added: '[PAGE 1]' before 'Abstract'",
+              "Incomplete sentence at the end: '...and (i'"
+            ]
+          }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:21:31.819874",
+          "num_chunks": 19,
+          "chunks_file": "outputs/extracted_texts/load051/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:21:33.691288",
+          "num_embeddings": 19,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/load051/embeddings.json"
+        }
+      }
+    },
+    "load051 copy.pdf": {
+      "original_filename": "load051 copy.pdf",
+      "descriptive_name": "levin_The_energetics_of_cellular_life_transitions_2024_Monzel",
+      "metadata": {
+        "title": "The energetics of cellular life transitions",
+        "authors": [
+          "Anna S. Monzel",
+          "Michael Levin",
+          "Martin Picard"
+        ],
+        "year": 2024,
+        "journal": "Life Metabolism",
+        "is_levin_paper": true
+      },
+      "steps": {
+        "metadata_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:42:18.600455"
+        },
+        "text_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:44:52.312349",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051 copy.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051 copy",
+          "validation": {
+            "faithfully_transcribed": false,
+            "missing_segments": [
+              "Missing header information: Journal name, volume, issue, DOI, publication date, copyright information, license information, received/revised/accepted dates.",
+              "Missing the word 'Perspective' which designates the article type.",
+              "Extra 'D' after Anna S. Monzel's name.",
+              "Missing page numbers after affiliations in the original PDF although it is present in the extraction as '[PAGE 1]' at the beginning of the abstract",
+              "Potentially missing text at the end of the abstract due to character limit.  The original text ends mid-sentence with 'and (i', while the extracted text ends mid-sentence with 'and (i'"
+            ]
+          }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:46:09.236818",
+          "num_chunks": 16,
+          "chunks_file": "outputs/extracted_texts/load051 copy/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:46:10.110250",
+          "num_embeddings": 16,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/load051 copy/embeddings.json"
+        }
+      }
+    },
+    "bioe.2024.0006.pdf": {
+      "original_filename": "bioe.2024.0006.pdf",
+      "descriptive_name": "levin_Bioelectricity_in_Development_Regeneration_and_Can_2024_Pai",
+      "metadata": {
+        "title": "Bioelectricity in Development, Regeneration, and Cancers",
+        "authors": [
+          "Vaibhav P. Pai",
+          "GuangJun Zhang",
+          "Michael Levin"
+        ],
+        "year": 2024,
+        "journal": "Bioe",
+        "is_levin_paper": true
+      },
+      "steps": {
+        "metadata_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:42:19.216683"
+        },
+        "text_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:43:47.376402",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/bioe.2024.0006.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/bioe.2024.0006",
+          "validation": {
+            "faithfully_transcribed": true,
+            "missing_segments": [
+              "Meeting Report text at the top of the PDF",
+              "QR code reference",
+              "Superscript numbers after author names and some footnote markers like the one after TRPC3"
+            ]
+          }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:44:37.659190",
+          "num_chunks": 15,
+          "chunks_file": "outputs/extracted_texts/bioe.2024.0006/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:44:38.649047",
+          "num_embeddings": 15,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/bioe.2024.0006/embeddings.json"
+        }
+      }
+    },
+    "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf": {
+      "original_filename": "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf",
+      "descriptive_name": "levin_The_collective_intelligence_of_evolution_and_devel_2023_Watson",
+      "metadata": {
+        "title": "The collective intelligence of evolution and development",
+        "authors": [
+          "Richard Watson",
+          "Michael Levin"
+        ],
+        "year": 2023,
+        "journal": "Collective Intelligence",
+        "is_levin_paper": true
+      },
+      "steps": {
+        "metadata_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:42:19.264582"
+        },
+        "text_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:51:56.861233",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
               "Failed to parse validation response"
             ]
-          },
-          "consensus_reprocessed": {
-            "timestamp": "2025-07-23T18:45:25.715685",
-            "num_passes_used": 5
           }
         },
         "semantic_chunking": {
           "completed": true,
-          "timestamp": "2025-07-23T19:52:05.000000",
+          "timestamp": "2025-07-24T15:53:08.239384",
           "num_chunks": 13,
-          "chunks_file": "outputs/extracted_texts/bioe.2024.0006/semantic_chunks.json"
+          "chunks_file": "outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:53:08.902306",
+          "num_embeddings": 13,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development/embeddings.json"
         }
       }
     },
@@ -53,31 +204,38 @@
           "Michael Levin"
         ],
         "year": 2025,
-        "journal": "Trends Genet.",
+        "journal": "Trends Genet",
         "is_levin_paper": true
       },
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:10:42.980103"
+          "timestamp": "2025-07-24T15:42:19.270444"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:13:46.289429",
+          "timestamp": "2025-07-24T15:44:34.904099",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/PIIS0168952525000770.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/PIIS0168952525000770",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "The Highlights section is missing from the consensus text.",
-              "The figure captions are missing from the consensus text.",
-              "The 'Outstanding questions' section is missing from the consensus text."
+              "Failed to parse validation response"
             ]
-          },
-          "consensus_reprocessed": {
-            "timestamp": "2025-07-23T18:46:01.290317",
-            "num_passes_used": 5
           }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:45:27.981091",
+          "num_chunks": 13,
+          "chunks_file": "outputs/extracted_texts/PIIS0168952525000770/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:45:29.031706",
+          "num_embeddings": 13,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/PIIS0168952525000770/embeddings.json"
         }
       }
     },
@@ -96,29 +254,36 @@
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:10:43.305539"
+          "timestamp": "2025-07-24T15:42:20.237046"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:20:48.525414",
+          "timestamp": "2025-07-24T15:50:53.375170",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/fpsyg-10-02688.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/fpsyg-10-02688",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "The PDF includes publication information (journal, date, volume, article number, DOI) and author information (affiliation, ORCID) that are missing from the consensus text.",
-              "The figure captions for Figure 1 and Figure 2, as well as the figures themselves, are absent in the consensus text.",
-              "The keywords listed at the end of the abstract ('development, bioelectricity, gap junctions, primitive cognition, active inference') are not present in the consensus.",
-              "The 'Summary of key ideas of Scale-Free Cognition' box from the PDF is missing from the consensus.",
-              "The funding and acknowledgment sections, along with the conflict of interest statement, are not included in the consensus text.",
-              "The discussion section 'WHAT DOES IT FEEL LIKE TO BE A PANCREAS?', and the predictions and research program are also missing.",
-              "The reference list is missing from the consensus text."
+              "Missing header information (journal, date, volume, article number, DOI, author affiliations, etc.)",
+              "Missing references and citations",
+              "Missing or incomplete author information (affiliation details, ORCID)",
+              "Potentially truncated text at the end of the extracted consensus text (mid-sentence)",
+              "Missing formatting (bolding, italics)"
             ]
-          },
-          "consensus_reprocessed": {
-            "timestamp": "2025-07-23T18:48:39.983947",
-            "num_passes_used": 5
           }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:52:15.847003",
+          "num_chunks": 9,
+          "chunks_file": "outputs/extracted_texts/fpsyg-10-02688/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:52:16.905657",
+          "num_embeddings": 9,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/fpsyg-10-02688/embeddings.json"
         }
       }
     },
@@ -136,33 +301,44 @@
           "Cody Rasmussen-Ivey"
         ],
         "year": 2024,
-        "journal": "Digit. Discov.",
+        "journal": "Digital Discovery",
         "is_levin_paper": true
       },
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:10:43.313755"
+          "timestamp": "2025-07-24T15:44:40.435024"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:12:26.197103",
+          "timestamp": "2025-07-24T15:47:44.548287",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/d3dd00185g.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/d3dd00185g",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "The Acknowledgements section is missing from the consensus text.",
-              "The References section is missing from the consensus text.",
-              "The Author contributions section is missing.",
-              "The Conflicts of interest section is missing.",
-              "The Data availability statement is incomplete."
+              "Missing title and author information from the journal header.",
+              "Missing journal name, volume, issue, page numbers, and ISSN.",
+              "Missing the abstract paragraph that starts with \"Artificial intelligence is a powerful tool...\".",
+              "The extracted text starts directly with the introduction section, skipping preceding content.",
+              "Missing Figure 1 referenced in the extracted text.",
+              "Footnotes/references are missing (e.g., superscript numbers in the original text).",
+              "Potential OCR errors (e.g., superscript 'a' and 'b' for author affiliations are rendered incorrectly as '\u00aa' and '\u266d')."
             ]
-          },
-          "consensus_reprocessed": {
-            "timestamp": "2025-07-23T18:45:08.725077",
-            "num_passes_used": 5
           }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:48:08.729361",
+          "num_chunks": 8,
+          "chunks_file": "outputs/extracted_texts/d3dd00185g/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:48:09.413049",
+          "num_embeddings": 8,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/d3dd00185g/embeddings.json"
         }
       }
     },
@@ -180,34 +356,42 @@
           "Michael Levin"
         ],
         "year": 2025,
-        "journal": "",
+        "journal": "No journal information provided",
         "is_levin_paper": true
       },
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:12:09.566277"
+          "timestamp": "2025-07-24T15:45:32.623616"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:13:22.256574",
+          "timestamp": "2025-07-24T15:48:33.289105",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/kapsetaki-et-al-2025-the-bioelectrics-of-immortality-and-mortality-in-cold-sensitive-hydra-oligactis.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/kapsetaki-et-al-2025-the-bioelectrics-of-immortality-and-mortality-in-cold-sensitive-hydra-oligactis",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "Missing detailed description of Dyeing and imaging the hydra from the Methods section.",
-              "Missing Image analysis section describing steps using ImageJ and provided supplementary data files.",
-              "Missing details about the image analysis performed in  'Image analysis of the VF2.0.Cl-dyed versus VF2.1.Cl-dyed versus FluoVolt-dyed hydra' from the Methods section.",
-              "The Results section is missing substantial content including specific findings related to dye toxicity, observations of ovaries/testes,  details on membrane voltage differences, specific p-values from statistical tests, and details about the variability observed in the replicates.",
-              "The Discussion section is missing several important paragraphs discussing topics such as prior efforts in bioelectric mapping, limitations of the data, discussion of dye toxicity, variability across animals, relationship between polarization level and aging in different organisms, and directions for future research including specific questions about ion channels, cell groups, and the association between aging-related physiologies and bioelectric patterns.",
-              "Missing Supplementary Material references."
+              "Author information is missing.",
+              "Keywords are missing.",
+              "The temperature values in the methods section are incorrectly transcribed (22/C176 C and 10/C176 C should be 22\u00b0C and 10\u00b0C).",
+              "The formatting of some words like \"quanti\ufb01ed\" and \"\ufb01rst\" is incorrect in the original PDF and is corrected/standardized in the consensus text.",
+              "Potential issue with truncation: the original PDF text continues beyond the provided 2000 characters, but it's unclear if the consensus text includes everything or is also truncated.  Further comparison is needed to confirm completeness."
             ]
-          },
-          "consensus_reprocessed": {
-            "timestamp": "2025-07-23T18:45:18.024396",
-            "num_passes_used": 5
           }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:48:51.826646",
+          "num_chunks": 5,
+          "chunks_file": "outputs/extracted_texts/kapsetaki-et-al-2025-the-bioelectrics-of-immortality-and-mortality-in-cold-sensitive-hydra-oligactis/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:48:52.616216",
+          "num_embeddings": 5,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/kapsetaki-et-al-2025-the-bioelectrics-of-immortality-and-mortality-in-cold-sensitive-hydra-oligactis/embeddings.json"
         }
       }
     },
@@ -228,25 +412,34 @@
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:12:40.670334"
+          "timestamp": "2025-07-24T15:46:26.317231"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:16:36.307179",
+          "timestamp": "2025-07-24T15:50:16.079060",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/s42005-025-02101-5.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/s42005-025-02101-5",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "The consensus text is missing figure 1, 2, 3, 4, 5, 6, 7, and 8.",
-              "The Methods section is missing from the consensus text.",
-              "Missing the acknowledgement, author contribution, competing interest, additional information, data availability, code availability, references, and open access license sections"
+              "Missing initial lines: 'communicationsphysics Article', 'A Nature Portfolio journal', 'https://doi.org/10.1038/s42005-025-02101-5', 'Check for updates'",
+              "Superscript reference numbers are missing proper formatting (e.g., '\u00b9\u207b\u2074' instead of superscript).",
+              "The extracted text includes extra content towards the end '...To thrive in the environment, they have developed different tailored strategies to exploit their swimming capabilities, such as actively navigating tow...' that is cut off and doesn't match the provided original PDF snippet."
             ]
-          },
-          "consensus_reprocessed": {
-            "timestamp": "2025-07-23T18:46:32.926199",
-            "num_passes_used": 5
           }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:53:10.036251",
+          "num_chunks": 20,
+          "chunks_file": "outputs/extracted_texts/s42005-025-02101-5/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T15:53:11.117730",
+          "num_embeddings": 20,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/s42005-025-02101-5/embeddings.json"
         }
       }
     },
@@ -266,104 +459,47 @@
       "steps": {
         "metadata_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:13:23.764432"
+          "timestamp": "2025-07-24T15:48:10.968190"
         },
         "text_extraction": {
           "completed": true,
-          "timestamp": "2025-07-23T18:14:44.963993",
+          "timestamp": "2025-07-24T15:49:37.662394",
           "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/Life  its origin  and its distribution  a perspective from the Conway-Kochen Theorem and the Free Energy Principle.txt",
           "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/Life  its origin  and its distribution  a perspective from the Conway-Kochen Theorem and the Free Energy Principle",
           "validation": {
             "faithfully_transcribed": false,
             "missing_segments": [
-              "Missing Figure 1 which describes the interaction and causality in special relativity relevant to the CK theorem.",
-              "Missing Figure 2 which shows the decomposition of an isolated system U into components S and E, along with their interactions and boundaries, as relevant to the FEP.",
-              "The detailed explanation of the FEP framework, including the discussion of Markov Blankets and holographic screens in distinguishing systems from environments, and the role of Hamiltonian operators H_SE, H_S, and H_E, is missing or significantly condensed.",
-              "The discussion of specific examples challenging the definition of life, such as organic-chemistry-based systems (DNA, proteins, viruses) and the dependence of organisms on their environment, is missing.",
-              "The discussion of the Earth as a complex cognitive system ('Life as we know it' and Gaia) and the challenges of communicating with such a system is absent.",
-              "The explanation of a physical system as an information processor with multiple possible interpretations, leading to scale- and description-dependent causal emergence, is missing.",
-              "The nuanced discussion on the probability of recognizing extraterrestrial signals (P(r|s)) and the implications for the Drake equation and the Fermi paradox is simplified.",
-              "The concluding paragraph discussing the practical replacement of the OOL problem with recognizing and interacting with diverse intelligences is significantly shortened.",
-              "Author contributions, Funding information, Data availability statement and ORCID are missing."
+              "Missing header information including journal name, ISSN, DOI, publication date, authors' affiliations, article views, and other metadata.",
+              "Missing or incomplete references (e.g., citing articles section is missing its content).",
+              "Missing Crossmark data link.",
+              "Missing 'Full Terms & Conditions' link.",
+              "Potentially missing content between abstract and introduction (page numbering suggests a gap).",
+              "Incorrect page numbering inserted into the extracted text ('[PAGE 2]' appearing multiple times)."
             ]
-          },
-          "consensus_reprocessed": {
-            "timestamp": "2025-07-23T18:45:52.505046",
-            "num_passes_used": 5
           }
-        }
-      }
-    },
-    "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf": {
-      "original_filename": "watson-levin-2023-the-collective-intelligence-of-evolution-and-development.pdf",
-      "descriptive_name": "levin_The_collective_intelligence_of_evolution_and_devel_2023_Watson",
-      "metadata": {
-        "title": "The collective intelligence of evolution and development",
-        "authors": [
-          "Richard Watson",
-          "Michael Levin"
-        ],
-        "year": 2023,
-        "journal": "Collective Intelligence",
-        "is_levin_paper": true
-      },
-      "steps": {
-        "metadata_extraction": {
-          "completed": true,
-          "timestamp": "2025-07-23T18:29:06.073937"
         },
-        "text_extraction": {
+        "semantic_chunking": {
           "completed": true,
-          "timestamp": "2025-07-23T18:40:55.763734",
-          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development.txt",
-          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/watson-levin-2023-the-collective-intelligence-of-evolution-and-development",
-          "validation": {
-            "faithfully_transcribed": false,
-            "missing_segments": [
-              "The figure (Figure 1) illustrating the perspectives on individual and collective intelligence is missing.",
-              "The entire table (Table 1) discussing the relationships needed to turn a society into an individual, along with its associated text, is missing.",
-              "The Appendix section, including Box 1 about the Hopfield network and Figure A1 illustrating its architecture, is missing."
-            ]
-          }
-        }
-      }
-    },
-    "load051.pdf": {
-      "original_filename": "load051.pdf",
-      "descriptive_name": "levin_The_energetics_of_cellular_life_transitions_2024_Monzel",
-      "metadata": {
-        "title": "The energetics of cellular life transitions",
-        "authors": [
-          "Anna S. Monzel",
-          "Michael Levin",
-          "Martin Picard"
-        ],
-        "year": 2024,
-        "journal": "Life Metab",
-        "is_levin_paper": true
-      },
-      "steps": {
-        "metadata_extraction": {
-          "completed": true,
-          "timestamp": "2025-07-23T19:24:44.684525"
+          "timestamp": "2025-07-24T15:50:32.898784",
+          "num_chunks": 17,
+          "chunks_file": "outputs/extracted_texts/Life  its origin  and its distribution  a perspective from the Conway-Kochen Theorem and the Free Energy Principle/semantic_chunks.json"
         },
-        "text_extraction": {
+        "vector_embedding": {
           "completed": true,
-          "timestamp": "2025-07-23T19:27:15.364348",
-          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051.txt",
-          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/load051",
-          "validation": {
-            "faithfully_transcribed": false,
-            "missing_segments": [
-              "Missing header information including journal name, volume, issue, DOI, publication date, copyright information, license details, received/revised/accepted dates.",
-              "Missing 'Perspective' category label.",
-              "Extra 'D' character after Anna S. Monzel's name.",
-              "Missing the last part of the abstract starting with 'and (ii)'.",
-              "Potential missing content after the abstract.  Comparison is limited by the character limit but the appearance of '[PAGE 1]' suggests there are further pages not included in the consensus text."
-            ]
-          }
+          "timestamp": "2025-07-24T15:50:33.778760",
+          "num_embeddings": 17,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/Life  its origin  and its distribution  a perspective from the Conway-Kochen Theorem and the Free Energy Principle/embeddings.json"
         }
       }
+    }
+  },
+  "global_steps": {
+    "faiss_index": {
+      "completed": true,
+      "timestamp": "2025-07-24T15:53:11.223033",
+      "papers_with_embeddings": 10,
+      "total_papers": 10
     }
   }
 }

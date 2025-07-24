@@ -6,11 +6,11 @@ developmental bioelectricity
 The scientific enterprise depends critically not only on the skills
 needed to definitively test crisp hypotheses,1-7 but also on the
 much less well-understood step of acquiring insights and
-fruitful research directions.⁸ Many recent discussions¹⁰,¹¹ have
+fruitful research directions.” Many recent discussions 10,11 have
 focused on the fact that while modern "big data" methods are
 generating a deluge of facts and measurements, it is increas-
 ingly more important to be “building the edifice of science, in
-addition to throwing bricks into the yard".¹² In other words, it is
+addition to throwing bricks into the yard". 12 In other words, it is
 essential that we develop strategies for deriving novel insights
 and deep hypotheses that cross traditional (in many cases,
 artificial) boundaries between disciplines. We must improve, at
@@ -22,15 +22,15 @@ research literature and thus motivate and enhance new research
 programs (Fig. 1).
 One set of tools that is being rapidly developed and ubiqui-
 tously deployed originates in the advances of the field of arti-
-ficial intelligence.¹³⁻¹⁵ Machine learning is clearly poised to help
-science.¹⁴,¹⁶⁻¹⁹ It is becoming widely recognized that “robot
+ficial intelligence.13-15 Machine learning is clearly poised to help
+science. 14,16-19 It is becoming widely recognized that “robot
 scientist" platforms can not only provide number crunching,
 automation, and high throughput, but could potentially also
-guide research by identifying what experiments to do next.²⁰⁻²²
+guide research by identifying what experiments to do next. 20-22
 Machine learning tools have been suggested to be essential for
-progress in the bioinformatics of shape²³⁻²⁶ (moving beyond
+progress in the bioinformatics of shape23-26 (moving beyond
 molecular information to understand organ- and organism-
-level form and function), and developmental biology.²⁷,²⁸ Not
+level form and function), and developmental biology.27,28 Not
 surprisingly, much emphasis is currently placed on improving
 the factuality of the output of AI tools; this parallels the well-
 developed notions of strong inference and hypothesis-testing
@@ -39,13 +39,13 @@ removing incorrect ideas. What is much less well-understood,
 but ultimately as crucial, is the process that provides a pool of
 interesting hypotheses from which to winnow until provisional
 truths are found. Our contribution attempts to bolster this
-second component of the scientific process – ideation – with
+second component of the scientific process ideation with
 a new AI-based tool for human scientists that provides input
 into the canonical scientific method.
 Recent work in this field includes the AI-based discovery of
-testable models of regenerative anatomical regulation,²⁹ which
-were subsequently empirically validated,³⁰ and similar efforts in
-genomics,²² chemistry³¹-³² and biomaterials.³³ One of the most
+testable models of regenerative anatomical regulation,29 which
+were subsequently empirically validated, 3º and similar efforts in
+genomics, 22 chemistry31,32 and biomaterials.33 One of the most
 potentially important current gaps is the paucity of tools for
 assisting with the most creative aspect of the work: identifying
 deep commonalities between disparate functional datasets, to
@@ -59,21 +59,14 @@ research programs.
 discovery would be most welcome is real-time physiology that
 controls form and function in vivo. How large-scale anatomy and
 behavior arises from the operation of molecular processes is
-a canonical systems biology problem.⁶⁴ It is currently handled by
+a canonical systems biology problem.“ It is currently handled by
 two distinct fields, with their own educational tracks, confer-
 ences, journals, funding bodies, and paradigms: neuroscience
 and developmental biology. Interestingly however, recent work
 has suggested that these may share an important underlying set
-of dynamics.³⁵⁻³⁷ Neuroscience has long understood that
+of dynamics.35-37 Neuroscience has long understood that
 behavior and cognition are driven by the physiological informa-
 tion processing by neural networks, which signal via electrical
-events at their membranes.³⁸⁻⁴¹ Likewise, a long history of clas-
-sical work has suggested that bioelectric signaling of all kinds of
-cells is required as an instructive set of influences that help direct
-complex developmental and regenerative morphogenesis.⁴²⁻⁴⁴
-Interestingly, recent advances in the molecular understanding of
-developmental bioelectricity⁴⁵⁻⁴⁷ has begun to blur the bound-
-aries between those disciplines⁴⁸,⁴⁹ (Fig. 2).
 
 [PAGE 4] Methods
 We propose FieldSHIFT: a framework for domain translation
@@ -91,90 +84,56 @@ be taken to apply FieldSHIFT to other domains.
 [PAGE 5] Data
 As an exercise with students and other researchers, the Levin
 Lab has been translating neuroscience to development biology,
-by hand, for several decades. They'd do this by changing
-concepts like "brain" to "body", "millisecond" to "minute", and
-"neuron" to "cell". We collected 70 such translation pairs. Using
-these concept pairs, we constructed translations varying from
-one sentence to abstract-length paragraphs by matching
-neuroscience passages with corresponding developmental
-biology passages. These passages include a variety of text from
-
-
-[PAGE 6] facts about these scientific domains to recently published
-abstracts from neuroscience and developmental biology arti-
-cles. We collected 1437 translation samples in total. The average
-length of a sample input or output passage is 209 characters,
-and the standard deviation is 375. Below is an example pair
-pertaining to "brain” as the neuroscience concept and "body" as
-the developmental biology concept:
-Neuroscience: “The brain is a complex system of neurons that
-are interconnected by synapses."
-Developmental Biology: “The body is a complex system of cells
-that are interconnected by gap junctions."
-In addition to translations, in some cases we added the same
-developmental biology abstract as both input and output
-examples. The goal was to teach a model trained on these
-examples not to change anything in the case that development
-biology text is provided as input. The six abstracts (corre-
-sponding to papers⁶⁵⁻⁷⁰) we used in this way were selected by
-choosing developmental biology papers produced by the Levin
-Lab. We published the full dataset on Hugging Face for re-use
-by the community: https://huggingface.co/datasets/levinlab/
-neuroscience-to-dev-bio/tree/main.
-
 
 [PAGE 6] Domain translation with machine learning
 We implemented and tested two domain translation
 approaches for research paper abstracts using pretrained
 language models to identify a suitable backend model for
-FieldSHIFT. The first is inspired by neural machine translation
-(NMT) and abstractive summarization and uses the open-source
-BART⁷¹ pretrained Transformer language model (LM).⁷² The
-pretrained BART model is designed for summarizing text.
+FieldSHIFT. 
 
+[PAGE 7] Model training
+Here we describe the core ideas and training procedures for the
+two domain translation models we used within FieldSHIFT:
+fine-tuned BART and GPT-4.
+
+
+[PAGE 8] Model validation
+For each test concept in our domain translation dataset, we
+searched the term and chose the first abstract that included the
+term. 
 
 [PAGE 9] Results
 Comparing domain translators
 A quantitative evaluation of domain translation methods via
 human annotation suggests the effectiveness of ML-based
-domain translation. According to both annotators (annotator
-1 and 2), the GPT-4-based domain translator with self-critique
-generated good translations according to the annotation
-criteria for over half of the neuroscience abstracts provided.
+domain translation. 
 
+[PAGE 9] Bioinformatics
+We extracted the whole set of the unique genes related to gene
+ontologies 'Developmental process' (GO:0032502) and
+'Behavior' (GO:0007610) in humans, Drosophila, the zebrafish
+(Danio rerio), and the mice (Mus musculus) using Ensembl
+
+[PAGE 11] Hypothesis testing: molecular conservation between
+cognition and morphogenesis
+One clear hypothesis that can be generated by FieldSHIFT is
+that the molecular mechanisms behind developmental
 
 [PAGE 12] Discussion
 Machine learning for domain translation
-We proposed FieldSHIFT, a framework for domain translation. To
-implement FieldSHIFT, we built a domain translation dataset and
-compared two ML approaches for domain translation using this
-data and expert evaluation of the translations. Expert evaluation
-identified that the GPT-4-based approach produced good trans-
-lations, leading to a useful hypothesis or insight about develop-
-mental biology, in about 20 out of every 33 tries.
-
+We proposed FieldSHIFT, a framework for domain translation.
 
 [PAGE 12] Bioelectricity: conserved mechanisms and algorithms
 between control of body and behavior
 It has been previously hypothesized that the algorithms of
-behavior (active inference, perceptual control, collective decision-
-making, memory and learning, navigation of problem spaces,
-preferences, pursuit of goal states with degrees of flexible
-response, etc.) are used to direct morphogenesis and may even
-derive from it evolutionarily.⁵⁵,⁵⁶,⁹⁹ Here, we produce a tool that
-
 
 [PAGE 12] Latent space of scientific papers
 We believe that this work is just the beginning of the AI-guided
-exploration of the latent space around scientific papers, in the
-sense of the "adjacent possible”.¹⁰⁰,¹⁰¹ Each real scientific paper in
 
 
 [PAGE 13] Limitations of the study and next steps
 One limitation of the study is the number of papers we were able to
-manually curate; the machine learning will improve as more
-papers are added in the future.
-
+manually curate; 
 
 [PAGE 13] Conclusion
 The increased overlap we observed between genes implicated in

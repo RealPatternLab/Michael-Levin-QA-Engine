@@ -5,6 +5,7 @@ Article
 Neuroevolution of decentralized decision-
 making in N-bead swimmers leads to
 scalable and robust collective locomotion
+
 Benedikt Hartl 1,2 Michael Levin 2,3 & Andreas Zöttl4
 
 Many microorganisms swim by performing larger non-reciprocal shape deformations that are initiated
@@ -69,8 +70,7 @@ computation time, discretize a filament or a microswimmer by inter-
 connected beads where hydrodynamic interactions are captured in the
 
 [PAGE 2] Results and discussion
-
-[PAGE 2] The N-bead swimmer model
+The N-bead swimmer model
 
 Here, we investigate swimming strategies optimized by RL and the corre-
 sponding physical implications of N-bead generalized NG³5 swimmer
@@ -88,7 +88,7 @@ v₁ = F;/(6πμR) + ∑j≠iF;/(4πμ|x; − x;|), (see the “Hydrodynamic int
 and numerical details for the N-bead swimmer model" subsection in the
 "Methods").
 
-[PAGE 2] Modeling system-level decision-making with decentralized
+Modeling system-level decision-making with decentralized
 controllers
 
 To identify the active forces F(tk) on the beads, we assign an ensemble of
@@ -101,50 +101,43 @@ tively self-propel the entire N-bead swimmer's body. More specifically-as
 illustrated in Fig. 1 and detailed in the "Artificial neural network-based
 decentralized controllers" subsection in the "Methods"-for each time to the
 controller associated with the bead i perceives its left- and right-neighbor
-distances, Li(tk) = {li(tk), li+1(tk)}, and its own- and the neighboring
-beads' velocities V₁(tk) = {vi−1(tk), vi(tk), vi+1(tk)}. Moreover, each bead
-maintains an internal vector-valued state, s₁(tr). This state can be utilized by
-the respective controller to store, update, and actively share recurrent
-information with other beads that is not necessarily bound to the physical
-state of the swimmer but an emergent property of the collective RL system:
-Every controller thus perceives its neighboring states,
-Si(tk) = {si-1(tk), S₁(tk), Si+1(tk)}, which additionally guide the agent's
-decision-making (see "Methods” and ref. 58 for details). In total, the per-
-ception of a single bead agent is given by p₁(tk) = {L₁(tk), V₁(tk), S;(tk)}
-and does not contain any agent-specific or global reward signals.
 
-After integrating information about its local environment, pi(tk), the
-controller of each bead i computes, and then outputs an action,
-ai(tk) = {$i(tk), ∆s₁(tk)}, comprising a proposed active force, $₁(tk), and an
-internal state update, si(tk+1) = si(tk) + ∆si(tk) (see Fig. 1b); this extends the
-purely state s₁-dependent inverse pattern formation task discussed in ref. 58
-with local perception-action loops in a hydrodynamic environment. The
-proposed forces are limited to $₁(tk) ∈ [-Fo, Fo] by clamping the controllers'
-force outputs to ±F0, where Fo sets the force scale in our system and hence
-the maximum power consumption and bead velocities of the swimmer.
+[PAGE 3] Individual, bead-specific decisions facilitate collective swim-
+ming of an N-bead swimmer
 
-To model a force-free swimmer, we propose two different methods of
-how the mapping between the proposed forces $₁(tk), and the actual active
-forces F(tk), is achieved: First, we interpret the proposed forces as pairwise
-arm forces $i(tk) and -i(tk) applied between two consecutive beads i and
-i + 1, respectively (see Fig. 2a). This leads to the actual active forces F(t) =
-$;(tk) - i-1 (tk) for beads i = 1..., N, where we treat the swimmer's "head"
-and "tail" separately by setting ON(tk) = 0 and introducing $o(tk) = 0. This
-automatically ensures ∑=1F(tk) = 0. In this sense, the proposed actions
-can be understood as local decisions to expand/contract muscles between
-the beads where the maximum local power input on a bead is constrained
-and set by the value of Fo. Second, we assume that the proposed force $;(tr) of
-every controller directly targets the actual force applied to its associated
-bead, but, to fulfill the force-free condition, we subtract the mean $(tk) =
-N
-1 $;(tk) from every proposed force and arrive at F(tk) = $₁(tk)
-$(tk) (see Fig. 2b). Hence the first approach ensures the global force-free
-condition via a series of locally annihilating pair-forces motivated by bio-
-logical force dipole generation at small scales that cause the arms between
-the corresponding beads i and (i + 1) to contract or extend. In turn, the
-second approach regularizes the forces by collective feedback (via (tr)) and
-can be interpreted as a mean-field approach that may be utilized by external
-controllers for artificial microswimmers³. Henceforth, we refer to the first
+Specifically, we deploy morphologies ranging from N = 3 to N = 100 beads of type A and B microswimmer and train every swimmer of different size N
+for both types independently via EAs to self-propel by maximizing their
+respective fitness score r. For details on the utilized ANNs and the applied
+EA we refer to the "Modeling system-level decision-making with decen-
+tralized controllers" subsection in the “Results and Discussion” and to the
+"Methods".
+
+The training progress is presented in Fig. 1 exemplarily for type A
+microswimmers of different morphologies N, demonstrating that the pro-
+posed decentralized decision-making strategy is capable of facilitating fast
+system-level swimming gaits for all the considered swimmer sizes up to
+N= 100. Thus, our method removes the bottleneck for machine-learning
+navigation policies of large-scale microswimmers by employing computa-
+tionally manageable local ANN-based perception-action loops of their
+bead-specific agents. To the best of our knowledge, this is the first time
+successful training of microswimmers with such a large number of degrees
+of freedom has been achieved.
+
+
+[PAGE 4] Different strategies of autonomy: large-scale coordination
+enables fast swimming
+
+Employing the learned policies of both type A and B microswimmers for
+different body sizes, i.e., the number of beads N, we determine the respective
+stroke-averaged COM velocities v, which increase monotonously with N as
+depicted in Fig. 3a, b. We normalize all velocities here with vo = 2F0/(6πμR),
+i.e., the velocity of a bead dragged by an external force of strength 2F0. Type B
+swimmers are significantly faster compared to type A swimmers by almost
+one order of magnitude, especially for large N. As illustrated in Fig. 3a, for
+type A microswimmers with locally ensured force-free conditions, the mean
+COM velocity v saturates with increasing Nat max/vo ≈ 0.03 for N = 100.
+In contrast (c.f., Fig. 3b), the fastest type B microswimmer, again at N = 100,
+achieves a maximum COM velocity of max/vo ≈ 0.15.
 
 [PAGE 4] Transferable evolved policies: decentralized decision-making
 generalizes to arbitrary morphologies
@@ -161,15 +154,6 @@ of NT = 3 to 100 beads (as discussed above) and deploy them-without
 any retraining or further adaptation-into microswimmer bodies with a
 different number of N = 3 to 300 beads instead to evaluate the corre-
 sponding swimming velocities for such cross-policy environments.
-
-As illustrated in Fig. 4a, b, we find that the vast majority of all
-policies that are most optimal for a particular value of N₁ are also highly
-effective in self-propelling microswimmers with N ≠ N₁ for both type A
-and B, respectively. This even holds for situations where Nr <<N, such as
-N₁ = 3 and N = 300. We did not explicitly optimize for this property at
-all, but it is an emergent phenomenon of the inherent decentralized
-decision-making of the system. Thus, the collective nature of the pro-
-posed swimming policies renders the evolved locomotive strategies
 
 [PAGE 6] Large-scale coordination leads to efficient locomotion
 
@@ -200,9 +184,9 @@ activations of adjacent muscles. Via genetic algorithms, we have optimized
 such single-bead decision-making centers to collectively facilitate highly
 efficient swimming gaits on the system level of the NG swimmer.
 
-[PAGE 10] Methods
 
-[PAGE 10] Hydrodynamic interactions and numerical details for the N-bead
+[PAGE 10] Methods
+Hydrodynamic interactions and numerical details for the N-bead
 swimmer model
 
 The microswimmer consists of N hydrodynamically interacting beads
@@ -216,29 +200,25 @@ Mimicking the flexible operations of biological neural circuits, ANNs
 consisting of interconnected Artificial Neurons (ANs) have become
 invaluable numerical tools for statistical learning applications". 
 
-[PAGE 11] Genetic algorithm and neuroevolution of single-agent policies
+[PAGE 10] Genetic algorithm and neuroevolution of single-agent policies
 with collective goals
 
 Genetic Algorithms (GAs) are heuristic optimization techniques inspired
-by the process of natural selection. In GAs, a set (or a population) of size
-Np, X = {01, ..., 0, }, of sets of parameters (or individuals), θ; e∈ Ro,
-is maintained and modified over successive iterations (or generations)
-to optimize an arbitrary objective function (or a fitness
-score), r(0;) : RNo → R58,66.
+by the process of natural selection. 
 
 [PAGE 11] Swimming-gait analysis
 
 In the “Transferable evolved policies: decentralized decision-making gen-
 eralizes to arbitrary morphologies" subsection of the "Results and Discus-
 sion,” we define a 27-period governing equation Î¿(t) = f ((t − iī) ὦ + φ)
-for the actual arm lengths l₁(tr) 
+for the actual arm lengths l₁(tr) for both type A and B N-bead micro-
+swimmers as a function of the mean angular velocity @ = (N) and the
+mean neighbor arm cross-correlation time〒 = 〒(N). 
 
 [PAGE 11] Data availability
-
 The data that support the plots within this paper and other findings of this
 study are available from the corresponding author upon request.
 
 [PAGE 11] Code availability
-
 The simulation code and output data are available upon reasonable request
 to the corresponding author.

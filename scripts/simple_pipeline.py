@@ -58,12 +58,51 @@ def load_metadata() -> Dict[str, Any]:
         return {"papers": {}}
 
 def save_metadata(metadata: Dict[str, Any]):
-    """Save metadata to file."""
-    with metadata_lock:
-        METADATA_FILE.parent.mkdir(parents=True, exist_ok=True)
-        
-        with open(METADATA_FILE, 'w') as f:
-            json.dump(metadata, f, indent=2)
+    """Save metadata to file with timeout protection."""
+    import threading
+    import time
+    
+    def save_with_timeout():
+        """Save metadata with timeout protection."""
+        try:
+            METADATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+            
+            # Create a temporary file first
+            temp_file = METADATA_FILE.with_suffix('.tmp')
+            with open(temp_file, 'w') as f:
+                json.dump(metadata, f, indent=2)
+            
+            # Atomic move to final location
+            temp_file.replace(METADATA_FILE)
+            return True
+        except Exception as e:
+            logger.error(f"Failed to save metadata: {e}")
+            return False
+    
+    # Run save operation with timeout
+    result = [None]
+    error = [None]
+    
+    def save_thread():
+        try:
+            result[0] = save_with_timeout()
+        except Exception as e:
+            error[0] = e
+    
+    thread = threading.Thread(target=save_thread)
+    thread.daemon = True
+    thread.start()
+    thread.join(timeout=30)  # 30 second timeout
+    
+    if thread.is_alive():
+        logger.error("❌ save_metadata timed out after 30 seconds")
+        return False
+    
+    if error[0]:
+        logger.error(f"❌ save_metadata failed: {error[0]}")
+        return False
+    
+    return result[0]
 
 def extract_text_from_pdf(pdf_path: Path) -> Optional[str]:
     """Extract text from PDF using pypdf for metadata extraction."""
@@ -477,7 +516,10 @@ def process_metadata_extraction(pdf_path: Path, metadata: Dict[str, Any]) -> boo
                 }
             }
         
-        save_metadata(metadata)
+        save_success = save_metadata(metadata)
+        if not save_success:
+            logger.error(f"Failed to save metadata for {pdf_path.name}")
+            return False
         return True
         
     except Exception as e:
@@ -526,7 +568,10 @@ def process_text_extraction(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
                 "validation": validation_result
             }
         
-        save_metadata(metadata)
+        save_success = save_metadata(metadata)
+        if not save_success:
+            logger.error(f"Failed to save metadata for {pdf_path.name}")
+            return False
         return True
         
     except Exception as e:
@@ -910,8 +955,20 @@ def process_semantic_chunking(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
                 # Save metadata with explicit error handling
                 logger.info(f"Saving metadata for {pdf_name}...")
                 try:
-                    save_metadata(metadata)
-                    logger.info(f"✅ Metadata saved successfully for {pdf_name}")
+                    save_success = save_metadata(metadata)
+                    if save_success:
+                        logger.info(f"✅ Metadata saved successfully for {pdf_name}")
+                    else:
+                        logger.error(f"❌ Failed to save metadata for {pdf_name}")
+                        # Try to save a backup
+                        try:
+                            backup_file = Path("outputs/metadata_backup.json")
+                            with open(backup_file, 'w') as f:
+                                json.dump(metadata, f, indent=2)
+                            logger.info(f"✅ Created backup at {backup_file}")
+                        except Exception as backup_error:
+                            logger.error(f"❌ Failed to create backup: {backup_error}")
+                        return False
                 except Exception as save_error:
                     logger.error(f"❌ Failed to save metadata for {pdf_name}: {save_error}")
                     # Try to save a backup
@@ -934,6 +991,278 @@ def process_semantic_chunking(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
         logger.error(f"Failed to process semantic chunking for {pdf_path.name}: {e}")
         return False
 
+def process_vector_embedding(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
+    """Process vector embedding step for a single PDF file."""
+    try:
+        pdf_name = pdf_path.name
+        logger.info(f"Processing vector embedding for: {pdf_name}")
+        
+        # Check if semantic chunks exist
+        pdf_output_dir = Path("outputs/extracted_texts") / pdf_path.stem
+        chunks_file = pdf_output_dir / "semantic_chunks.json"
+        
+        if not chunks_file.exists():
+            logger.error(f"Semantic chunks not found for {pdf_name}")
+            return False
+        
+        # Load semantic chunks
+        with open(chunks_file, 'r', encoding='utf-8') as f:
+            chunks = json.load(f)
+        
+        if not chunks:
+            logger.error(f"No semantic chunks found for {pdf_name}")
+            return False
+        
+        logger.info(f"Found {len(chunks)} semantic chunks for {pdf_name}")
+        
+        # Create embeddings for all chunks
+        embeddings = []
+        chunk_texts = []
+        
+        for chunk in chunks:
+            chunk_text = chunk.get('text', '')
+            if chunk_text.strip():
+                chunk_texts.append(chunk_text)
+        
+        if not chunk_texts:
+            logger.error(f"No valid text chunks found for {pdf_name}")
+            return False
+        
+        # Create embeddings using OpenAI
+        logger.info(f"Creating embeddings for {len(chunk_texts)} chunks...")
+        
+        try:
+            from openai import OpenAI
+            client = OpenAI(api_key=OPENAI_API_KEY)
+            
+            # Batch process embeddings (OpenAI allows up to 2048 inputs per request)
+            batch_size = 100
+            all_embeddings = []
+            
+            for i in range(0, len(chunk_texts), batch_size):
+                batch = chunk_texts[i:i + batch_size]
+                logger.info(f"Processing embedding batch {i//batch_size + 1}/{(len(chunk_texts) + batch_size - 1)//batch_size}")
+                
+                response = client.embeddings.create(
+                    input=batch,
+                    model="text-embedding-3-large"
+                )
+                
+                batch_embeddings = [item.embedding for item in response.data]
+                all_embeddings.extend(batch_embeddings)
+            
+            logger.info(f"✅ Successfully created {len(all_embeddings)} embeddings")
+            
+            # Save embeddings to file
+            embeddings_file = pdf_output_dir / "embeddings.json"
+            embeddings_data = {
+                "chunks": chunks,
+                "embeddings": all_embeddings,
+                "model": "text-embedding-3-large",
+                "timestamp": datetime.now().isoformat()
+            }
+            
+            with open(embeddings_file, 'w', encoding='utf-8') as f:
+                json.dump(embeddings_data, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"✅ Saved embeddings to {embeddings_file}")
+            
+            # Update metadata
+            logger.info(f"Updating metadata for {pdf_name}...")
+            try:
+                with metadata_lock:
+                    logger.info(f"Inside metadata_lock for {pdf_name}")
+                    
+                    # Ensure the paper exists in metadata
+                    if pdf_name not in metadata["papers"]:
+                        logger.error(f"Paper {pdf_name} not found in metadata during update")
+                        return False
+                    
+                    # Ensure steps dict exists
+                    if "steps" not in metadata["papers"][pdf_name]:
+                        logger.info(f"Creating steps dict for {pdf_name}")
+                        metadata["papers"][pdf_name]["steps"] = {}
+                    
+                    # Add vector embedding step
+                    logger.info(f"Adding vector_embedding step for {pdf_name}")
+                    metadata["papers"][pdf_name]["steps"]["vector_embedding"] = {
+                        "completed": True,
+                        "timestamp": datetime.now().isoformat(),
+                        "num_embeddings": len(all_embeddings),
+                        "model": "text-embedding-3-large",
+                        "embeddings_file": str(embeddings_file)
+                    }
+                    
+                    # Save metadata with explicit error handling
+                    logger.info(f"Saving metadata for {pdf_name}...")
+                    try:
+                        save_success = save_metadata(metadata)
+                        if save_success:
+                            logger.info(f"✅ Metadata saved successfully for {pdf_name}")
+                        else:
+                            logger.error(f"❌ Failed to save metadata for {pdf_name}")
+                            # Try to save a backup
+                            try:
+                                backup_file = Path("outputs/metadata_backup.json")
+                                with open(backup_file, 'w') as f:
+                                    json.dump(metadata, f, indent=2)
+                                logger.info(f"✅ Created backup at {backup_file}")
+                            except Exception as backup_error:
+                                logger.error(f"❌ Failed to create backup: {backup_error}")
+                            return False
+                    except Exception as save_error:
+                        logger.error(f"❌ Failed to save metadata for {pdf_name}: {save_error}")
+                        # Try to save a backup
+                        try:
+                            backup_file = Path("outputs/metadata_backup.json")
+                            with open(backup_file, 'w') as f:
+                                json.dump(metadata, f, indent=2)
+                            logger.info(f"✅ Created backup at {backup_file}")
+                        except Exception as backup_error:
+                            logger.error(f"❌ Failed to create backup: {backup_error}")
+                        return False
+                    
+            except Exception as lock_error:
+                logger.error(f"❌ Error in metadata_lock block for {pdf_name}: {lock_error}")
+                return False
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to create embeddings for {pdf_name}: {e}")
+            return False
+        
+    except Exception as e:
+        logger.error(f"Failed to process vector embedding for {pdf_path.name}: {e}")
+        return False
+
+def build_combined_faiss_index():
+    """Build a combined FAISS index from all embeddings."""
+    try:
+        import faiss
+        import numpy as np
+        
+        logger.info("🔍 Building combined FAISS index from all embeddings...")
+        
+        # Find all embeddings files
+        extracted_dir = Path("outputs/extracted_texts")
+        all_embeddings = []
+        all_chunks = []
+        
+        if not extracted_dir.exists():
+            logger.error("Extracted texts directory not found")
+            return False
+        
+        # Load all embeddings
+        for paper_dir in extracted_dir.iterdir():
+            if paper_dir.is_dir():
+                embeddings_file = paper_dir / "embeddings.json"
+                if embeddings_file.exists():
+                    try:
+                        with open(embeddings_file, 'r', encoding='utf-8') as f:
+                            embeddings_data = json.load(f)
+                        
+                        chunks = embeddings_data.get('chunks', [])
+                        embeddings = embeddings_data.get('embeddings', [])
+                        
+                        if chunks and embeddings and len(chunks) == len(embeddings):
+                            all_chunks.extend(chunks)
+                            all_embeddings.extend(embeddings)
+                            logger.info(f"Loaded {len(embeddings)} embeddings from {paper_dir.name}")
+                        else:
+                            logger.warning(f"Skipping {paper_dir.name} - mismatched chunks/embeddings")
+                            
+                    except Exception as e:
+                        logger.error(f"Failed to load embeddings from {embeddings_file}: {e}")
+        
+        if not all_embeddings:
+            logger.error("No embeddings found to build index")
+            return False
+        
+        logger.info(f"Total embeddings to index: {len(all_embeddings)}")
+        
+        # Convert to numpy array
+        embeddings_array = np.array(all_embeddings).astype('float32')
+        
+        # Normalize for cosine similarity
+        faiss.normalize_L2(embeddings_array)
+        
+        # Build FAISS index
+        dimension = embeddings_array.shape[1]
+        index = faiss.IndexFlatIP(dimension)  # Inner Product for cosine similarity
+        index.add(embeddings_array)
+        
+        # Save index and metadata
+        index_file = Path("outputs/faiss_index.bin")
+        chunks_file = Path("outputs/combined_chunks.json")
+        
+        faiss.write_index(index, str(index_file))
+        
+        with open(chunks_file, 'w', encoding='utf-8') as f:
+            json.dump(all_chunks, f, indent=2, ensure_ascii=False)
+        
+        logger.info(f"✅ Built FAISS index with {len(all_embeddings)} embeddings")
+        logger.info(f"✅ Saved index to {index_file}")
+        logger.info(f"✅ Saved combined chunks to {chunks_file}")
+        
+        return True
+        
+    except Exception as e:
+        logger.error(f"Failed to build FAISS index: {e}")
+        return False
+
+def process_faiss_index_building(metadata: Dict[str, Any]) -> bool:
+    """Process FAISS index building step."""
+    try:
+        logger.info("Processing FAISS index building...")
+        
+        # Check if all papers have embeddings
+        papers_with_embeddings = 0
+        total_papers = 0
+        
+        for paper_name, paper_data in metadata.get("papers", {}).items():
+            total_papers += 1
+            steps = paper_data.get("steps", {})
+            if steps.get("vector_embedding", {}).get("completed", False):
+                papers_with_embeddings += 1
+        
+        if papers_with_embeddings == 0:
+            logger.error("No papers have embeddings yet. Run vector embedding step first.")
+            return False
+        
+        if papers_with_embeddings < total_papers:
+            logger.warning(f"Only {papers_with_embeddings}/{total_papers} papers have embeddings")
+            logger.info("Building index with available embeddings...")
+        
+        # Build the index
+        success = build_combined_faiss_index()
+        
+        if success:
+            # Update metadata
+            with metadata_lock:
+                if "global_steps" not in metadata:
+                    metadata["global_steps"] = {}
+                
+                metadata["global_steps"]["faiss_index"] = {
+                    "completed": True,
+                    "timestamp": datetime.now().isoformat(),
+                    "papers_with_embeddings": papers_with_embeddings,
+                    "total_papers": total_papers
+                }
+                
+                save_success = save_metadata(metadata)
+                if save_success:
+                    logger.info("✅ FAISS index building completed and metadata updated")
+                else:
+                    logger.error("❌ Failed to save metadata after FAISS index building")
+                    return False
+        
+        return success
+        
+    except Exception as e:
+        logger.error(f"Failed to process FAISS index building: {e}")
+        return False
+
 def reset_file_processing(pdf_filename: str):
     """Reset processing state for a specific file to allow reprocessing."""
     metadata = load_metadata()
@@ -942,8 +1271,11 @@ def reset_file_processing(pdf_filename: str):
         if pdf_filename in metadata["papers"]:
             # Remove the file from metadata to allow reprocessing
             del metadata["papers"][pdf_filename]
-            save_metadata(metadata)
-            logger.info(f"Reset processing state for {pdf_filename}")
+            save_success = save_metadata(metadata)
+            if save_success:
+                logger.info(f"Reset processing state for {pdf_filename}")
+            else:
+                logger.error(f"Failed to save metadata when resetting {pdf_filename}")
         else:
             logger.info(f"File {pdf_filename} not found in metadata")
 
@@ -988,6 +1320,17 @@ def process_pdf_file(pdf_path: Path, metadata: Dict[str, Any]) -> bool:
     else:
         logger.info(f"Skipping semantic chunking for {pdf_path.name} - already completed")
     
+    # Step 4: Vector embedding
+    if not steps.get("vector_embedding", {}).get("completed", False):
+        logger.info(f"Step 4: Embedding semantic chunks for {pdf_path.name}")
+        if process_vector_embedding(pdf_path, metadata):
+            logger.info(f"✅ Completed vector embedding for {pdf_path.name}")
+        else:
+            logger.error(f"❌ Failed vector embedding for {pdf_path.name}")
+            return False
+    else:
+        logger.info(f"Skipping vector embedding for {pdf_path.name} - already completed")
+    
     return True
 
 def main():
@@ -1018,6 +1361,13 @@ def main():
                     logger.error(f"❌ Failed processing for {pdf_path.name}")
             except Exception as e:
                 logger.error(f"❌ Failed processing for {pdf_path.name} with exception: {e}")
+    
+    # Step 5: Build combined FAISS index
+    logger.info("Step 5: Building combined FAISS index...")
+    if process_faiss_index_building(metadata):
+        logger.info("✅ Completed FAISS index building")
+    else:
+        logger.error("❌ Failed FAISS index building")
     
     logger.info("🎉 Pipeline completed!")
 

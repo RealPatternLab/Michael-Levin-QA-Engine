@@ -1,29 +1,28 @@
-[PAGE 1] Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity
+[PAGE 2] Machine learning for hypothesis generation in biology and medicine: exploring the latent space of neuroscience and developmental bioelectricity
 
-[PAGE 2] Introduction
-The scientific enterprise depends critically not only on the skills needed to definitively test crisp hypotheses,1-7 but also on the much less well-understood step of acquiring insights and fruitful research directions.⁸⁻⁹ Many recent discussions¹⁰,¹¹ have focused on the fact that while modern "big data" methods are generating a deluge of facts and measurements, it is increasingly more important to be “building the edifice of science, in addition to throwing bricks into the yard".¹² In other words, it is essential that we develop strategies for deriving novel insights and deep hypotheses that cross traditional (in many cases, artificial) boundaries between disciplines. We must improve, at a pace that keeps up with technological and data science advances, our ability to identify symmetries (invariances) between sets of observations and approaches to unify and simplify where possible by identifying large-scale patterns in research literature and thus motivate and enhance new research programs (Fig. 1).
+Introduction
+The scientific enterprise depends critically not only on the skills needed to definitively test crisp hypotheses,1-7 but also on the much less well-understood step of acquiring insights and fruitful research directions.⁸ Many recent discussions¹⁰,¹¹ have focused on the fact that while modern "big data" methods are generating a deluge of facts and measurements, it is increasingly more important to be “building the edifice of science, in addition to throwing bricks into the yard".¹² In other words, it is essential that we develop strategies for deriving novel insights and deep hypotheses that cross traditional (in many cases, artificial) boundaries between disciplines. We must improve, at a pace that keeps up with technological and data science advances, our ability to identify symmetries (invariances) between sets of observations and approaches to unify and simplify where possible by identifying large-scale patterns in research literature and thus motivate and enhance new research programs (Fig. 1).
 
 One set of tools that is being rapidly developed and ubiquitously deployed originates in the advances of the field of artificial intelligence.¹³⁻¹⁵ Machine learning is clearly poised to help science.¹⁴,¹⁶⁻¹⁹ It is becoming widely recognized that “robot scientist" platforms can not only provide number crunching, automation, and high throughput, but could potentially also guide research by identifying what experiments to do next.²⁰⁻²² Machine learning tools have been suggested to be essential for progress in the bioinformatics of shape²³⁻²⁶ (moving beyond molecular information to understand organ- and organism-level form and function), and developmental biology.²⁷,²⁸ Not surprisingly, much emphasis is currently placed on improving the factuality of the output of AI tools; this parallels the well-developed notions of strong inference and hypothesis-testing in science: the well-established algorithm of falsifying and removing incorrect ideas. What is much less well-understood, but ultimately as crucial, is the process that provides a pool of interesting hypotheses from which to winnow until provisional truths are found. Our contribution attempts to bolster this second component of the scientific process – ideation – with a new AI-based tool for human scientists that provides input into the canonical scientific method.
 
 Recent work in this field includes the AI-based discovery of testable models of regenerative anatomical regulation,²⁹ which were subsequently empirically validated,³⁰ and similar efforts in genomics,²² chemistry³¹,³² and biomaterials.³³ One of the most potentially important current gaps is the paucity of tools for assisting with the most creative aspect of the work: identifying deep commonalities between disparate functional datasets, to enable generalized insight from the ever-growing literature. Tools are needed that would take meta-hypotheses of human scientists and mine the published studies for information that can be used to turn those conceptual hunches into actionable research programs.
 
-
-[PAGE 3] 
 One interdisciplinary area in which computer-assisted discovery would be most welcome is real-time physiology that controls form and function in vivo. How large-scale anatomy and behavior arises from the operation of molecular processes is a canonical systems biology problem.³⁴ It is currently handled by two distinct fields, with their own educational tracks, conferences, journals, funding bodies, and paradigms: neuroscience and developmental biology. Interestingly however, recent work has suggested that these may share an important underlying set of dynamics.³⁵⁻³⁷ Neuroscience has long understood that behavior and cognition are driven by the physiological information processing by neural networks, which signal via electrical events at their membranes.³⁸⁻⁴¹ Likewise, a long history of classical work has suggested that bioelectric signaling of all kinds of cells is required as an instructive set of influences that help direct complex developmental and regenerative morphogenesis.⁴²⁻⁴⁴ Interestingly, recent advances in the molecular understanding of developmental bioelectricity⁴⁵⁻⁴⁷ has begun to blur the boundaries between those disciplines⁴⁸,⁴⁹ (Fig. 2).
 
-
-[PAGE 4] 
 Specifically, it has been conjectured that the immense functional capabilities of brains have their origin in the more ancient, and slower, bioelectric networks that began operation at the emergence of bacterial biofilms⁵⁰⁻⁵⁴ and were heavily exploited by evolution to orchestrate metazoan morphogenesis.⁵⁵,⁵⁶ The idea that the same algorithms for scaling cellular activity into larger competencies (such as regulative morphogenesis and intelligent behavior) are used in the brain and in the body (Fig. 3) has many deep implications, for example with respect to porting methods from neuroscience and behavioral science into biomedicine,³⁵,⁵⁷,⁵⁸ to take advantage of neuroscience's successful paradigms for managing multi-scale causality and inferring effective interventions.
 
 The proposed symmetry between cellular swarms using collective dynamics to solve problems in anatomical morphospace and in 3D classical behavioral space has been empirically tested in specific contexts,³⁴,⁴⁷ and has significant implications for biomedicine and evolutionary biology.⁵⁹,⁶⁰ However, there has been no way to derive these hypotheses at scale from the plethora of functional literature of neuroscience and developmental biophysics. Specifically, it has been claimed that the deep similarity between the role of bioelectric networks in control of body shape (cellular collectives' behavior) and cognition (organism-level behavior) enables one to readily read neuroscience papers as if they were developmental biology papers, by only pivoting problem spaces (from 3D space to anatomical morphospace) and time scales (from milliseconds to minutes).⁴⁹,⁵⁶ However, there has never been an efficient way to implement this conjecture and actually explore the latent space of hypothetical papers that could provide candidate hypotheses and potentially fruitful research directions.
 
 Here, we provide a first-generation tool, FieldSHIFT, that helps human scientists explore the mapping between developmental bioelectricity and neuroscience and begins the journey towards exploring the space of scientific studies far wider than what has already been written. FieldSHIFT is an in-context learning framework which uses a large language model to convert existing paper abstracts in neuroscience to the field of developmental biology, by appropriately replacing specific words and concepts. We show that this process generates useful, readable, insightful results that can be used to expand scientific intuition and identify testable hypotheses for novel work at the intersection of two fields. Furthermore, we test some of the resulting predictions using a bioinformatics approach, revealing a remarkable quantitative conservation of genes between developmental morphogenesis and cognitive behavior. The described system is a first step on the road to using AI tools as an imagination enhancing tool for research, deriving novel insights from expensive published experiments and letting scientists explore life-as-it-could be.⁶¹ We tested one of the predictions of its output, finding a quantitatively significant enrichment in overlap between specific genes implicated in both cognitive processes and morphogenesis.
 
+There have been a handful of related research efforts using generative AI for hypothesis generation and cross-domain knowledge discovery. One such approach is MechGPT, a large language model for identifying and probing analogous concepts between scientific domains.⁶² Other approaches have focused on knowledge discovery across scientific domains, such as⁶³ for translating between protein sequences and music note sequences with attention-based deep neural networks and for identifying new designs within the field of mechanical engineering via cross-domain patent mining using knowledge graphs and natural language processing. Our method focuses uniquely on generating scientific hypotheses in the form of abstracts via text translations.
+
 
 [PAGE 4] Methods
+
 We propose FieldSHIFT: a framework for domain translation with modular components in the form of training data and an AI language model for mapping text from one domain to another. We constructed a dataset of neuroscience and developmental biology sentences and associated concepts to test FieldSHIFT with two AI language models. We used trained biologists to both build the dataset and evaluate the model translations. While we focused on mapping neuroscience to developmental biology text, we believe a similar approach could be taken to apply FieldSHIFT to other domains.
 
-[PAGE 5] Data
+Data
 As an exercise with students and other researchers, the Levin Lab has been translating neuroscience to development biology, by hand, for several decades. They'd do this by changing concepts like "brain" to "body", "millisecond" to "minute", and "neuron" to "cell". We collected 70 such translation pairs. Using these concept pairs, we constructed translations varying from one sentence to abstract-length paragraphs by matching neuroscience passages with corresponding developmental biology passages. These passages include a variety of text from facts about these scientific domains to recently published abstracts from neuroscience and developmental biology articles. We collected 1437 translation samples in total. The average length of a sample input or output passage is 209 characters, and the standard deviation is 375. Below is an example pair pertaining to "brain” as the neuroscience concept and "body" as the developmental biology concept:
 
 Neuroscience: “The brain is a complex system of neurons that are interconnected by synapses."
@@ -32,63 +31,56 @@ Developmental Biology: “The body is a complex system of cells that are interco
 In addition to translations, in some cases we added the same developmental biology abstract as both input and output examples. The goal was to teach a model trained on these examples not to change anything in the case that development biology text is provided as input. The six abstracts (corresponding to papers⁶⁵⁻⁷⁰) we used in this way were selected by choosing developmental biology papers produced by the Levin Lab. We published the full dataset on Hugging Face for re-use by the community: https://huggingface.co/datasets/levinlab/neuroscience-to-dev-bio/tree/main.
 
 
-[PAGE 6] 
-To train and test models for domain translation, we randomly split the dataset according to the neuroscience concepts associated with each sample. An effective domain translator should be able to generalize beyond the concepts it sees during training, demonstrating general knowledge of both domains and an ability to both identify new concepts within the input domain and an ability to map those concepts to corresponding concepts in the output domain. As such, we split the concepts into 43 training, 6 validation, and 21 test concepts without overlap via random sampling. After splitting concepts, we split the passages associated with these concepts into 503 train, 50 validation, and 57 test passages by searching for each concept name within the passage (after normalizing the text by stripping punctuation, lowercasing, and ignoring extra white-space characters). Because some concepts mapped to more passages, we repeated the process until we achieved close to this desired ratio of train, validation, and test samples (roughly 10× the number of train samples as validation and test) without looking at the resulting data until settling on a desirable ratio.
-
-
 [PAGE 6] Domain translation with machine learning
+
 We implemented and tested two domain translation approaches for research paper abstracts using pretrained language models to identify a suitable backend model for FieldSHIFT. The first is inspired by neural machine translation (NMT) and abstractive summarization and uses the open-source BART⁷¹ pretrained Transformer language model (LM).⁷² The pretrained BART model is designed for summarizing text. Rather than have the model generate a summary of an input sample, we fine-tuned it to map neuroscience text to developmental biology text using the domain translation dataset. The second model we implemented uses in-context learning⁷³ to prompt the GPT-4 (ref. 74) large language model (LLM) to complete the task of translating neuroscience text into developmental biology text. We used human evaluation from trained biologists to test the effectiveness of these approaches by having each model generate translations and counting successful ones according to expert judgement. For more details on the testing procedure, see the model validation section.
-
-
-[PAGE 6] 
-Transformer LMs, and recently, LLMs, which demonstrate emergent capabilities when scaled to billions of parameters,⁷⁵ are highly expressive deep neural networks used to represent sequences, especially text data, and have achieved state-of-the-art performance on a variety of natural language tasks.⁷⁶⁻⁷⁸ LMs are typically pretrained to learn general representations of text from large, unannotated corpora, then fine-tuned for specific, downstream natural language tasks. Both NMT and summarization involve the task of text generation, conditioning on an input text sequence to generate an output text sequence. We exploit this symmetry in our first domain translation approach using BART by continuing to fine-tune an encoder-decoder LM⁷² already trained for summarization. 
 
 
 [PAGE 7] Model training
 
 Here we describe the core ideas and training procedures for the two domain translation models we used within FieldSHIFT: fine-tuned BART and GPT-4.
 
+The core idea of the BART-based domain translator is to learn a mapping from one text domain to another. This learning process is illustrated in the top section of Fig. 4. The process for generating new developmental biology text using the trained model is illustrated in the bottom section. During continued fine-tuning of the BART model, we fed two types of text pairs which we call positive and negative samples. Positive samples are neuroscience abstracts/sentences we want to translate into developmental biology abstracts/sentences, and negative samples are developmental biology abstracts/sentences which should remain untouched. This teaches the model to leave existing developmental biology texts as they are. An additional benefit of this strategy is that the model sees more examples of developmental biology text during continued fine-tuning, which comes "for free” as no human-time is required to generate these negative pairs. We sourced both from the domain translation dataset described above.
+
+
+[PAGE 8] To use the GPT-4 LLM as a domain-translator, we provided in-context examples and asked the LLM to complete the pattern.
+
 
 [PAGE 9] Model validation
 
-For each test concept in our domain translation dataset, we searched the term and chose the first abstract that included the term. Specifically, we collected one paper per test concept and selected samples using the following structure in a Google Scholar query: "(research domain)" "(specific topic)". For example, to find a paper on neurodegeneration to test, this was our search: "neuroscience” “neurodegeneration". We then selected the first result. There were five test phrases, such as "Control of anatomy by bioelectric signaling", "Change of ion channel expression” and “Axonal-dendritic chemical synapses" that didn't yield any exact matches. For those we did a follow up search for the closest matches with a query like this: "neuro-science" "Axonal-dendritic chemical synapses". We then selected the first result.
-
-
-[PAGE 9] 
-To judge the quality of the translations we had two professional cell/developmental biologists grade the text. Both annotators graded real developmental biology abstracts and GPT-4 generated abstracts using the self-critique version of the domain translator. Only one annotator graded BART-generated abstracts following initial results suggesting superiority of the GPT-4 approach. When comparing abstracts, the annotators were given the following instructions:
-
+For each test concept in our domain translation dataset, we searched the term and chose the first abstract that included the term.
 
 
 [PAGE 9] Results
-Comparing domain translators
 
+Comparing domain translators
 A quantitative evaluation of domain translation methods via human annotation suggests the effectiveness of ML-based domain translation. According to both annotators (annotator 1 and 2), the GPT-4-based domain translator with self-critique generated good translations according to the annotation criteria for over half of the neuroscience abstracts provided. The GPT-4 approach performed significantly better than the BART approach (P = 0.017) according to annotator 1 who compared ML methods. Both annotators graded more real abstracts as good than ML-generated abstracts, however, this difference was significant only for annotator 1 (Tables 1 and 2).
 
 
 [PAGE 11] Hypothesis testing: molecular conservation between cognition and morphogenesis
-One clear hypothesis that can be generated by FieldSHIFT is that the molecular mechanisms behind developmental bioelectricity and that of cognitive/behavioral phenomena should be conserved. That is, the same genes should be found as implicated in both roles; this is novel because only the idea of "morphogenesis as behavior in anatomical space"³⁷,⁵⁶ predicts any association between genes across what are normally thought of as two very distinct fields of biology. 
+
+One clear hypothesis that can be generated by FieldSHIFT is that the molecular mechanisms behind developmental bioelectricity and that of cognitive/behavioral phenomena should be conserved.
 
 
 [PAGE 12] Discussion
 
 Machine learning for domain translation
-
-We proposed FieldSHIFT, a framework for domain translation. To implement FieldSHIFT, we built a domain translation dataset and compared two ML approaches for domain translation using this data and expert evaluation of the translations. Expert evaluation identified that the GPT-4-based approach produced good trans-lations, leading to a useful hypothesis or insight about develop-mental biology, in about 20 out of every 33 tries. 
+We proposed FieldSHIFT, a framework for domain translation.
 
 
 [PAGE 12] Bioelectricity: conserved mechanisms and algorithms between control of body and behavior
 
-It has been previously hypothesized that the algorithms of behavior (active inference, perceptual control, collective decision-making, memory and learning, navigation of problem spaces, preferences, pursuit of goal states with degrees of flexible response, etc.) are used to direct morphogenesis and may even derive from it evolutionarily.⁵⁵,⁵⁶,⁹⁹ Here, we produce a tool that can be used to explore the symmetries and commonalities between these two fields, and in fact any other two fields. 
+It has been previously hypothesized that the algorithms of behavior (active inference, perceptual control, collective decision-making, memory and learning, navigation of problem spaces, preferences, pursuit of goal states with degrees of flexible response, etc.) are used to direct morphogenesis and may even derive from it evolutionarily.⁵⁵,⁵⁶,⁹⁹
 
 
 [PAGE 12] Latent space of scientific papers
 
-We believe that this work is just the beginning of the AI-guided exploration of the latent space around scientific papers, in the sense of the "adjacent possible”.¹⁰⁰,¹⁰¹ Each real scientific paper in the literature provides access to an associated set of possible papers in which one or more aspects are changed – in effect, exploring various symmetries of concepts in specific problem spaces. 
+We believe that this work is just the beginning of the AI-guided exploration of the latent space around scientific papers, in the sense of the "adjacent possible”.¹⁰⁰,¹⁰¹
 
 
 [PAGE 13] Limitations of the study and next steps
 
-One limitation of the study is the number of papers we were able to manually curate; the machine learning will improve as more papers are added in the future. 
+One limitation of the study is the number of papers we were able to manually curate; the machine learning will improve as more papers are added in the future.
 
 
 [PAGE 13] Conclusion

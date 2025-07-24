@@ -152,6 +152,7 @@ signment issues of collective intelligence are not
 categorically distinct from related core issues in indi-
 vidual adaptation, evolution and intelligence.
 
+
 [PAGE 3] Towards a unified theory of intelligence
 and cognition
 In collectives, each component selects behaviours based on
@@ -184,14 +185,15 @@ to the whole and not the parts. Additionally, connectionist
 models identify conditions where collective intelligence can
 arise bottom-up, using only distributed learning mechanisms
 without system-level or global feedback.
+
 We do not attempt a comprehensive review of the many
 related topics involved. Rather, we have selected founda-
 tional points to clarify a vision of distributed cognition,
 bottom-up adaptation and, more generally, the ‘more than
 the sum of the parts' conceptual territory.
 
-
 [PAGE 4] A framework for interrogating collective intelligence
+
 Our thinking builds on a core conjecture that the kind of re-
 lationships necessary to produce evolutionary individuality – the
 generation and heritability of fitness differences at the collective
@@ -217,6 +219,7 @@ et al., 2021; Lyon, 2020; Lyon et al., 2021).
 [PAGE 4] Understanding the parallels between
 individual and collective intelligence via a
 connectionist framework
+
 The curious thing about collective intelligence is that the
 more intelligent something is, the less it looks like a col-
 lective. When component members act in an efficiently
@@ -239,6 +242,7 @@ as a core theme in these issues.
 
 [PAGE 4] Organisms as collective intelligences: Development
 and basal cognition
+
 All organisms are collectives at multiple levels: from col-
 lections of active molecules in a cell, to collections of cells
 in a multicellular organism or a tissue, to collections of
@@ -286,6 +290,7 @@ are made very large, they still produce the same diameter
 tubule by using fewer cells. Even when cell size gets very
 large, a single cell can achieve the same diameter tubule by
 bending around itself (this time using cytoskeletal
+
 
 [PAGE 5] mechanisms). Thus, genetically wild-type cells can harness
 distinct molecular components, depending on the novel
@@ -446,10 +451,10 @@ basal cognition essential for achieving specific system-level
 goals in anatomical morphospace are exactly what make the
 whole different from a collection of parts (Watson et al., 2022).
 
-
 [PAGE 6] Collective intelligence as a product of evolutionary
 selection, or evolutionary selection as a product of
 collective intelligence?
+
 Biological individuality has traditionally been associated
 with the scope of an evolutionary unit (Clarke, 2016) - the
 unit that is subject to differential survival and reproduction.
@@ -482,7 +487,6 @@ termines whether cellular optimisation occurs at the single-
 cell level (cancer) vs. at the organ-level (normal morpho-
 genesis) (Chernet and Levin, 2013).
 
-
 Evolutionary units and biological individuality. Can a notion of
 evolutionary units beyond genetic relatedness rescue a
 meaningful concept of biological individuality? That is, the
@@ -511,6 +515,7 @@ at the system level, and more like the source of evolutionary
 individuality.
 
 
+
 [PAGE 7] Practical implications: Beyond philosophy. Such considerations
 matter fundamentally to our understanding of the organ-
 ismic, evolutionary and developmental biology
@@ -530,6 +535,7 @@ manipulate the very relationships that define individuality
 intimately on our knowledge of collective intelligence at
 multiple levels of biological organisation (Beane et al., 2013;
 Herrera-Rincon et al., 2018; Pezzulo and Levin, 2015).
+
 Recent work has begun to apply the tools of collective
 intelligence and cognitive neuroscience to morphogenesis and
 its disorders, including cancer, a disease of dysregulated
@@ -549,8 +555,11 @@ pressed by forcing bioelectrical connections among cells, thus
 overriding single-cell level goals with large-scale morphoge-
 netic ones (Chernet and Levin, 2013).
 
+
+
 [PAGE 7] Cognition, learning and problem-solving in biological
 networks: Generalised principles of connectionism
+
 The link between evolution and simple types of learning has
 often been noted (Skinner, 1981; Watson and Szathmáry,
 2016) but sometimes interpreted in an uninteresting way:
@@ -576,6 +585,7 @@ can be organised by simple distributed, incremental pro-
 cesses, that is, learning (Watson et al., 2011a; 2011b; 2011c;
 2016; Watson and Szathmáry, 2016).
 
+
 Hebbian learning in networks. A simple example of such a
 neural model, demonstrating distributed computation and
 learning, is the Hopfield network (Hopfield, 1982)
@@ -597,7 +607,6 @@ from the cellular, to the familiar organismic scale, and
 perhaps to the ecological scale (Power et al., 2015; Watson
 et al., 2014). Can these kinds of networks also learn as
 neural networks do?
-
 The answer is yes. Hebbian learning in a self-modelling
 dynamical system (Appendix Box 1) effects a positive feed-
 back on correlations; the more things co-occur, the more the
