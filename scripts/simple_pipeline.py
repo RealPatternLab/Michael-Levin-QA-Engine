@@ -1211,6 +1211,25 @@ def build_combined_faiss_index():
         logger.error(f"Failed to build FAISS index: {e}")
         return False
 
+def append_to_faiss_index(new_chunks, new_embeddings):
+    """Append new data to existing index."""
+    # Load existing index
+    existing_index = faiss.read_index("outputs/faiss_index.bin")
+    
+    # Add new embeddings
+    new_embeddings_array = np.array(new_embeddings).astype('float32')
+    faiss.normalize_L2(new_embeddings_array)
+    existing_index.add(new_embeddings_array)
+    
+    # Save updated index
+    faiss.write_index(existing_index, "outputs/faiss_index.bin")
+    
+    # Append to combined_chunks.json
+    with open("outputs/combined_chunks.json", "r") as f:
+        existing_chunks = json.load(f)
+    existing_chunks.extend(new_chunks)
+    # Save updated chunks
+
 def process_faiss_index_building(metadata: Dict[str, Any]) -> bool:
     """Process FAISS index building step."""
     try:

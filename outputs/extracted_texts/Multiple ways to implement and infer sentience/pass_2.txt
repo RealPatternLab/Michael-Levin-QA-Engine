@@ -1,0 +1,119 @@
+Rouleau, Nicolas and Levin, Michael (2023) Multiple ways to implement and infer
+sentience. Animal Sentience 33(30)
+DOI: 10.51291/2377-7478.1817
+Date of submission: 2023-06-03
+Date of acceptance: 2023-07-11
+
+This article has appeared in the journal Animal
+Sentience, a peer-reviewed journal on animal
+cognition and feeling. It has been made open access,
+free for all, by WellBeing International and deposited
+in the WBI Studies Repository. For more information,
+please contact
+wbisr-info@wellbeingintl.org.
+
+[PAGE 2] Multiple ways to implement and infer sentience
+
+Commentary on Segundo-Ortiz & Calvo on Plant Sentience
+
+Nicolas Rouleau 1,2 & Michael Levin3,4
+1 Department of Health Sciences, Wilfrid Laurier University, Waterloo, ON, Canada
+2 Department of Biomedical Engineering, Tufts University, Medford, MA, USA
+3 Department of Biology and Allen Discovery Center at Tufts University, Medford, MA, USA
+4 Wyss Institute for Biologically Inspired Engineering, Harvard University, Boston, MA, USA
+
+Abstract: Segundo-Ortin & Calvo's (S&C's) thorough review of “plant neurobiology" presents
+evidence supporting the possibility of plant sentience. They make a compelling case that
+plants anticipate, assess risk, cooperate, mimic, and pursue goals, as do their animal
+counterparts. S&C point out that there is a double standard: behavioural patterns associated
+with subjective experiences in humans are considered valid for inferring cognition in non-
+human animals but not in diverse other systems including plants. We argue that cognitive
+functions, including sentience, can potentially be achieved by very different systems and their
+disparate substrates. We offer some context from the basal cognition literature and suggest
+that the deep insights of neurobiology have relevance far beyond neurons.
+
+
+1. Whether in plants or animals, cognitive functions such as sentience are always inferred.
+Segundo-Ortin & Calvo (2023) (S&C) dispel the twin myths that (a) plants are merely reflexive
+organisms, and that (b) sentience or felt states (i.e., the capacity to experience as a subject)
+are only accessible to, or likely to be experienced by, animals. Regarding (a), S&C report
+mounting empirical counterevidence. Regarding (b), they make the case that current
+objections to the possibility of plant sentience are based on intuition and unsupported
+reasoning. They point out that cognitive scientists have become increasingly willing to
+attribute sentience to members of the animal kingdom despite our longstanding inability to
+measure subjective experience directly in any species (including humans). Indeed, all
+attributions of cognition (i.e., mental actions), including sentience, are always inferred on the
+basis of embodied behaviours, including verbal self-report in humans. If felt states in humans
+and other animals are always inferred, why is the same leap from observable behaviour to
+inferred sentience not afforded to other organisms, including plants?
+
+
+S&C approach the question of plant sentience by demonstrating that their behaviours
+are fundamentally cognitive because they are goal-directed, anticipatory, flexible, and
+adaptive. These qualities are fundamentally unlike simple reflexes, which are comparatively
+rigid, typically inborn, and do not require any accompanying mental action. As S&C point out,
+plants can integrate chemical, electrical, optical, and mechanical signals to discriminate kin
+from non-kin and they can compete or cooperate with neighbouring organisms. These
+interactions are predicted by hierarchical rule sets that change according to physiological
+needs. Plants also display context-dependent habituation responses, learn to avoid otherwise
+neutral stimuli by paired association (classical conditioning), re-orient themselves in
+anticipation of reinforcements, and evaluate risk to inform game-theoretic decision-making.
+Most impressively, plants engage in mimicry to avoid predation and can even exploit the
+perceptual biases of animals within a single lifecycle.
+
+Although none of these behaviours (or any behaviours) necessarily require sentience,
+they are often proposed as evidence of animal sentience because of their subjective
+correlates in humans. When humans are observed to cooperate or compete with each other,
+imitate the actions of others, outwit predators, or re-orient their bodies in anticipation of
+rewards or punishments, cognitive scientists are willing to consider the possibility of an
+accompanying subjective experience. This is consistent with the common intuition that other
+people are "minded” (i.e., they have a theory of mind; Premack & Woodruff, 1978), which is
+often extended to non-human animals without significant controversy. As S&C suggest, the
+same willingness to attribute sentience to animals by analogy must be afforded to plants. That
+animal sentience is inferred on the basis of some likeness to humans is ultimately an intuition.
+To be consistent, in the absence of uniquely tuned properties afforded to a narrow
+kind of cellular substrate, the same charitable interpretation must be extended to all systems
+that display observable response patterns that are consistent with animal cognition, including
+artificial intelligences, metaplastic materials (Loeffler et al., 2023), and robotic systems
+(Clawson and Levin, 2022). If behaviour is the window to sentience, evaluation criteria must
+focus on observable response patterns without reference to the means by which they are
+produced. Indeed, a system-agnostic approach offers the best roadmap for a deep,
+empirically fruitful unification of frameworks across cybernetics, behavioural science,
+bioengineering, robotics, materials science, and biomedicine (Davies and Levin, 2022; Levin,
+2022; Mathews et al., 2023; Rosenblueth et al., 1943).
+
+
+[PAGE 3] 2. Other cognitive functions can be implemented by very different substrates – why not
+sentience? 
+
+If, as S&C suggest, plants are potentially sentient, how do they achieve felt states
+without nervous tissue and a brain-like centralized processor? S&C point out that, like
+animals, plants synthesize and signal with several common neurotransmitters, including the
+amino acid glutamate, the most abundant excitatory neurotransmitter in the human central
+nervous system (Brosnan and Brosnan, 2013). Plants also display action-potential-like
+depolarizations which propagate along distributed vascular networks of aqueous conduits.
+Whereas plants and animals share a surprising degree of overlapping electrochemical
+physiology, their anatomical organizations are quite different.
+
+Relevant here are the concepts of multiple realizability (Bickle, 2006) and substrate
+independence (Bostrom, 2003). Multiple realizability refers to the idea that the same function
+can be implemented by very different systems. Similarly, a function is said to be substrate-
+independent when it can be achieved without the contingency of a particular material or
+physical medium. Computation, for example, can be implemented in many ways by machines
+and living organisms alike. It is quite possible that felt states can be achieved in multiple ways
+and by many different biological substrates – a hypothesis that is already seriously considered
+when discussing the possibility of sentience in animals that are sufficiently different from
+humans. It is already a mainstream assumption that cognitive functions, including memory,
+attention, and perception, are similarly realized by disparate brain structures across species.
+Despite differences in cortical lamination, minicolumn dimensions, cell density, and
+gyrification, it is generally assumed that sentience is, at minimum, possible in non-human
+animals. Many neuroscientists subscribe to the concept of biological degeneracy (Mason,
+2015), identifying structurally dissimilar regions within brains that can achieve the same
+functional outcomes (e.g., blindsight responses mediated by subcortical and brainstem nuclei,
+with independent, duplicate maps of retinal inputs; Cowey, 2015).
+
+If different organizations of nervous tissue can achieve the same functions, the
+possibility that cognitive capacities, including sentience, can be achieved by other tissues
+should be considered. It is highly implausible that all sentient life in the universe achieves felt
+states using the neural circuitry underlying human consciousness on earth. Plant sentience is
+likely to be the tip of the iceberg of sentient systems yet unknown (Ramstead et al., 2019).

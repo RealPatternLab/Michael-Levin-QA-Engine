@@ -118,7 +118,7 @@ class RAGQueryEngine:
             print(f"📚 Paper: {chunk.get('source_title', 'Unknown')} ({chunk.get('year', 'Unknown')})")
             print(f"📖 Section: {chunk.get('section_header', 'Unknown')}")
             print(f"🎯 Topic: {chunk.get('semantic_topic', 'Unknown')}")
-            print(f"📝 Text: {chunk.get('text', '')[:300]}...")
+            print(f"📝 Text: {chunk.get('text', '')[:]}...")
             print("-" * 80)
     
     def interactive_search(self):

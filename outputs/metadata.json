@@ -492,14 +492,59 @@
           "embeddings_file": "outputs/extracted_texts/Life  its origin  and its distribution  a perspective from the Conway-Kochen Theorem and the Free Energy Principle/embeddings.json"
         }
       }
+    },
+    "Multiple ways to implement and infer sentience.pdf": {
+      "original_filename": "Multiple ways to implement and infer sentience.pdf",
+      "descriptive_name": "levin_Multiple_ways_to_implement_and_infer_sentience_2023_Rouleau",
+      "metadata": {
+        "title": "Multiple ways to implement and infer sentience",
+        "authors": [
+          "Nicolas Rouleau",
+          "Michael Levin"
+        ],
+        "year": 2023,
+        "journal": "Anim Sentience",
+        "is_levin_paper": true
+      },
+      "steps": {
+        "metadata_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T17:22:59.719285"
+        },
+        "text_extraction": {
+          "completed": true,
+          "timestamp": "2025-07-24T17:23:46.010111",
+          "text_file": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/Multiple ways to implement and infer sentience.txt",
+          "detailed_passes_dir": "/Users/mbstarr/Programs/michael-levin-qa-engine/outputs/extracted_texts/Multiple ways to implement and infer sentience",
+          "validation": {
+            "faithfully_transcribed": false,
+            "missing_segments": [
+              "Failed to parse validation response"
+            ]
+          }
+        },
+        "semantic_chunking": {
+          "completed": true,
+          "timestamp": "2025-07-24T17:24:07.159201",
+          "num_chunks": 7,
+          "chunks_file": "outputs/extracted_texts/Multiple ways to implement and infer sentience/semantic_chunks.json"
+        },
+        "vector_embedding": {
+          "completed": true,
+          "timestamp": "2025-07-24T17:24:08.882514",
+          "num_embeddings": 7,
+          "model": "text-embedding-3-large",
+          "embeddings_file": "outputs/extracted_texts/Multiple ways to implement and infer sentience/embeddings.json"
+        }
+      }
     }
   },
   "global_steps": {
     "faiss_index": {
       "completed": true,
-      "timestamp": "2025-07-24T15:53:11.223033",
-      "papers_with_embeddings": 10,
-      "total_papers": 10
+      "timestamp": "2025-07-24T17:24:09.048200",
+      "papers_with_embeddings": 11,
+      "total_papers": 11
     }
   }
 }
