@@ -10,6 +10,7 @@ from pathlib import Path
 from openai import OpenAI
 import faiss
 import logging
+import os
 
 # Load environment variables
 from dotenv import load_dotenv
@@ -24,9 +25,23 @@ from configs.settings import *
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+def check_api_keys():
+    """Check if required API keys are available."""
+    openai_key = os.getenv('OPENAI_API_KEY')
+    if not openai_key or openai_key.strip() == '':
+        st.error("❌ OpenAI API key not found!")
+        st.info("Please add your OpenAI API key to the `.env` file:")
+        st.code("OPENAI_API_KEY=your_api_key_here")
+        return False
+    return True
+
 class RAGQueryEngine:
     def __init__(self):
         """Initialize the RAG query engine."""
+        # Check API key first
+        if not check_api_keys():
+            raise ValueError("OpenAI API key not available")
+        
         self.client = OpenAI(api_key=OPENAI_API_KEY)
         self.index = None
         self.chunks = None
@@ -302,6 +317,17 @@ def main():
         # Footer
         st.sidebar.markdown("---")
         st.sidebar.markdown("Built with Streamlit, OpenAI, and FAISS.")
+        
+    except ValueError as e:
+        # API key error
+        st.error(f"Configuration Error: {e}")
+        st.info("Please check your `.env` file and ensure your API keys are properly set.")
+        
+    except FileNotFoundError as e:
+        # Missing index files
+        st.error(f"Missing Files: {e}")
+        st.info("Please run the pipeline first to create the FAISS index and combined chunks.")
+        st.code("python scripts/simple_pipeline.py")
         
     except Exception as e:
         st.error(f"Failed to initialize RAG system: {e}")
