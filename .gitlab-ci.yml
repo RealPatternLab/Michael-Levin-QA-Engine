@@ -14,3 +14,14 @@ secret_detection:
   stage: secret-detection
 include:
 - template: Security/Secret-Detection.gitlab-ci.yml
+- mirror
+
+mirror_to_github:
+  stage: mirror
+  script:
+    - git config --global user.email "you@example.com"
+    - git config --global user.name "Your Name"
+    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/YOUR_USERNAME/YOUR_REPO.git
+    - git push --mirror github
+  only:
+    - main   # or 'master', or your default branch
