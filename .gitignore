@@ -162,7 +162,6 @@ Temporary Items
 .apdisk
 
 # Project specific
-data/raw_papers/*.pdf
 data/processed_chunks/*.txt
 data/processed_chunks/*.json
 *.faiss
