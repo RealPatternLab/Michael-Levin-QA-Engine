@@ -17,7 +17,7 @@ mirror_to_github:
   script:
     - git config --global user.email "real.pattern.laboratory@gmail.com"
     - git config --global user.name "RealPatternLab"
-    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine.git
+    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine
     - git push --mirror github
   only:
     - main   # or your default branch
