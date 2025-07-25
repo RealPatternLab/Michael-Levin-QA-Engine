@@ -38,10 +38,22 @@ from configs.settings import *
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+def get_api_key():
+    """Get API key from Streamlit secrets or environment variables."""
+    # Try Streamlit secrets first (for cloud deployment)
+    try:
+        if hasattr(st, 'secrets') and st.secrets:
+            return st.secrets.get('OPENAI_API_KEY', '')
+    except:
+        pass
+    
+    # Fall back to environment variable (for local development)
+    return os.getenv('OPENAI_API_KEY', '')
+
 def check_api_keys():
     """Check if required API keys are available."""
-    # Check from settings first
-    api_key = OPENAI_API_KEY
+    # Check from multiple sources
+    api_key = get_api_key()
     
     # Debug: show what we're getting
     st.write(f"Debug - API key found: {bool(api_key)}")
@@ -49,8 +61,9 @@ def check_api_keys():
     
     if not api_key or api_key.strip() == '':
         st.error("❌ OpenAI API key not found!")
-        st.info("Please add your OpenAI API key to the `.env` file:")
+        st.info("For local development, add your OpenAI API key to the `.env` file:")
         st.code("OPENAI_API_KEY=your_api_key_here")
+        st.info("For Streamlit Cloud deployment, add your API key in the Streamlit dashboard under 'Secrets'.")
         return False
     return True
 
@@ -61,10 +74,10 @@ class RAGQueryEngine:
         if not check_api_keys():
             raise ValueError("OpenAI API key not available")
         
-        # Use the API key from settings directly
-        api_key = OPENAI_API_KEY
+        # Use the API key from the new function
+        api_key = get_api_key()
         if not api_key or api_key.strip() == '':
-            raise ValueError("OpenAI API key not available in settings")
+            raise ValueError("OpenAI API key not available")
         
         self.client = OpenAI(api_key=api_key)
         self.index = None
@@ -170,8 +183,11 @@ Please provide a conversational response that:
 
 Response:"""
 
-        # Generate response using OpenAI
-        response = st.session_state.rag_engine.client.chat.completions.create(
+        # Generate response using OpenAI with the same API key
+        api_key = get_api_key()
+        client = OpenAI(api_key=api_key)
+        
+        response = client.chat.completions.create(
             model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are Michael Levin, a developmental biologist. Respond conversationally and draw from the provided research context."},

@@ -173,4 +173,47 @@ embeddings/
 # API Keys and secrets
 .env
 .env.local
-.env.production 
+.env.production
+.streamlit/secrets.toml
+
+# RAG Project specific
+outputs/extracted_texts/*/consensus.txt
+outputs/extracted_texts/*/raw_extractions/
+outputs/extracted_texts/*/validation_results.json
+outputs/metadata_backup.json
+outputs/temp_*
+
+# Temporary and test files
+test_*.py
+test_*.sh
+*.tmp
+*.temp
+
+# Large binary files (optional - uncomment if you don't want to commit the FAISS index)
+# outputs/faiss_index.bin
+# outputs/combined_chunks.json
+
+# Logs
+*.log
+logs/
+
+# Cache directories
+.cache/
+__pycache__/
+*.pyc
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 
