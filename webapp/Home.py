@@ -51,7 +51,8 @@ def main():
             Search through Michael Levin's research papers to find relevant information.
             """)
             if st.button("Go to Research Search", type="primary"):
-                st.switch_page("webapp/pages/01_Research_Search.py")
+                st.session_state.page = "research_search"
+                st.rerun()
         
         with col2:
             st.markdown("""
@@ -59,7 +60,8 @@ def main():
             Have a conversation with Michael Levin about his research.
             """)
             if st.button("Start Chat", type="primary"):
-                st.switch_page("webapp/pages/02_Chat.py")
+                st.session_state.page = "chat"
+                st.rerun()
         
         # Footer
         st.sidebar.markdown("---")
