@@ -24,6 +24,7 @@ mirror_main_to_github:
     - git push --force github main
   only:
     - main
+  name: "Mirror to GitHub (main)"  # 👈 Shows up distinctly in UI
 
 mirror_dev_to_github:
   stage: mirror
@@ -37,3 +38,4 @@ mirror_dev_to_github:
     - git push --force github dev
   only:
     - dev
+  name: "Mirror to GitHub (dev)"  # 👈 Also shows up distinctly
