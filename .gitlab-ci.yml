@@ -14,7 +14,6 @@ secret_detection:
   stage: secret-detection
 include:
 - template: Security/Secret-Detection.gitlab-ci.yml
-- mirror
 
 mirror_to_github:
   stage: mirror
@@ -25,4 +24,3 @@ mirror_to_github:
     - git push --mirror github
   only:
     - main   # or 'master', or your default branch
-    
