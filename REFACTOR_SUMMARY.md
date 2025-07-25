@@ -25,8 +25,8 @@ michael-levin-qa-engine/
 │       └── metadata.json
 ├── webapp/                        # Streamlit application
 │   ├── pages/                     # Multi-page app structure
-│   │   ├── research_search.py     # Research search page
-│   │   └── chat.py               # Chat with Michael Levin page
+│   │   ├── 01_Research_Search.py
+│   │   └── 02_Chat.py
 │   ├── components/                # Reusable components
 │   │   ├── rag_engine.py
 │   │   └── citation_processor.py
@@ -58,8 +58,11 @@ michael-levin-qa-engine/
 
 #### **Running the Webapp**
 ```bash
-# Use the new refactored app
+# New way (recommended)
 streamlit run webapp.py
+
+# Old way (still works)
+streamlit run app.py
 ```
 
 #### **Running the Pipeline**
@@ -93,8 +96,6 @@ cp your_paper.pdf inputs/papers/
 - Components separated (RAG engine, citation processor)
 - Utility modules created
 - Entry point created
-- **Migrated to new webapp.py** (removed old app.py)
-- Cleaned up leftover files (pages/, archive/, outputs copy/)
 
 🔄 **In Progress:**
 - Processor modules need to be created (text_extraction.py, semantic_chunking.py, embedding_generation.py)
