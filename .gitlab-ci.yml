@@ -1,7 +1,7 @@
 stages:
   - test
   - secret-detection
-  - mirror   # ✅ Add this
+  - mirror
 
 variables:
   SECRET_DETECTION_ENABLED: 'true'
@@ -12,26 +12,28 @@ include:
 secret_detection:
   stage: secret-detection
 
-mirror_main_to_github:
+mirror_main:
   stage: mirror
   script:
     - git config --global user.email "real.pattern.laboratory@gmail.com"
     - git config --global user.name "RealPatternLab"
+    - git remote remove github || true
     - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine
     - git fetch origin
-    - git checkout -b main origin/main
-    - git push --force github main  # ← force override
+    - git checkout -B main origin/main
+    - git push --force github main
   only:
     - main
 
-mirror_dev_to_github:
+mirror_dev:
   stage: mirror
   script:
     - git config --global user.email "real.pattern.laboratory@gmail.com"
     - git config --global user.name "RealPatternLab"
+    - git remote remove github || true
     - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine
     - git fetch origin
-    - git checkout -b dev origin/dev
-    - git push --force github dev  # ← force override
+    - git checkout -B dev origin/dev
+    - git push --force github dev
   only:
     - dev
