@@ -12,7 +12,7 @@ include:
 secret_detection:
   stage: secret-detection
 
-mirror_main_to_github:
+mirror_main:
   stage: mirror
   script:
     - git config --global user.email "real.pattern.laboratory@gmail.com"
@@ -24,9 +24,8 @@ mirror_main_to_github:
     - git push --force github main
   only:
     - main
-  name: "Mirror to GitHub (main)"  # 👈 Shows up distinctly in UI
 
-mirror_dev_to_github:
+mirror_dev:
   stage: mirror
   script:
     - git config --global user.email "real.pattern.laboratory@gmail.com"
@@ -38,4 +37,3 @@ mirror_dev_to_github:
     - git push --force github dev
   only:
     - dev
-  name: "Mirror to GitHub (dev)"  # 👈 Also shows up distinctly
