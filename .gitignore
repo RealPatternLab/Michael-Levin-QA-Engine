@@ -176,10 +176,10 @@ embeddings/
 .streamlit/secrets.toml
 
 # RAG Project specific
-outputs/papers/extracted_texts/*/consensus.txt
-outputs/papers/extracted_texts/*/raw_extractions/
-outputs/papers/extracted_texts/*/validation_results.json
-outputs/papers/metadata_backup.json
+outputs/extracted_texts/*/consensus.txt
+outputs/extracted_texts/*/raw_extractions/
+outputs/extracted_texts/*/validation_results.json
+outputs/metadata_backup.json
 outputs/temp_*
 
 # Temporary and test files
@@ -189,8 +189,8 @@ test_*.sh
 *.temp
 
 # Large binary files (optional - uncomment if you don't want to commit the FAISS index)
-# outputs/combined/faiss_index.bin
-# outputs/combined/combined_chunks.json
+# outputs/faiss_index.bin
+# outputs/combined_chunks.json
 
 # Logs
 *.log
