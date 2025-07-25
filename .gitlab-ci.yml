@@ -13,11 +13,12 @@ secret_detection:
   stage: secret-detection
 
 mirror_to_github:
-  stage: mirror   # ✅ Matches the declared stage above
+  stage: mirror
   script:
-    - git config --global user.email "real.pattern.laboratory@gmail.com"
-    - git config --global user.name "RealPatternLab"
-    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine
-    - git push --mirror github
+    - git config --global user.email "you@example.com"
+    - git config --global user.name "Your Name"
+    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/YOUR_USERNAME/YOUR_REPO.git
+    - git fetch origin main  # ensure main is present
+    - git push github main   # push just the main branch
   only:
-    - main   # or your default branch
+    - main
