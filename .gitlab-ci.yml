@@ -18,8 +18,8 @@ mirror_to_github:
     - git config --global user.email "real.pattern.laboratory@gmail.com"
     - git config --global user.name "RealPatternLab"
     - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine
-    - git fetch origin  # Get all remote branches
-    - git checkout -b main origin/main  # Create local 'main' from remote
-    - git push github main  # Now this works, since local 'main' exists
+    - git fetch origin
+    - git checkout -b main origin/main
+    - git push --force-with-lease github main
   only:
     - main
