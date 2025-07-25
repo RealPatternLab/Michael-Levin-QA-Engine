@@ -16,6 +16,19 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# Explicitly set environment variables if not already set
+if not os.getenv('OPENAI_API_KEY'):
+    # Try to load from .env file manually
+    env_path = Path(__file__).parent / '.env'
+    if env_path.exists():
+        with open(env_path, 'r') as f:
+            for line in f:
+                if line.strip() and not line.startswith('#'):
+                    key, value = line.strip().split('=', 1)
+                    if key == 'OPENAI_API_KEY':
+                        os.environ['OPENAI_API_KEY'] = value.strip('"')
+                        break
+
 # Import config
 import sys
 sys.path.append(str(Path(__file__).parent))
@@ -27,8 +40,14 @@ logger = logging.getLogger(__name__)
 
 def check_api_keys():
     """Check if required API keys are available."""
-    openai_key = os.getenv('OPENAI_API_KEY')
-    if not openai_key or openai_key.strip() == '':
+    # Check from settings first
+    api_key = OPENAI_API_KEY
+    
+    # Debug: show what we're getting
+    st.write(f"Debug - API key found: {bool(api_key)}")
+    st.write(f"Debug - API key length: {len(api_key) if api_key else 0}")
+    
+    if not api_key or api_key.strip() == '':
         st.error("❌ OpenAI API key not found!")
         st.info("Please add your OpenAI API key to the `.env` file:")
         st.code("OPENAI_API_KEY=your_api_key_here")
@@ -42,7 +61,12 @@ class RAGQueryEngine:
         if not check_api_keys():
             raise ValueError("OpenAI API key not available")
         
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+        # Use the API key from settings directly
+        api_key = OPENAI_API_KEY
+        if not api_key or api_key.strip() == '':
+            raise ValueError("OpenAI API key not available in settings")
+        
+        self.client = OpenAI(api_key=api_key)
         self.index = None
         self.chunks = None
         self.load_index()
