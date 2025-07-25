@@ -21,4 +21,3 @@ mirror_to_github:
     - git push --mirror github
   only:
     - main   # or your default branch
-https://github.com/RealPatternLab/Michael-Levin-QA-Engine.
