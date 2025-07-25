@@ -34,6 +34,6 @@ mirror_dev:
     - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine
     - git fetch origin
     - git checkout -B dev origin/dev
-    - git push --force github dev
+    - GIT_TRACE_PACKET=1 GIT_TRACE=1 GIT_CURL_VERBOSE=1 git push --force github dev
   only:
     - dev
