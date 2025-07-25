@@ -20,6 +20,6 @@ mirror_to_github:
     - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine
     - git fetch origin
     - git checkout -b main origin/main
-    - git push --force-with-lease github main
+    - git push --force github main  # ← force override
   only:
     - main
