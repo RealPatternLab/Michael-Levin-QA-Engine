@@ -15,9 +15,10 @@ secret_detection:
 mirror_to_github:
   stage: mirror   # ✅ Matches the declared stage above
   script:
-    - git config --global user.email "you@example.com"
-    - git config --global user.name "Your Name"
-    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/YOUR_USERNAME/YOUR_REPO.git
+    - git config --global user.email "real.pattern.laboratory@gmail.com"
+    - git config --global user.name "RealPatternLab"
+    - git remote add github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/RealPatternLab/Michael-Levin-QA-Engine.git
     - git push --mirror github
   only:
     - main   # or your default branch
+https://github.com/RealPatternLab/Michael-Levin-QA-Engine.
