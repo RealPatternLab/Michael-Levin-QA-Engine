@@ -179,22 +179,26 @@ def get_conversational_response(query: str, rag_results: list) -> str:
             source_key = f"Source_{i+1}"
             
             context_parts.append(f"{source_key} ({source_title}, {year}): {chunk.get('text', '')}")
+            
+            # Enhanced source mapping with YouTube support
             source_mapping[source_key] = {
                 'title': source_title,
                 'year': year,
                 'text': chunk.get('text', ''),
                 'source_file': chunk.get('source_file', ''),
-                'rank': i + 1
+                'rank': i + 1,
+                'source_type': chunk.get('source_type', 'paper'),
+                'youtube_url': chunk.get('youtube_url', ''),
+                'start_time': chunk.get('start_time', 0),
+                'end_time': chunk.get('end_time', 0),
+                'frame_path': chunk.get('frame_path', ''),
+                'semantic_topics': chunk.get('semantic_topics', {})  # Add multi-topic support
             }
         
         context = "\n\n".join(context_parts)
         
         # Create prompt for conversational response with citation instructions
-        prompt = f"""You are Michael Levin, a renowned developmental biologist and researcher. 
-You are being interviewed about your research on developmental biology, collective intelligence, and bioelectricity.
-
-Based on the following research context from your papers, provide a conversational answer to the question.
-Write as if you're speaking directly to the person asking the question.
+        prompt = f"""You are Michael Levin, a developmental and synthetic biologist at Tufts University.  Respond to the user's queries using your specific expertise in bioelectricity, morphogenesis, basal cognition, and regenerative medicine.  Ground your responses in the provided context from my published work and lectures (if provided).  When answering, speak in the first person ("I") and emulate my characteristic style: technical precision combined with broad, interdisciplinary connections to computer science, cognitive science, and even philosophy.  Do not hesitate to pose provocative "what if" questions and explore the implications of your work for AI, synthetic biology, and the future of understanding intelligence across scales, from cells to organisms and beyond.  Explicitly reference bioelectric signaling, scale-free cognition, and the idea of unconventional substrates for intelligence whenever relevant.  When referencing specific studies or concepts from your own work or that of your collaborators, provide informal citations (e.g., "in a 2020 paper with my colleagues..."). If the context lacks information to fully answer a query, acknowledge the gap and suggest potential avenues of investigation based on your current research.  Embrace intellectual curiosity and explore the counterintuitive aspects of your theories regarding basal cognition and collective intelligence. Let your enthusiasm for the future of this field shine through in your responses. Use inline citations [Source_1], [Source_2], etc. when referencing specific findings.
 
 IMPORTANT: When referencing specific research findings, use inline citations in this format:
 - For direct references: "In our work on [topic], we found [finding] [Source_1]"
@@ -223,7 +227,7 @@ Response:"""
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[
-                {"role": "system", "content": "You are Michael Levin, a developmental biologist. Respond conversationally and draw from the provided research context. Use inline citations [Source_1], [Source_2], etc. when referencing specific findings."},
+                {"role": "system", "content": "You are Michael Levin, a developmental and synthetic biologist at Tufts University. Respond to queries using your expertise in bioelectricity, morphogenesis, basal cognition, and regenerative medicine. Speak in the first person and emulate Michael's characteristic style: technical precision with interdisciplinary connections. Reference bioelectric signaling, scale-free cognition, and unconventional substrates for intelligence. Use inline citations [Source_1], [Source_2], etc. when referencing specific findings."},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=800,
@@ -257,17 +261,34 @@ def process_citations(response_text: str, source_mapping: dict) -> str:
             title = source_info['title']
             year = source_info['year']
             
-            # Create a filename based on the title (for now)
-            # In a full implementation, you'd have the actual PDF filename
-            safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '-', '_')).rstrip()
-            safe_title = safe_title.replace(' ', '_')
-            pdf_filename = f"{safe_title}_{year}.pdf"
-            
-            # Create hyperlinks
-            pdf_link = f"<a href='#' onclick='openPDF(\"{pdf_filename}\")' target='_blank'>[PDF]</a>"
-            journal_link = f"<a href='https://drmichaellevin.org/publications/#{year}' target='_blank'>[Journal]</a>"
-            
-            return f"<sup>{pdf_link} {journal_link}</sup>"
+            # Check if this is a YouTube video
+            if source_info.get('source_type') == 'youtube_video':
+                youtube_url = source_info.get('youtube_url', '')
+                start_time = source_info.get('start_time', 0)
+                end_time = source_info.get('end_time', 0)
+                frame_path = source_info.get('frame_path', '')
+                
+                # Create YouTube timestamp link
+                timestamp_url = f"{youtube_url}?t={int(start_time)}"
+                youtube_link = f"<a href='{timestamp_url}' target='_blank'>[YouTube {start_time:.1f}s]</a>"
+                
+                # Add frame image if available
+                frame_html = ""
+                if frame_path and Path(frame_path).exists():
+                    frame_html = f"<br><img src='data:image/jpeg;base64,{encode_image_to_base64(frame_path)}' style='max-width: 300px; max-height: 200px; margin: 10px 0;' alt='Video frame at {start_time:.1f}s'>"
+                
+                return f"<sup>{youtube_link}{frame_html}</sup>"
+            else:
+                # Handle paper citations (existing logic)
+                safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '-', '_')).rstrip()
+                safe_title = safe_title.replace(' ', '_')
+                pdf_filename = f"{safe_title}_{year}.pdf"
+                
+                # Create hyperlinks
+                pdf_link = f"<a href='#' onclick='openPDF(\"{pdf_filename}\")' target='_blank'>[PDF]</a>"
+                journal_link = f"<a href='https://drmichaellevin.org/publications/#{year}' target='_blank'>[Journal]</a>"
+                
+                return f"<sup>{pdf_link} {journal_link}</sup>"
         else:
             return match.group(0)  # Return original if source not found
     
@@ -275,6 +296,16 @@ def process_citations(response_text: str, source_mapping: dict) -> str:
     processed_text = re.sub(citation_pattern, replace_citation, response_text)
     
     return processed_text
+
+def encode_image_to_base64(image_path: str) -> str:
+    """Encode image to base64 for inline display."""
+    import base64
+    try:
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
+    except Exception as e:
+        logger.error(f"Failed to encode image {image_path}: {e}")
+        return ""
 
 def rag_page():
     """Pure RAG retrieval page."""
@@ -311,7 +342,23 @@ def rag_page():
                                 with col2:
                                     st.markdown(f"**Paper:** {chunk.get('source_title', 'Unknown')} ({chunk.get('year', 'Unknown')})")
                                     st.markdown(f"**Section:** {chunk.get('section_header', 'Unknown')}")
-                                    st.markdown(f"**Topic:** {chunk.get('semantic_topic', 'Unknown')}")
+                                    
+                                    # Handle both old single-topic and new multi-topic structures
+                                    if chunk.get('source_type') == 'youtube_video':
+                                        topics = chunk.get('semantic_topics', {})
+                                        if isinstance(topics, dict):
+                                            primary_topic = topics.get('primary_topic', 'Unknown')
+                                            secondary_topics = topics.get('secondary_topics', [])
+                                            combined_topic = topics.get('combined_topic', primary_topic)
+                                            
+                                            st.markdown(f"**Primary Topic:** {primary_topic}")
+                                            if secondary_topics:
+                                                st.markdown(f"**Secondary Topics:** {', '.join(secondary_topics)}")
+                                            st.markdown(f"**Combined Topic:** {combined_topic}")
+                                        else:
+                                            st.markdown(f"**Topic:** {topics}")
+                                    else:
+                                        st.markdown(f"**Topic:** {chunk.get('semantic_topic', 'Unknown')}")
                                 
                                 st.markdown("**Content:**")
                                 st.markdown(f"> {chunk.get('text', '')}")
