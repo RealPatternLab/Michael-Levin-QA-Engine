@@ -78,3 +78,7 @@ typing-inspection==0.4.1
 tzdata==2025.2
 uritemplate==4.2.0
 urllib3==2.5.0
+# YouTube processing dependencies
+yt-dlp==2024.12.13
+opencv-python==4.9.0.80
+ffmpeg-python==0.2.0

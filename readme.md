@@ -120,3 +120,23 @@ This creates the foundation. From here you can:
 
 But first, let's get the basic pipeline working perfectly! 🚀
 
+## Future Development Ideas
+
+### Multi-Topic Analysis for Papers
+Currently, YouTube videos use multi-topic analysis while papers use single-topic analysis. This distinction was made because:
+
+- **Papers**: Structured, focused sections with clear single purposes
+- **Videos**: Conversational, interdisciplinary discussions covering multiple concepts
+
+**Potential Enhancement**: Consider implementing conditional multi-topic analysis for papers based on section type:
+- **Multi-topic sections**: Discussion, Introduction, Abstract (interdisciplinary content)
+- **Single-topic sections**: Methods, Results (focused content)
+
+This could improve retrieval accuracy for papers that bridge multiple concepts while maintaining simplicity for focused sections.
+
+### Additional Future Enhancements
+- **Enhanced metadata extraction**: Better author identification and affiliation parsing
+- **Citation analysis**: Extract and link referenced papers
+- **Figure and table extraction**: Include captions and descriptions
+- **Temporal analysis**: Track how concepts evolve over time in Levin's work
+
