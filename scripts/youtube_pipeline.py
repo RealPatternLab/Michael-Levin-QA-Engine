@@ -168,12 +168,15 @@ class YouTubeProcessor:
                 safe_title = "".join(c for c in video_title if c.isalnum() or c in (' ', '-', '_')).rstrip()
                 safe_title = safe_title.replace(' ', '_')
                 
-                video_files = list(YOUTUBE_VIDEOS_DIR.glob(f"{safe_title}.*"))
-                if not video_files:
+                # Look for any video file in the directory (more robust)
+                video_files = list(YOUTUBE_VIDEOS_DIR.glob("*.mp4")) + list(YOUTUBE_VIDEOS_DIR.glob("*.webm")) + list(YOUTUBE_VIDEOS_DIR.glob("*.mkv"))
+                
+                # Filter to most recent file (in case multiple files exist)
+                if video_files:
+                    video_path = max(video_files, key=lambda x: x.stat().st_mtime)
+                else:
                     logger.error(f"Could not find downloaded video for: {youtube_url}")
                     return None
-                
-                video_path = video_files[0]
                 
                 video_metadata = {
                     'youtube_url': youtube_url,
@@ -202,25 +205,33 @@ class YouTubeProcessor:
             
             headers = {
                 "authorization": self.assemblyai_api_key,
-                "content-type": "application/json"
+                "content-type": "application/octet-stream"
             }
             
-            # Get upload URL
-            upload_url_response = requests.post(
-                "https://api.assemblyai.com/v2/upload",
-                headers=headers
-            )
-            upload_url = upload_url_response.json()["upload_url"]
-            
-            # Upload the video file
+            # Upload the video file directly as binary data
+            logger.info("Uploading video file to AssemblyAI...")
             with open(video_path, "rb") as f:
-                response = requests.put(upload_url, data=f)
+                response = requests.post(
+                    "https://api.assemblyai.com/v2/upload",
+                    headers=headers,
+                    data=f
+                )
+            
+            logger.info(f"Upload response status: {response.status_code}")
+            logger.info(f"Upload response text: {response.text}")
             
             if response.status_code == 200:
-                logger.info("✅ Video uploaded to AssemblyAI successfully")
-                return upload_url
+                try:
+                    upload_url = response.json()["upload_url"]
+                    logger.info(f"✅ Video uploaded to AssemblyAI successfully")
+                    logger.info(f"Upload URL: {upload_url}")
+                    return upload_url
+                except (KeyError, ValueError) as e:
+                    logger.error(f"Failed to parse upload URL from response: {e}")
+                    logger.error(f"Response JSON: {response.json()}")
+                    return None
             else:
-                logger.error(f"Failed to upload video: {response.text}")
+                logger.error(f"Failed to upload video: {response.status_code} - {response.text}")
                 return None
                 
         except Exception as e:
@@ -253,7 +264,8 @@ class YouTubeProcessor:
                 "word_boost": ["bioelectricity", "morphogenesis", "regeneration", "collective intelligence", "basal cognition"],
                 "speaker_labels": True,
                 "punctuate": True,
-                "format_text": True
+                "format_text": True,
+                "boost_param": "high"  # Boost the specified words for better accuracy
             }
             
             transcript_response = requests.post(
@@ -284,7 +296,19 @@ class YouTubeProcessor:
                 
                 if polling_result["status"] == "completed":
                     logger.info("✅ Transcription completed")
-                    segments = self._process_assemblyai_result(polling_result)
+                    
+                    # Get sentences with timestamps
+                    sentences_response = requests.get(
+                        f"https://api.assemblyai.com/v2/transcript/{transcript_id}/sentences",
+                        headers=headers
+                    )
+                    
+                    if sentences_response.status_code == 200:
+                        sentences_data = sentences_response.json()
+                        segments = self._process_assemblyai_sentences(sentences_data)
+                    else:
+                        logger.warning("Failed to get sentences, falling back to utterances")
+                        segments = self._process_assemblyai_result(polling_result)
                     
                     # Mark as transcribed
                     self.mark_video_processed(youtube_url, "transcription", {
@@ -310,20 +334,25 @@ class YouTubeProcessor:
         segments = []
         
         try:
-            # Process utterances (speaker segments)
-            for utterance in result.get("utterances", []):
-                segments.append({
-                    'start': utterance['start'] / 1000.0,  # Convert to seconds
-                    'end': utterance['end'] / 1000.0,
-                    'text': utterance['text'],
-                    'speaker': utterance.get('speaker', 'A')
-                })
+            # First try to use utterances (speaker segments) if available
+            if result.get("utterances"):
+                for utterance in result["utterances"]:
+                    segments.append({
+                        'start': utterance['start'] / 1000.0,  # Convert to seconds
+                        'end': utterance['end'] / 1000.0,
+                        'text': utterance['text'],
+                        'speaker': utterance.get('speaker', 'A')
+                    })
+                logger.info(f"Using {len(segments)} utterance segments from AssemblyAI")
+                return segments
             
-            # If no utterances, fall back to words
-            if not segments:
-                words = result.get("words", [])
+            # If no utterances, use words to create segments
+            words = result.get("words", [])
+            if words:
+                # Create segments from words with more granular timing
                 current_segment = []
                 current_start = 0
+                segment_duration = 15  # seconds per segment (increased for better semantic chunks)
                 
                 for word in words:
                     if not current_segment:
@@ -331,8 +360,8 @@ class YouTubeProcessor:
                     
                     current_segment.append(word['text'])
                     
-                    # Create segment every ~10 seconds or at punctuation
-                    if (word['end'] / 1000.0 - current_start > 10) or word['text'].endswith(('.', '!', '?')):
+                    # Create segment every ~15 seconds or at sentence boundaries
+                    if (word['end'] / 1000.0 - current_start > segment_duration) or word['text'].endswith(('.', '!', '?')):
                         segments.append({
                             'start': current_start,
                             'end': word['end'] / 1000.0,
@@ -350,13 +379,40 @@ class YouTubeProcessor:
                         'text': ' '.join(current_segment),
                         'speaker': 'A'
                     })
+                
+                logger.info(f"Created {len(segments)} segments from {len(words)} words")
+                return segments
             
-            logger.info(f"Processed {len(segments)} segments from AssemblyAI")
-            return segments
+            # Fallback to single segment if no word data
+            if result.get("text"):
+                segments.append({
+                    'start': 0,
+                    'end': result.get("audio_duration", 0),
+                    'text': result["text"],
+                    'speaker': 'A'
+                })
+                logger.warning("No word-level data available, using single segment")
+                return segments
+            
+            logger.error("No transcript data found in AssemblyAI result")
+            return []
             
         except Exception as e:
             logger.error(f"Failed to process AssemblyAI result: {e}")
             return []
+    
+    def _process_assemblyai_sentences(self, sentences_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """Process AssemblyAI sentences result into segments."""
+        segments = []
+        for sentence in sentences_data.get("sentences", []):
+            segments.append({
+                'start': sentence['start'] / 1000.0,  # Convert to seconds
+                'end': sentence['end'] / 1000.0,
+                'text': sentence['text'],
+                'speaker': sentence.get('speaker', 'A')
+            })
+        logger.info(f"Using {len(segments)} sentence segments from AssemblyAI")
+        return segments
     
     def extract_frames(self, video_path: str, youtube_url: str, interval: int = FRAME_EXTRACTION_INTERVAL) -> Dict[float, str]:
         """Extract frames from video at regular intervals."""
@@ -534,6 +590,14 @@ Focus on Levin's key areas: bioelectricity, morphogenesis, collective intelligen
             # Try to parse JSON response
             try:
                 import json
+                # Clean up the response text (remove markdown code blocks if present)
+                response_text = response_text.strip()
+                if response_text.startswith('```json'):
+                    response_text = response_text[7:]
+                if response_text.endswith('```'):
+                    response_text = response_text[:-3]
+                response_text = response_text.strip()
+                
                 topics = json.loads(response_text)
                 
                 # Validate and provide defaults
