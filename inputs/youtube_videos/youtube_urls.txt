@@ -1,0 +1,10 @@
+# YouTube URLs for Michael Levin videos
+# Add one URL per line
+# Comment out URLs with # to skip them
+
+# Example URLs (uncomment and modify as needed):
+# https://www.youtube.com/watch?v=example1
+# https://www.youtube.com/watch?v=example2
+# https://www.youtube.com/watch?v=example3
+
+# Add your Michael Levin video URLs below: 

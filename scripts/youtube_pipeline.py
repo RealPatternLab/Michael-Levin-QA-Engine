@@ -666,18 +666,42 @@ def main():
     """Main function to process YouTube videos."""
     processor = YouTubeProcessor()
     
-    # Example YouTube URLs (you can add more)
-    youtube_urls = [
-        # Add your Michael Levin video URLs here
-        # "https://www.youtube.com/watch?v=example1",
-        # "https://www.youtube.com/watch?v=example2",
-    ]
+    # Read YouTube URLs from file
+    urls_file = YOUTUBE_VIDEOS_DIR / "youtube_urls.txt"
     
-    if not youtube_urls:
-        logger.info("No YouTube URLs provided. Add URLs to the youtube_urls list in main().")
+    if not urls_file.exists():
+        logger.error(f"YouTube URLs file not found: {urls_file}")
+        logger.info(f"Please create {urls_file} and add YouTube URLs (one per line)")
         return
     
-    for url in youtube_urls:
+    youtube_urls = []
+    try:
+        with open(urls_file, 'r') as f:
+            for line_num, line in enumerate(f, 1):
+                line = line.strip()
+                # Skip empty lines and comments
+                if not line or line.startswith('#'):
+                    continue
+                
+                # Basic URL validation
+                if 'youtube.com' in line or 'youtu.be' in line:
+                    youtube_urls.append(line)
+                else:
+                    logger.warning(f"Line {line_num}: Invalid YouTube URL: {line}")
+    
+    except Exception as e:
+        logger.error(f"Failed to read YouTube URLs file: {e}")
+        return
+    
+    if not youtube_urls:
+        logger.info("No valid YouTube URLs found in the file.")
+        logger.info("Please add YouTube URLs to the file (one per line, skip with #)")
+        return
+    
+    logger.info(f"Found {len(youtube_urls)} YouTube URLs to process")
+    
+    for i, url in enumerate(youtube_urls, 1):
+        logger.info(f"Processing video {i}/{len(youtube_urls)}: {url}")
         processor.process_video(url)
 
 if __name__ == "__main__":

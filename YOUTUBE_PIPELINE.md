@@ -17,7 +17,11 @@ The YouTube pipeline processes Michael Levin's videos (presentations and intervi
 ### 1. Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+# Install dependencies with uv
+uv sync
+
+# Install test dependencies (optional)
+uv sync --extra test
 ```
 
 ### 2. Install FFmpeg (Required for video processing)
@@ -53,20 +57,39 @@ ASSEMBLYAI_API_KEY=your_assemblyai_api_key_here
 
 ### Step 1: Process YouTube Videos
 
-1. Edit `scripts/youtube_pipeline.py` and add your YouTube URLs:
+1. Add YouTube URLs to the URLs file:
 
-```python
-youtube_urls = [
-    "https://www.youtube.com/watch?v=example1",
-    "https://www.youtube.com/watch?v=example2",
-    # Add more URLs here
-]
+```bash
+# Edit the URLs file
+nano inputs/youtube_videos/youtube_urls.txt
+```
+
+Or add URLs directly to the file:
+```bash
+# Add your Michael Levin video URLs to the file
+echo "https://www.youtube.com/watch?v=your_video_id_1" >> inputs/youtube_videos/youtube_urls.txt
+echo "https://www.youtube.com/watch?v=your_video_id_2" >> inputs/youtube_videos/youtube_urls.txt
+```
+
+**URL File Format:**
+```
+# YouTube URLs for Michael Levin videos
+# Add one URL per line
+# Comment out URLs with # to skip them
+
+# Example URLs (uncomment and modify as needed):
+# https://www.youtube.com/watch?v=example1
+# https://www.youtube.com/watch?v=example2
+
+# Add your Michael Levin video URLs below:
+https://www.youtube.com/watch?v=your_video_id_1
+https://www.youtube.com/watch?v=your_video_id_2
 ```
 
 2. Run the YouTube processing pipeline:
 
 ```bash
-python scripts/youtube_pipeline.py
+uv run python scripts/youtube_pipeline.py
 ```
 
 This will:
@@ -81,7 +104,7 @@ This will:
 Run the integration script to add YouTube chunks to the FAISS index:
 
 ```bash
-python scripts/integrate_youtube_chunks.py
+uv run python scripts/integrate_youtube_chunks.py
 ```
 
 This will:
@@ -95,7 +118,24 @@ This will:
 Run the Streamlit app to test YouTube integration:
 
 ```bash
-streamlit run app.py
+uv run streamlit run app.py
+```
+
+## Development
+
+```bash
+# Install test dependencies
+uv sync --extra test
+
+# Run tests
+uv run pytest
+
+# Run tests with coverage
+uv run pytest --cov=scripts --cov-report=html
+
+# Check results
+ls outputs/youtube_transcripts/
+cat outputs/youtube_metadata.json
 ```
 
 ## Features
