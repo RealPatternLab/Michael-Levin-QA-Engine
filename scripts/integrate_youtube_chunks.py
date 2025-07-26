@@ -164,14 +164,15 @@ class YouTubeIntegrator:
         for i, chunk in enumerate(youtube_chunks):
             logger.info(f"Embedding YouTube chunk {i+1}/{len(youtube_chunks)}")
             
-            # Create text for embedding (combine title, all topics, and content)
+            # Create text for embedding (focus on semantic topics rather than full transcript)
             topics = chunk['semantic_topics']
             primary_topic = topics.get('primary_topic', '')
             secondary_topics = ' '.join(topics.get('secondary_topics', []))
             combined_topic = topics.get('combined_topic', primary_topic)
             interdisciplinary_theme = topics.get('interdisciplinary_theme', '')
             
-            embed_text = f"{chunk['source_title']} {primary_topic} {secondary_topics} {combined_topic} {interdisciplinary_theme} {chunk['text']}"
+            # Embed semantic topics + video context, not the full transcript text
+            embed_text = f"{chunk['source_title']} {primary_topic} {secondary_topics} {combined_topic} {interdisciplinary_theme}"
             
             embedding = self.get_embedding(embed_text)
             embeddings.append(embedding)
